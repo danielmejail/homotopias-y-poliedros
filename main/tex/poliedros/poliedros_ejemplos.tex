@@ -1,0 +1,349 @@
+\theoremstyle{definition}
+\newtheorem{ejemploVacio}{Ejemplo}[section]
+\newtheorem{ejemploSubconjuntosFinitos}[ejemploVacio]{Ejemplo}
+\newtheorem{ejemploCarasDeUnSimplice}[ejemploVacio]{Ejemplo}
+\newtheorem{ejemploCarasPropias}[ejemploVacio]{Ejemplo}
+\newtheorem{ejemploQEsqueleto}[ejemploVacio]{Ejemplo}
+\newtheorem{ejemploNervioDeUnaFamilia}[ejemploVacio]{Ejemplo}
+\newtheorem{ejemploSumaDeComplejos}[ejemploVacio]{Ejemplo}
+\newtheorem{ejemploSegmentosEnteros}[ejemploVacio]{Ejemplo}
+\newtheorem{ejemploReticulado}[ejemploVacio]{Ejemplo}
+\newtheorem{ejemploSubcomplejoDeCaras}[ejemploVacio]{Ejemplo}
+\newtheorem{ejemploSubcomplejosUnionInterseccion}[ejemploVacio]{Ejemplo}
+\newtheorem{ejemploSubcomplejoDelNervio}[ejemploVacio]{Ejemplo}
+\newtheorem{ejemploBolaYEsfera}[ejemploVacio]{Ejemplo}
+\newtheorem{ejemploAproximacionesEnElCirculo}[ejemploVacio]{Ejemplo}
+\newtheorem{ejemploAproximacionesEnElCirculoCont}[ejemploVacio]{Ejemplo}
+\newtheorem{ejemploFuncionesNulhomotopicasEntreEsferas}[ejemploVacio]{Ejemplo}
+\newtheorem{ejemploHomotopicasNoContiguas}[ejemploVacio]{Ejemplo}
+
+%-------------
+
+\begin{ejemploVacio}[El complejo vac\'{\i}o]%
+	\label{ejemplo:vacio}
+	El conjunto vac\'{\i}o visto como un conjunto vac\'{\i}o de
+	s\'{\i}mplices es un complejo. Lo denotamos $\varnothing$ y lo
+	denominamos \emph{complejo vac\'{\i}o}.
+\end{ejemploVacio}
+
+\begin{ejemploSubconjuntosFinitos}[El complejo de subconjuntos finitos]%
+	\label{ejemplo:subconjuntosfinitos}
+	Dado un conjunto $A$, el conjunto de subconjuntos finitos
+	no vac\'{\i}os de $A$ constituye un complejo.
+\end{ejemploSubconjuntosFinitos}
+
+\begin{ejemploCarasDeUnSimplice}[Las caras de un s\'{\i}mplice]%
+	\label{ejemplo:carasdeunsimplice}
+	Sea $K$ un complejo simplicial y sea $s\in K$ un s\'{\i}mplice.
+	El conjunto de caras de $s$ constituye un complejo, \emph{el %
+	complejo de caras de $s$}, denotado $\caras{s}$.
+\end{ejemploCarasDeUnSimplice}
+
+\begin{ejemploCarasPropias}[Las caras propias]%
+	\label{ejemplo:caraspropias}
+	El conjunto de caras propias de un s\'{\i}mplice $s$ tambi\'{e}n
+	constituye un complejo, lo denotamos $\carasp{s}$.
+\end{ejemploCarasPropias}
+
+\begin{ejemploQEsqueleto}[El $q$-esqueleto de un complejo]%
+	\label{ejemplo:qesqueleto}
+	Sea $K$ un complejo simplicial. El \emph{$q$-esqueleto de $K$}
+	es el complejo, denotado $\qesq{q}{K}$, cuyos s\'{\i}mplices son todos
+	los $p$-s\'{\i}mplices de $K$ con $p\leq q$. El $q$-esqueleto de
+	un complejo $K$ es un subcomplejo de $K$.
+\end{ejemploQEsqueleto}
+
+\begin{ejemploNervioDeUnaFamilia}[El nervio de una familia de subconjuntos]%
+	\label{ejemplo:nerviodeunafamilia}
+	Sea $X$ un conjunto y sea $\cal{W}$ una familia de subconjuntos
+	de $X$. El \emph{nervio de $\cal{W}$}, denotado $\nerv{\cal{W}}$,
+	es el complejo simplicial cuyos s\'{\i}mplices son los subconjuntos
+	finitos de $\cal{W}$ cuya intersecci\'{o}n sea no vac\'{\i}a.
+	En particular, los v\'{e}rtices de $\nerv{\cal{W}}$ son exactamente
+	los elementos de $\cal{W}$.
+\end{ejemploNervioDeUnaFamilia}
+
+\begin{ejemploSumaDeComplejos}[La suma de dos complejos]%
+	\label{ejemplo:sumadecomplejos}
+	Sean $K_{1},K_{2}$ dos complejos simpliciales. La \emph{suma de %
+	$K_{1}$ con $K_{2}$}, denotada $K_{1}*K_{2}$, es el complejo
+	simplicial cuyos s\'{\i}mplices son los s\'{\i}mplices del
+	complejo $K_{1}$, los de $K_{2}$ y las uniones disjuntas de
+	un s\'{\i}mplice de $K_{1}$ con uno de $K_{2}$. De esta manera,
+	el conjunto de v\'{e}rtices de $K_{1}*K_{2}$ es igual a la uni\'{o}n
+	disjunta del conjunto de v\'{e}rtices de $K_{1}$ con el de los de
+	$K_{2}$. En s\'{\i}mbolos,
+	\begin{align*}
+		K_{1}*K_{2} & \,=\,K_{1}\,\sqcup\,K_{2}\,\cup\,
+			\big\{s_{1}\sqcup s_{2}\,:\,s_{1}\in K_{1},\,
+						s_{2}\in K_{2}\big\}
+		\text{ .}
+	\end{align*}
+	%
+\end{ejemploSumaDeComplejos}
+
+\begin{ejemploSegmentosEnteros}[Segmentos enteros]%
+	\label{ejemplo:segmentosenteros}
+	Sea $V=\bb{Z}$ y sea $K$ la familia
+	\begin{align*}
+		K & \,=\,\big\{\{n\}\,:\,n\in\bb{Z}\big\}\,\cup\,
+			\big\{\{n,n+1\}\,:\,n\in\bb{Z}\big\}
+		\text{ .}
+	\end{align*}
+	%
+	Entonces $K$ es un complejo simplicial cuyos v\'{e}rtices son
+	los n\'{u}meros enteros y cuyos $1$-s\'{\i}mplices son los
+	intervalos enteros $\{n,n+1\}$. El complejo $K$ no posee
+	s\'{\i}mplices de mayor dimensi\'{o}n.
+\end{ejemploSegmentosEnteros}
+
+\begin{ejemploReticulado}[Puntos en un reticulado]%
+	\label{ejemplo:reticulado}
+	Sea $n\geq 1$ un entero fijo. Consideramos el conjunto de $n$-tuplas
+	de enteros $\bb{Z}^{n}$ con el orden parcial dado por comparar
+	las coordenadas: $(\lista*{x}{n})\leq (\lista*{y}{n})$, si
+	$x^{i}\leq y^{i}$ para todo $i=1,\,\dots,\,n$. Sea $K$ la familia de
+	conjuntos finitos no vac\'{\i}os y totalmente ordenados de
+	$\bb{Z}^{n}$, $s=\{x_{0}\leq x_{1}\leq\dots\leq x_{q}\}$, que
+	verifican $x_{q}^{i}-x_{0}^{i}=0\text{ o }1$ para todo
+	$i=1,\,\dots,\,n$. Entonces $K$ es un complejo simplicial cuyo
+	conjunto de v\'{e}rtices es $V=\bb{Z}^{n}$.
+\end{ejemploReticulado}
+
+\begin{ejemploSubcomplejoDeCaras}\label{ejemplo:subcomplejodecaras}
+	Dado un complejo $K$ y un s\'{\i}mplice $s\in K$,
+	el complejo de caras $\caras{s}\subset K$ es un subcomplejo de $K$
+	y el complejo de caras propias $\carasp{s}\subset K$, tambi\'{e}n lo
+	es. Tambi\'{e}n vale que $\carasp{s}\subset\caras{s}$ es un
+	subcomplejo.
+\end{ejemploSubcomplejoDeCaras}
+
+\begin{ejemploSubcomplejosUnionInterseccion}
+	\label{ejemplo:subcomplejosunioninterseccion}
+	Dada una familia de subcomplejos $\{L_{i}\}_{i}$ de un complejo
+	$K$, la uni\'{o}n (conjunt\'{\i}stica de los conjnuntos de
+	s\'{\i}mplices) $\bigcup_{i}\,L_{i}$ y la intersecci\'{o}n (lo
+	mismo) $\bigcap_{i}\,L_{i}$ son subcomplejos de $K$.
+\end{ejemploSubcomplejosUnionInterseccion}
+
+\begin{ejemploSubcomplejoDelNervio}\label{ejemplo:subcomplejodelnervio}
+	Sea $X$ un conjunto, $A\subset X$ un subconjunto y sea
+	$\cal{W}$ una familia de subconjuntos de $X$. Sea $\nerv{\cal{W}}$
+	el nervio de la familia $\cal{W}$. Entonces, seg\'{u}n el ejemplo
+	\ref{ejemplo:nerviodeunafamilia},
+	\begin{align*}
+		\nerv{\cal{W}} & \,=\,
+			\Big\{ \{\lista{W}{r}\}\,:\,
+				W_{i}\in\cal{W},\,
+				W_{1}\cap\cdots\cap W_{r}\not=\varnothing
+			\Big\}
+		\text{ .}
+	\end{align*}
+	%
+	Sea, entonces, $\nerv[A]{\cal{W}}$ el subconjunto de $\nerv{\cal{W}}$
+	dado por
+	\begin{align*}
+		\nerv[A]{\cal{W}} & \,=\,
+			\Big\{ \{\lista{W}{r}\}\,:\,
+				W_{i}\in\cal{W},\,
+				A\cap\big(W_{1}\cap\cdots\cap W_{r}\big)
+					\not=\varnothing
+			\Big\}
+		\text{ .}
+	\end{align*}
+	%
+	Entonces $\nerv[A]{\cal{W}}$ es un subcomplejo de $\nerv{\cal{W}}$.
+\end{ejemploSubcomplejoDelNervio}
+
+\begin{ejemploBolaYEsfera}[La bola y la esfera]\label{ejemplo:bolayesfera}
+	Sea $n\geq 1$, sea $\mathrm{B}^{n+1}$ la bola unitaria en
+	$\bb{R}^{n+1}$ y sea $\esfera{n}$ la esfera unitaria. Si $s$ es un
+	$n+1$-s\'{\i}mplice (en alg\'{u}n complejo), existe un homeomorfismo
+	entre el par $(\mathrm{B}^{n+1},\esfera{n})$ y el par
+	$(\geom{\caras{s}},\geom{\carasp{s}})$.
+\end{ejemploBolaYEsfera}
+
+\begin{ejemploSegmentosEnteros}\label{ejemplo:segmentosenterostriangulacion}
+	Sea $K$ el complejo del ejemplo \ref{ejemplo:segmentosenteros} y sea
+	$f:\,\geom{K}\rightarrow\bb{R}$ una funci\'{o}n tal que
+	$f|_{\geom{\{n\}}}=n$ y $f|_{\geom{\{n,n+1\}}}$ sea un homeo con el
+	intervalo $[n,n+1]\subset\bb{R}$. Entonces $f$ es una triangulaci\'{o}n
+	de $\bb{R}$.
+\end{ejemploSegmentosEnteros}
+
+\begin{ejemploReticulado}\label{ejemplo:reticuladotriangulacion}
+	Sea $K$ el complejo definido en el ejemplo \ref{ejemplo:reticulado}.
+	Sea $f:\,\geom{K}\rightarrow\bb{R}^{n}$ la funci\'{o}n
+	$f(\alpha)^{i}=\sum_{x\in\bb{Z}^{n}}\,\alpha(x)\,x^{i}$.
+	Entonces $f$ es una traingulaci\'{o}n\dots
+\end{ejemploReticulado}
+
+\begin{ejemploAproximacionesEnElCirculo}%
+	\label{ejemplo:aproximacionesenelcirculo}
+	Sea $s$ un $2$-s\'{\i}mplice y sea $\carasp{s}$ el complejo de sus
+	caras propias. Entonces $\geom{\carasp{s}}$ es homeomorfo a
+	$\esfera{1}$. En particular, las clases homotop\'{\i}a de funciones
+	$\geom{\carasp{s}}\rightarrow\geom{\carasp{s}}$ son infinitas.
+	Pero, para cada $n\geq 0$ entero no negativo, existen a lo sumo
+	finitas transformaciones simpliciales
+	$\subdiv[n]{\carasp{s}}\rightarrow\carasp{s}$. En
+	consecuencia, fijado $n$, existen funciones
+	$\geom{\carasp{s}}\rightarrow\geom{\carasp{s}}$ que no admiten
+	aproximaciones definidas en $\subdiv[n]{\carasp{s}}$.
+\end{ejemploAproximacionesEnElCirculo}
+
+\begin{ejemploAproximacionesEnElCirculoCont}%
+	\label{ejemplo:aproximacionesenelcirculocont}
+	Sean $s$ y $\carasp{s}$ como en el ejemplo
+	\ref{ejemplo:aproximacionesenelcirculo}. Sean $v_{0},\,v_{1},\,v_{2}$
+	los v\'{e}rtices de $\carasp{s}$ (de $s$). Sean
+	\begin{align*}
+		v_{0} \,=\,\bari{v_{0}} & \quad\text{,}\quad
+		v_{1} \,=\,\bari{v_{1}} \quad\text{y}\quad
+		v_{2} \,=\,\bari{v_{2}} \text{ ,} \\
+		w_{0} \,=\,\bari{\{v_{2},\,v_{0}\}} & \quad\text{,}\quad
+		w_{1} \,=\,\bari{\{v_{0},\,v_{1}\}} \quad\text{y}\quad
+		w_{2} \,=\,\bari{\{v_{1},\,v_{2}\}}
+	\end{align*}
+	%
+	los baricentros del complejo y sea
+	$f:\,\geom{\carasp{s}}\rightarrow\geom{\carasp{s}}$ la funci\'{o}n
+	lineal dada por
+	\begin{align*}
+		v_{0}\,\mapsto\,w_{1}\,\mapsto\,v_{1}\,\mapsto\,w_{2}
+			\,\mapsto\,v_{2}\,\mapsto\,w_{0}\,\mapsto\,v_{0}
+	\end{align*}
+	%
+	en los v\'{e}rtices de $\subdiv{\carasp{s}}$. Entonces $f$ es
+	homot\'{o}pica a la identidad de $\geom{\carasp{s}}$, pero
+	no admite una aproximaci\'{o}n simplicial de la forma
+	$\carasp{s}\rightarrow\carasp{s}$. Sin embargo, existen exactamente
+	ocho aproximaciones de la forma
+	$\subdiv{\carasp{s}}\rightarrow\carasp{s}$ determinadas por lo que
+	valen en los v\'{e}rtices $v_{0},\,v_{1},\,v_{2}$.
+
+	En cuanto a la existencia de la homotop\'{\i}a, una posibilidad es
+	desandar gradualmente la misma funci\'{o}n $f$. En cuanto a la
+	segunda afirmaci\'{o}n, si $\varphi:\,\carasp{s}\rightarrow\carasp{s}$
+	es una transformaci\'{o}n simplicial, entonces
+	$f(v_{0})=w_{1}$ implica que $\geom{\varphi}v_{0}$ pertenece
+	a la cara generada por $v_{0}$ y $v_{1}$. Como $\varphi(v_{0})$ es
+	un v\'{e}rtice,
+	\begin{align*}
+		\varphi(v_{0}) & \,\in\,\{v_{0},v_{1}\}
+		\text{ .}
+	\end{align*}
+	%
+	An\'{a}logamente,
+	\begin{align*}
+		\varphi(v_{1}) & \,\in\,\{v_{1},v_{2}\}\quad\text{y} \\
+		\varphi(v_{2}) & \,\in\,\{v_{2},v_{0}\}
+		\text{ .}
+	\end{align*}
+	%
+	Notemos que esta observaci\'{o}n tambi\'{e}n es v\'{a}lida si el
+	dominio de $\varphi$ es cualquier subdivisi\'{o}n de $\carasp{s}$.
+	Por otro lado, $w_{1}=\frac{1}{2}\,v_{0}+\frac{1}{2}\,v_{1}$ implica
+	\begin{align*}
+		\geom{\varphi}w_{1}& \,=\,
+			\frac{1}{2}\,\varphi(v_{0})
+			+ \frac{1}{2}\,\varphi(v_{1})
+	\end{align*}
+	%
+	y $f(w_{1})=v_{1}$ implica que $\geom{\varphi}w_{1}=v_{1}$,
+	tambi\'{e}n. Esto fuerza
+	\begin{align*}
+		\varphi(v_{0}) & \,=\,\varphi(v_{1})=v_{1}
+		\text{ .}
+	\end{align*}
+	%
+	Pero, de manera similar, se deduce que debe cumplirse
+	$\varphi(v_{2})=\varphi(v_{0})=v_{0}$. Lo que es absurdo.
+
+	En cuanto a la existencia de las aproximaciones en
+	$\subdiv{\carasp{s}}$, sabemos, por lo visto en el p\'{a}rrafo
+	anterior, que de existir una aproximaci\'{o}n
+	$\varphi:\,\subdiv{\carasp{s}}\rightarrow\carasp{s}$ para $f$,
+	$\varphi(v_{i})\in\{v_{i},v_{(i+1\mod 3)}\}$, hay dos opciones para
+	$\varphi(v_{i})$, para cada $i=0,1,2$. La diferencia con el caso
+	anterior es que los baricentros no se escriben como
+	combinaciones propias de v\'{e}rtices de $\subdiv{\carasp{s}}$,
+	\emph{son} v\'{e}rtices del complejo subdividido. Al igual que antes,
+	$f(w_{i})=v_{i}$, con lo que $\varphi(w_{i})$ est\'{a} forzada a
+	tomar el valor $v_{i}$, para cada $i=0,1,2$. Esto no impone condiciones
+	sobre los valores de $\varphi$ en los $v_{i}$ y, cualquiera sea la
+	elecci\'{o}n de dichos valores queda determinada una transformaci\'{o}n
+	simplicial $\varphi:\,\subdiv{\carasp{s}}\rightarrow\carasp{s}$ que
+	es una aproximaci\'{o}n simplicial de $f$.
+\end{ejemploAproximacionesEnElCirculoCont}
+
+\begin{ejemploFuncionesNulhomotopicasEntreEsferas}%
+	\label{ejemplo:funcionesnulhomotopicasentreesferas}
+	Sea $n\geq 1$ y sea $m<n$. Toda funci\'{o}n
+	$\esfera{m}\rightarrow\esfera{n}$ es homot\'{o}pica a una constante.
+	Sea $s_{1}$ un $(m+1)$-s\'{\i}mplice y sea $s_{2}$ un
+	$(n+1)$-s\'{\i}mplice. Entonces $\esfera{m}$ es homeomorfa a
+	$\geom{\carasp{s_{1}}}$ y $\esfera{n}$ es homeomorfa a
+	$\geom{\carasp{s_{2}}}$. Sea
+	$f:\,\geom{\carasp{s_{1}}}\rightarrow\geom{\carasp{s_{1}}}$ una
+	funci\'{o}n continua. Porque $\esfera{m}$ es compacta, el teorema
+	de existencia de aproximaciones, \ref{thm:existenciadeaproximaciones},
+	implica que para $i$ suficientemente grande, existe una
+	aproximaci\'{o}n simplicial
+	$\varphi:\,\subdiv[i]{\carasp{s_{1}}}\rightarrow\carasp{s_{2}}$ de
+	$f$ y, por el lema \ref{thm:aproximacioneshomotopica},
+	$\geom{\varphi}\simeq f$. Entonces, para demostrar que toda $f$ es
+	homot\'{o}pica a una constante, ser\'{a} suficiente probar que, para
+	toda aproximaci\'{o}n $\varphi$, la funci\'{o}n $\geom{\varphi}$ lo es.
+
+	Como la dimensi\'{o}n del complejo $\subdiv[i]{\carasp{s_{1}}}$ es
+	$m$, la imagen por una transformaci\'{o}n simplicial $\varphi$ en
+	$\carasp{s_{2}}$ est\'{a} incluida en el $m$-esqueleto de
+	$\carasp{s_{2}}$. En particular, como $m<n$, existe alg\'{u}n punto
+	$\alpha\in\geom{\carasp{s_{2}}}$ que no pertenece a la imagen
+	$\geom{\varphi}\big(\geom{\subdiv[i]{\carasp{s_{1}}}}\big)$. Pero
+	esto implica que $\geom{\varphi}$ tiene imagen en el espacio
+	$\geom{\carasp{s_{2}}}\setmin\{\alpha\}$, que es homeomorfo a la
+	esfera $\esfera{n}$ sin un punto, que, a su vez, es homeomorfa a
+	$\bb{R}^{n}$, que es contr\'{a}ctil. En definitiva, $\geom{\varphi}$
+	es homot\'{o}pica a una constante.
+\end{ejemploFuncionesNulhomotopicasEntreEsferas}
+
+Un espacio topol\'{o}gico $X$ se dice \emph{$n$-conexo} ($n\geq 0$), si toda
+funci\'{o}n continua $f:\,\esfera{k}\rightarrow X$ ($k\leq n$) se puede
+extender de manera continua a una funci\'{o}n definida en la bola
+$\disco{k+1}$. El ejemplo anterior muestra que la esfera $\esfera{n}$ es
+$(n-1)$-conexa. En particular, si $n>1$, entonces $\esfera{n}$ es simplemente
+conexa. Se deduce entonces que toda funci\'{o}n continua
+$f:\,\esfera{n}\rightarrow\esfera{1}$ ($n>1$) se factoriza por el revestimiento
+$\exp{\null}:\,\bb{R}\rightarrow\esfera{1}$. Como $\bb{R}$ es contr\'{a}ctil,
+concluimos que toda funci\'{o}n continua de $f$ debe ser homot\'{o}pica a una
+constante.
+
+\begin{ejemploHomotopicasNoContiguas}\label{ejemplo:homotopicasnocontiguas}
+	Sea $K_{1}=K_{2}$ el complejo del ejemplo
+	\ref{ejemplo:segmentosenteros}. Entonces
+	$\geom{K_{1}}=\geom{K_{2}}=\bb{R}$. Sea
+	$\varphi:\,K_{1}\rightarrow K_{2}$ la identidad de complejos
+	simpliciales y sea $\varphi':\,K_{1}\rightarrow K_{2}$ la
+	transformaci\'{o}n constante dada por $\varphi'(n)=0$ en todo
+	v\'{e}rtice $n\in\bb{Z}$ de $K_{1}$. Como el espacio del complejo
+	$K_{2}$, $\bb{R}$, es contr\'{a}ctil, vale que
+	$\geom{\varphi}\simeq\geom{\varphi'}$. Ahora bien, si $K_{1}'$ es una
+	subdivisi\'{o}n de $K_{1}$ y $\psi,\psi':\,K_{1}'\rightarrow K_{2}$
+	son transformaciones simpliciales tales que $\psi$ es una
+	aproximaci\'{o}n de $\geom{\varphi}$ (la identidad) y $\psi'$ es una
+	aproximaci\'{o}n de $\geom{\varphi'}$ (la funci\'{o}n constante), por
+	un lado, en v\'{e}rtices, $\psi:\,\bb{Z}\rightarrow\bb{Z}$ es
+	suryectiva y $\psi':\,\bb{Z}\rightarrow\bb{Z}$ es constante
+	($\psi'(n)=0$ para todo $n\in\bb{Z}$). Pero, por otro lado, si
+	$\psi$ y $\psi'$ fuesen contiguas, los conjuntos
+	$\{\psi(n),\psi'(n)\}$ deber\'{\i}an ser s\'{\i}mplices de $K_{2}$.
+	En particular --y esto es cierto en general, no s\'{o}lo en este
+	ejemplo--, la imagen del conjunto de v\'{e}rtices por $\psi$
+	deber\'{\i}a ser finita, si y\'{o}lo si la imagen por $\psi'$ lo
+	fuese. En este caso, sin embargo, una es infinita numerable (es
+	sobreyectiva) y la otra es finita (consiste en un \'{u}nico punto).
+	Por lo tanto, $\psi$ y $\psi'$ no pueden pertenecer a la misma
+	clase de contig\"{u}idad.
+\end{ejemploHomotopicasNoContiguas}

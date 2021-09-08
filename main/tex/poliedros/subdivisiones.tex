@@ -1,0 +1,393 @@
+\theoremstyle{plain}
+\newtheorem{lemaConjuntoDirigidoSubdivisiones}{Lema}[section]
+\newtheorem{lemaSubdivisionEquivaleAParticion}%
+	[lemaConjuntoDirigidoSubdivisiones]{Lema}
+
+\theoremstyle{remark}
+\newtheorem{obsDefinicionSubdivisiones}[lemaConjuntoDirigidoSubdivisiones]%
+	{Observaci\'{o}n}
+\newtheorem{obsSubdividirUnSubcomplejo}[lemaConjuntoDirigidoSubdivisiones]%
+	{Observaci\'{o}n}
+\newtheorem{obsSubdividirUnParSimplicial}[lemaConjuntoDirigidoSubdivisiones]%
+	{Observaci\'{o}n}
+\newtheorem{obsTriangularPorSubdivisiones}[lemaConjuntoDirigidoSubdivisiones]%
+	{Observaci\'{o}n}
+\newtheorem{obsLinealEnLaSubdivision}[lemaConjuntoDirigidoSubdivisiones]%
+	{Observaci\'{o}n}
+\newtheorem{obsSubdivisionesYEstrellas}[lemaConjuntoDirigidoSubdivisiones]%
+	{Observaci\'{o}n}
+
+%-------------
+
+Una \emph{subdivisi\'{o}n} de un complejo simplicial $K$ es un complejo
+simplicial $K'$ con las siguientes tres propiedades:
+\begin{itemize}
+	\item[(i)] los v\'{e}rtices de $K'$ son puntos de $\geom{K}$,
+	\item[(ii)] si $s'\in K'$ es un s\'{\i}mplice, entonces existe un
+		s\'{\i}mplice $s\in K$ tal que $s'\subset\geom{s}$ y
+	\item[(iii)] la funci\'{o}n lineal $\geom{K'}\rightarrow\geom{K}$
+		que se obtiene a partir de la aplicaci\'{o}n
+		$\alpha_{v'}\mapsto v'$	definida en los puntos
+		correspondientes a los v\'{e}rtices de $K'$ es un
+		homeomorfismo.
+\end{itemize}
+%
+\begin{obsLinealEnLaSubdivision}\label{obs:linealenlasubdivision}
+	Sea $K$ un complejo simplicial y sea $\Phi:\,\geom{K}\rightarrow X$
+	una funci\'{o}n lineal. Si $K'$ es una subdivisi\'{o}n de $K$,
+	entonces $\Phi$ tambi\'{e}n es lineal en $K'$
+	($\Phi\circ f:\,\geom{K'}\rightarrow X$ es lineal).
+\end{obsLinealEnLaSubdivision}
+
+\begin{lemaConjuntoDirigidoSubdivisiones}%
+	\label{thm:conjuntodirigidosubdivisiones}
+	Sea $K$ un complejo simplicial. Toda subdivisi\'{o}n de una
+	subdivisi\'{o}n de $K$ es una subdvisi\'{o}n de $K$ y, dadas dos
+	subdivisiones $K'$ y $K''$ de $K$ existe una subdivisi\'{o}n de $K$
+	que es subdivisi\'{o}n de $K'$ y de $K''$.
+\end{lemaConjuntoDirigidoSubdivisiones}
+
+\begin{obsDefinicionSubdivisiones}\label{obs:definicionsubdivisiones}
+	Sean $K,K'$ complejos simpliciales que verifican las condiciones
+	\emph{(i)} y \emph{(ii)} de la definici\'{o}n de subdivisi\'{o}n.
+	Entonces la aplicaci\'{o}n
+	$\alpha_{v'}\in\geom{K'}\mapsto v'\in\geom{K}$ determina una
+	funci\'{o}n lineal $f:\,\geom{K'}\rightarrow\geom{K}$: si $s'\in K'$ es
+	un s\'{\i}mplice y $s\in K$ es tal que $s'\subset\geom{s}$, entonces
+	definimos $f_{s',s}:\,\geom{s'}\rightarrow\geom{s}$ por
+	\begin{align*}
+		f_{s'}\Big(\sum_{v'\in s'}\,t^{v'}\,\alpha_{v'}\Big) & \,=\,
+			\sum_{v'\in s'}\,t^{v'}\,v'
+		\text{ .}
+	\end{align*}
+	%
+	Como $s'\subset\geom{s}$, la funci\'{o}n $f_{s',s}$ est\'{a} bien
+	definida. La funci\'{o}n $f_{s',s}$ proyecta el s\'{\i}mplice
+	$\geom{s'}$ sobre la c\'{a}scara convexa generada por las im\'{a}genes
+	de sus v\'{e}rtices en $\geom{s}$. Si el s\'{\i}mplice $s$ est\'{a}
+	contenido en alg\'{u}n s\'{\i}mplice $s_{1}\in K$, entonces la
+	inclusi\'{o}n $s\subset s_{1}$ determina una inclusi\'{o}n
+	$\inc[s,s_{1}]:\,\geom{s}\subset\geom{s_{1}}$ y vale que
+	\begin{align*}
+		\inc[s,s_{1}]\circ f_{s',s}(\alpha) & \,=\,
+			f_{s',s_{1}}(\alpha)
+	\end{align*}
+	%
+	para todo $\alpha\in\geom{s'}$, por unicidad. En particular,
+	queda determinada una funci\'{o}n lineal y continua
+	$f_{s'}:\,\geom{s'}\rightarrow\geom{K}$. Si $s''\in K'$ es otro
+	s\'{\i}mplice y $s'\cap s''\not=\varnothing$, entonces, nuevamente
+	porque las funciones lineales est\'{a}n determinadas por su valor
+	en los v\'{e}rtices,
+	\begin{align*}
+		f_{s'}|_{\geom{s'\cap s''}} & \,=\,f_{s''}|_{\geom{s'\cap s''}}
+		\text{ .}
+	\end{align*}
+	%
+	En definitiva, queda determinada una funci\'{o}n lineal y continua en
+	todo el espacio $\geom{K'}$ del complejo.
+
+	Esta funci\'{o}n no es, en general, inyectiva y, por lo tanto, no es
+	posible identificar $\geom{K'}$ con un subespacio de $\geom{K}$ (no
+	estamos asumiendo la propiedad \emph{(iii)}, aun). La inyectividad
+	puede fallar por distintas razones: por ejemplo, si
+	$s',s''\in K'$ y $s\in K$ es tal que $s',s''\subset\geom{s}$
+	las c\'{a}scaras convexas de $s'$ y de $s''$ en $\geom{s}$ pueden
+	solaparse de manera tal que su intersecci\'{o}n no sea la
+	c\'{a}scara convexa generada por ning\'{u}n s\'{\i}mplice de $K'$;
+	otra posibilidad es que las funciones parciales
+	$f_{s'}:\,\geom{s'}\rightarrow\geom{K}$ reduzcan la dimensi\'{o}n de
+	los s\'{\i}mpices en donde est\'{a}n definidas, es decir,
+	la imagen de los v\'{e}rtices de $\geom{s'}$ puede ser un conjunto
+	af\'{\i}nmente dependiente de $\geom{s}$, los v\'{e}rtices de
+	$s'\subset\geom{s}$ pueden no estar en posici\'{o}n general.
+
+	A pesar de la posible falla de la inyetividad de
+	$f:\,\geom{K'}\rightarrow\geom{K}$, todo s\'{\i}mplice $s'\in K'$
+	est\'{a} incluido en alguno de los espacios $\geom{s}$ y, por
+	finitud de $s$, existe un s\'{\i}mplice $s\in K$ m\'{a}s chico
+	tal que $\geom{s}\supset s'$ (y dicho s\'{\i}mplice es \'{u}nico).
+	La c\'{a}scara convexa $f(\geom{s'})$ de $s'$ en $\geom{s}$ es
+	cerrada. Por otro lado, como $s'$ es un subconjunto finito arbitrario
+	de $\geom{s}$, la c\'{a}scara convexa puede estar contenida en el
+	interior $\simpinterior{s}$, o bien intersecar alguna cara propia de
+	$s$ y, en tal caso, la intersecci\'{o}n puede ser total o parcial. En
+	todo caso, si $\beta\in\simpinterior{s'}$ entonces se cumple que
+	$f(\beta)\in\simpinterior{s}$.
+
+	Demostremos esta \'{u}ltima afirmaci\'{o}n. Si $v'\in s'$, como
+	$s'\subset\geom{s}$, entonces
+	\begin{align*}
+		v' & \,=\,\sum_{v\in s}\,t_{v'}^{v}\,\alpha_{v}
+	\end{align*}
+	%
+	y, como $s$ es el s\'{\i}mplice m\'{a}s chico tal que
+	$s'\subset\geom{s}$, entonces, para todo $v\in s$, existe alg\'{u}n
+	$v'\in s'$ tal que $t_{v'}^{v}\not=0$ (si no el v\'{e}rtice $v\in s$
+	se podr\'{\i}a omitir). Si $\beta\in\simpinterior{s'}$, entonces
+	\begin{align*}
+		\beta & \,=\,\sum_{v'\in s'}\,\beta^{v'}\,\beta_{v'}
+			\quad\text{y} \\
+		f(\beta) & \,=\,\sum_{v'\in s'}\,\beta^{v'}\,f(\beta_{v'})
+			\,=\,\sum_{v'\in s'}\,\beta^{v'}\,
+				\sum_{v\in s}\,t_{v'}^{v}\,\alpha_{v} \\
+		& \,=\,\sum_{v\in s}\,
+			\Big(\sum_{v'\in s'}\,\beta^{v'}t_{v'}^{v}\Big)\,
+				\alpha_{v}
+		\text{ .}
+	\end{align*}
+	%
+	Como $\beta^{v'}>0$ para todo $v'$ y, para cada $v$ existe
+	$t_{v'}^{v}>0$, vale que los coeficientes
+	$\sum_{v'\in s'}\,\beta^{v'}t_{v'}^{v}$ son todos positivos.
+	Por lo tanto, $f(\beta)\in\simpinterior{s}$.
+\end{obsDefinicionSubdivisiones}
+
+\begin{lemaSubdivisionEquivaleAParticion}%
+	\label{thm:subdivisionequivaleaparticion}
+	Sean $K',K$ complejos simpliciales que verifican las condiciones
+	\emph{(i)} y \emph{(ii)} de la definici\'{o}n de subdivisi\'{o}n.
+	Entonces $K'$ es una subdivisi\'{o}n de $K$, si y s\'{o}lo si,
+	\emph{(iii')} para todo s\'{\i}mplice $s\in K$, el conjunto
+	\begin{align*}
+		& \big\{f\big(\simpinterior{s'}\big)\,:\,
+			s'\in K',\,f\big(\simpinterior{s'}\big)\subset
+				\simpinterior{s}\big\}
+	\end{align*}
+	%
+	es una partici\'{o}n finita de $\simpinterior{s}$.
+	% partici\'{o}n en el sentido de que la uni\'{o}n es todo y la
+	% intersecci\'{o}n de dos elementos es vac\'{\i}a
+\end{lemaSubdivisionEquivaleAParticion}
+
+\begin{proof}
+	Si $s\in K$, sea $K'(s)\subset K'$ el subconjunto
+	\begin{align*}
+		K'(s) & \,=\,\bigcup_{s_{1}\in\caras{s}}\,
+			\big\{s'\in K'\,:\,f\big(\simpinterior{s'}\big)\subset
+				\simpinterior{s_{1}}\big\}
+		\text{ .}
+	\end{align*}
+	%
+	Asumamos que se verifica \emph{(i)} y definamos el subconjunto
+	$V'(s) =\big\{v'\in K'\,:\,v'\in\geom{s}\big\}$ de los v\'{e}rtices de
+	$K'$. Entonces $\{v'\}\in K'(s)$, para todo $v'\in V'$.
+	Sean $s'\in K'(s)$ y $s''\subset s'$.  Como $K'$ es un complejo,
+	$s''\in K'$. Como el conjunto $f\big(\simpinterior{s'}\big)$ est\'{a}
+	contenido en $\simpinterior{s_{1}}$ para alguna cara $s_{1}\subset s$,
+	los v\'{e}rtices de $s'$ est\'{a}n contenidos en $\geom{s_{1}}$ y,
+	en particular, en $s$. Como $s''$ es un subconjunto de estos
+	v\'{e}rtices, $s''\subset\geom{s}$, tambi\'{e}n. En particular,
+	$s''\subset\geom{s_{2}}$ para alguna cara $s_{2}$ de $s$. Tomando
+	$s_{2}$ como la cara m\'{a}s chica con esta propiedad, se deduce,
+	por lo visto en la observaci\'{o}n \ref{obs:definicionsubdivisiones},
+	que $f\big(\simpinterior{s''}\big)\subset\simpinterior{s_{2}}$ y, por
+	lo tanto, $s''\in K'(s)$. En definitiva, $K'(s)$ es un subcomplejo
+	de $K'$ cuyo conjunto de v\'{e}rtices es $V'(s)$.
+
+	Supongamos que se cumplen \emph{(i)} y que el conjunto de la
+	condici\'{o}n \emph{(iii')} es finito. Entonces dado $s\in K$, el
+	subcomplejo $K'(s)\subset K'$ es un complejo finito. Si, adem\'{a}s,
+	suponemos que el conjunto de \emph{(iii')} es una partici\'{o}n,
+	entonces, la funci\'{o}n lineal
+	$h_{s}:\,\geom{K'(s)}\rightarrow\geom{s}$ dada en v\'{e}rtices
+	por $h_{s}(\alpha_{v'})=v'\in\geom{s}$ es continua y biyectiva entre
+	espacios compactos Hausdorff. En particular, las condiciones
+	\emph{(i)} y \emph{(iii')} implican que $h_{s}$ es un homeomorfismo.
+	La condici\'{o}n \emph{(ii)} implica que todo s\'{\i}mplice de $K'$
+	pertence a alguno de los subcomplejos $K'(s)$. Notemos que
+	\begin{align*}
+		h_{s} & \,=\,f|_{\geom{K'(s)}}
+		\text{ .}
+	\end{align*}
+	%
+	Por lo tanto, \emph{(i)}, \emph{(ii)} y \emph{(iii')} implican que
+	$f:\,\geom{K'}\rightarrow\geom{K}$ tiene una inversa continua dada
+	por $f^{-1}|_{\geom{s}}=h_{s}^{-1}$. En definitiva, $K'$ es una
+	subdivisi\'{o}n de $K$.
+
+	Rec\'{\i}procamente, la familia
+	$\big\{\simpinterior{s'}\,:\,s'\in K'\big\}$ particiona al espacio
+	$\geom{K'}$. Sea $s\in K$ y sea $s'\in K'$. Entonces, por la
+	observaci\'{o}n \ref{obs:definicionsubdivisiones}, o bien
+	$f\big(\simpinterior{s'}\big)\cap\simpinterior{s}=\varnothing$, o bien
+	$f\big(\simpinterior{s'}\big)\subset\simpinterior{s}$. Si
+	asumimos \emph{(iii)}, que $f:\,\geom{K'}\rightarrow\geom{K}$ es un
+	homeomorfismo, entonces el conjunto
+	\begin{align*}
+		& \big\{f\big(\simpinterior{s'}\big)\,:\,
+			s'\in K',\,f\big(\simpinterior{s'}\big)\subset
+				\simpinterior{s}\big\}
+	\end{align*}
+	%
+	es una partici\'{o}n de $\simpinterior{s}$. Pero, como $\geom{s}$
+	es compacto en $\geom{K'}$ (v\'{\i}a el homeomorfismo $f$), el
+	lema \ref{thm:compactocontenidoenfinitossimplices} implica que
+	$\geom{s}$ est\'{a} contenido en una uni\'{o}n finita de conjuntos de
+	la forma $\simpinterior{s'}$ con $s'\in K'$ y, por lo tanto, la
+	partici\'{o}n de $\simpinterior{s}$ debe ser finita.
+\end{proof}
+
+\begin{obsSubdividirUnSubcomplejo}\label{obs:subdividirunsubcomplejo}
+	Si $L\subset K$ es un subcomplejo y $K'$ es una subdivisi\'{o}n de $K$,
+	entonces el subconjunto
+	\begin{align*}
+		L' & \,=\,\big\{s'\in K'\,:\,f\big(\simpinterior{s'}\big)
+			\subset\geom{L}\big\}
+	\end{align*}
+	%
+	es un subcomplejo de $K'$ y, si $t\in L$, entonces
+	\begin{align*}
+		\big\{f\big(\simpinterior{s'}\big)\,:\,s'\in K',\,
+			f\big(\simpinterior{s'}\big)\subset\simpinterior{t}
+				\big\} & \,=\,
+		\big\{f\big(\simpinterior{s'}\big)\,:\,s'\in L',\,
+			f\big(\simpinterior{s'}\big)\subset\simpinterior{t}
+				\big\}
+		\text{ .}
+	\end{align*}
+	%
+	En particular, por el lema \ref{thm:subdivisionequivaleaparticion},
+	$L'$ es una subdivisi\'{o}n de $L$. Dicho de otra manera, toda
+	subdivisi\'{o}n de un complejo subdivide a todo subcomplejo
+	tambi\'{e}n. Notemos que $L'$ es el \'{u}nico subcomplejo de $K'$ con
+	esta propiedad. Lo llamamos \emph{la subdivisi\'{o}n inducida por %
+	$K'$}.
+\end{obsSubdividirUnSubcomplejo}
+
+\begin{obsSubdividirUnParSimplicial}\label{obs:subdividirunparsimplicial}
+	?`Vale m\'{a}s en general? Dada una transformaci\'{o}n simplicial
+	$\varphi:\,L\rightarrow K$ y una subdivisi\'{o}n $K'$ de $K$,
+	?`existe una subdivisi\'{o}n $L'$ de $L$ y una transformaci\'{o}n
+	simplicial $\varphi':\,L'\rightarrow K'$ compatibles con la
+	subdivisi\'{o}n $K'$ y la transformaci\'{o}n $\varphi$?
+	La compatibilidad podr\'{\i}a estar dada ``naturalmente'' en
+	t\'{e}rminos de las realizaciones geom\'{e}tricas de los complejos
+	y de los morfismos, es decir, en t\'{e}rminos del funtor
+	$\geom{\cdot}$. La pregunta es la siguiente: dados un par simplicial
+	$\varphi:\,L\rightarrow K$ y una subdivisi\'{o}n $K'$ de $K$, ?`existe
+	un par simplicial de la forma $\varphi':\,L'\rightarrow K'$ tal que
+	$L'$ sea una subdivisi\'{o}n de $L$ y tal que
+	\begin{center}
+		\begin{tikzcd}
+			\geom{L'} \arrow[r,"\geom{\varphi'}"] \arrow[d,"g"'] &
+				\geom{K'} \arrow[d,"f"] \\
+			\geom{L} \arrow[r,"\geom{\varphi}"'] & \geom{K}
+		\end{tikzcd}
+	\end{center}
+	sea un diagrama conmutativo de espacios topol\'{o}gicos y funciones
+	continuas? Las funciones $f:\,\geom{K'}\rightarrow\geom{K}$ y
+	$g:\,\geom{L'}\rightarrow\geom{L}$ son los homeomorfismos asociados
+	a las subdivisiones: est\'{a}n dadas en los v\'{e}rtices por
+	$f(\alpha_{v'})=v'$ para todo v\'{e}rtice $v'$ de $K'$ y por
+	$g(\beta_{w'})=w'$ para todo v\'{e}rtice $w'$ de $L'$.
+
+	Supongamos que existe un par simplicial con estas caracter\'{\i}sticas
+	y sean
+	\begin{align*}
+		W\,=\,\vertices{L} & \quad\text{,}\quad W'\,=\,\vertices{L'}
+			\text{ ,} \\
+		V\,=\,\vertices{K} & \quad\text{,}\quad V'\,=\,\vertices{K'}
+		\text{ .}
+	\end{align*}
+	%
+	Entonces $W'\subset\geom{L}$ y
+	$\varphi\big(W'\big)\subset V'\subset\geom{K}$. Si $w'\in W'$,
+	entonces
+	\begin{align*}
+		f(\geom{\varphi'}\beta_{w'}) & \,=\,f(\alpha_{\varphi'w'})
+			\,=\,\varphi'w'\quad\text{y} \\
+		\geom{\varphi}\big(g(\beta_{w'})\big) & \,=\,
+			\geom{\varphi}w'
+		\text{ .}
+	\end{align*}
+	%
+	Es decir, la transformaci\'{o}n simplicial $\varphi'$ verifica,
+	en los v\'{e}rtices de $L'$, la igualdad
+	\begin{align*}
+		\varphi'w' & \,=\,\geom{\varphi}w'
+		\text{ .}
+	\end{align*}
+	%
+	Recordando que toda transformaci\'{o}n simplicial est\'{a} determinada
+	por su valor en los v\'{e}rtices, se deduce que, fijada la
+	subdivisi\'{o}n $L'$ (que, por definici\'{o}n, se construye con puntos
+	de la realizaci\'{o}n $\geom{L}$), existe a lo sumo una
+	transformaci\'{o}n simplicial $\varphi':\,L'\rightarrow K'$ tal que
+	$f\circ\geom{\varphi'}=\geom{\varphi}\circ g$. Notemos que el conjunto
+	$W'$ de v\'{e}rtices de $L'$ est\'{a} (casi) determinado por $\varphi$
+	y por la subdivisi\'{o}n $K'$: si $w'\in W'$ entonces
+	$\varphi(w')\in V'$ debe ser un v\'{e}rtice de la subdivisi\'{o}n $K'$.
+
+	Otra observaci\'{o}n que puede llegar a ser importante es que la
+	subdivisi\'{o}n $L'$ se puede definir en cada uno de los
+	s\'{\i}mplices $t\in L$ y cada uno de los espacios $\geom{t}$ es
+	compacto y homeomorfo a un s\'{\i}mplice de $\bb{R}^{q+1}$ para
+	alg\'{u}n $q\geq 0$. En particular, si $v'\in V'$ es un v\'{e}rtice
+	de $K'$, entonces
+	\begin{math}
+		\geom{t}\cap\big(\geom{\varphi}^{-1}\big(\{v'\}\big)\big)
+	\end{math}
+	es igual a un subespacio af\'{\i}n intersecado con $\geom{t}$ y,
+	por lo tanto, algo que tiene ``forma de s\'{\i}mplice'': existe un
+	conjunto finito $t'\subset\geom{t}$ tal que
+	\begin{align*}
+		\convexa{t'} & \,=\,\geom{t}\,\cap\,
+			\big(\geom{\varphi}^{-1}\big(\{v'\}\big)\big)
+	\end{align*}
+	%
+	y minimal con esta propiedad. Este conjunto $t'$ tiene necesariamente
+	la propiedad de que, si llamamos $T'$ al complejo cuyos v\'{e}rtices
+	son los puntos de $t'$ y cuyos s\'{\i}mplices son todos los
+	subconjuntos no vac\'{\i}os de $t'$
+	(es decir, $T'=\partes(t')\setmin\{\varnothing\}$), entonces $T'$,
+	junto con la funci\'{o}n lineal que en los v\'{e}rtices (los puntos
+	de $t'$) es la identidad, es una triangulaci\'{o}n de $\convexa{t'}$.
+	Es de esperar que $L'$ tenga como v\'{e}rtices a la uni\'{o}n
+	$\bigcup_{t\in L,v'\in V'}\,t'$. En caso de existir otros v\'{e}rtices
+	en $L'$, \'{e}stos deber\'{a}n pertenecer a alguno de los conjuntos
+	$\convexa{t'}$. Podr\'{\i}an existir distintas subdivisiones de $L$
+	que cumplan lo pedido.
+
+	Diremos que un par simplicial $\varphi':\,L'\rightarrow K'$
+	subdivide un par simplicial $\varphi:\,L\rightarrow K$, si
+	$L'$ es una subdivisi\'{o}n de $L$, $K'$ es una subdivisi\'{o}n de $K$
+	y $f\circ\geom{\varphi'}=\geom{\varphi}\circ g$, donde $g$ y $f$
+	son los hoemomorfismos asociados a las subdivisiones.
+
+	Usando el lema \ref{thm:subdividirunsimplice}, se puede ver
+	inductivamente que existe una subdivisi\'{o}n $L'$ de $L$, una
+	subdivisi\'{o}n $K''$ de $K'$ y una transformaci\'{o}n simplicial
+	$\varphi'':\,L'\rightarrow K''$ tales que $\varphi''$ subdivide a
+	$\varphi$ (tal vez, eligiendo el punto $w_{0}$ en alguna de las
+	``caras'' colapsadas de $L$ se pueda demostrar que
+	\ref{thm:subdividirunsimplice} sigue valiendo y que no resulta
+	necesario subdividir $K'$).
+\end{obsSubdividirUnParSimplicial}
+
+\begin{obsTriangularPorSubdivisiones}\label{obs:triangularporsubdivisiones}
+	Sea $\varphi$ ($\varphi:\,L\rightarrow K$) una triangulaci\'{o}n de
+	$h$ ($h:\,A\rightarrow X$) y sea
+	$(\psi',\psi):\geom{\varphi}\rightarrow h$ el homeomorfismo de pares
+	correspondiente. Si $\varphi'$ ($\varphi':\,L'\rightarrow K'$) es una
+	subdivisi\'{o}n de $\varphi$, entonces $\varphi'$ es una
+	triangulaci\'{o}n $h$, v\'{\i}a el homeomorfismo de pares
+	$(\psi'\circ f,\psi\circ g)$.
+	\begin{center}
+		\begin{tikzcd}
+			\geom{L'} \arrow[r,"\geom{\varphi'}"] \arrow[d,"g"'] &
+				\geom{K'} \arrow[d, "f"] \\
+			\geom{L} \arrow[r,"\geom{\varphi}"] \arrow[d,"\psi"'] &
+				\geom{K} \arrow[d,"\psi'"] \\
+			A \arrow[r,"h"'] & X
+		\end{tikzcd}
+	\end{center}
+\end{obsTriangularPorSubdivisiones}
+
+\begin{obsSubdivisionesYEstrellas}\label{obs:subdivisionesyestrellas}
+	Sea $K'$ una subdivisi\'{o}n de un complejo simplicial $K$.
+	Sean $v$ y $v'$ v\'{e}rtices de $K$ y de $K'$, respectivamente.
+	Entonces $v'\in\estrella[K]{v}$ (estrella en $K$, pues $v$ podr\'{\i}a
+	(deber\'{\i}a) ser un v\'{e}rtice de $K'$, tambi\'{e}n), si y s\'{o}lo
+	si $\estrella[K']{v'}\subset\estrella[K]{v}$.
+\end{obsSubdivisionesYEstrellas}

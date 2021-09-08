@@ -1,0 +1,308 @@
+\theoremstyle{plain}
+\newtheorem{lemaConoSobreLasCarasPropias}{Lema}[section]
+\newtheorem{lemaRetractoPorDeformacionSimplices}%
+	[lemaConoSobreLasCarasPropias]{Lema}
+\newtheorem{coroRetractoPorDeformacionComplejos}%
+	[lemaConoSobreLasCarasPropias]{Corolario}
+\newtheorem{coroExtensionDeHomotopiasEnSubcomplejos}%
+	[lemaConoSobreLasCarasPropias]{Corolario}
+
+\theoremstyle{remark}
+
+%-------------
+
+Sea $f:\,X\rightarrow Y$ una funci\'{o}n continua. Definimos el
+\emph{cilindro de $f$} como el cociente
+\begin{align*}
+	\cilindro{f} & \,=\,\big((X\times\intervalo)\sqcup Y\big)/\sim
+	\text{ ,}
+\end{align*}
+%
+identificando los puntos $(x,1)\sim f(x)\in Y$. Dado un espacio topol\'{o}gico
+$X$ y un conjunto puntual $w$, el \emph{cono de $X$ con v\'{e}rtice $w$} es el
+cilindro de la funci\'{o}n constante $X\rightarrow w$. Denotaremos este
+espacio por $X*w$, o simplemente $\cono{X}$, omitiendo la referencia al
+v\'{e}rtice $w$.
+
+\begin{lemaConoSobreLasCarasPropias}\label{thm:conosobrelascaraspropias}
+	Sea $s\in K$ un s\'{\i}mplice de un complejo $K$. El cono
+	$\geom{\carasp{s}}*w$ es homeomorfo a $\geom{s}$.
+\end{lemaConoSobreLasCarasPropias}
+
+\begin{proof}
+	Sea $w_{0}\in\simpinterior{s}$ un punto arbitrario (una funci\'{o}n)
+	y sea $f:\,\geom{\carasp{s}}*w\rightarrow\geom{s}$ la funci\'{o}n
+	\begin{align*}
+		f[\alpha,t] & \,=\, tw_{0}+(1-t)\alpha
+		\text{ .}
+	\end{align*}
+	%
+	Esta funci\'{o}n es la factorizaci\'{o}n de la funci\'{o}n
+	en $(\geom{\carasp{s}}\times\intervalo)\sqcup w$ dada por
+	\begin{align*}
+		(\alpha,t) & \,\mapsto\,tw_{0}+(1-t)\alpha\quad\text{y} \\
+		w & \,\mapsto \,w_{0}\text{ .}
+	\end{align*}
+	%
+	Notemos que esta funci\'{o}n (y, por lo tanto, su factorizaci\'{o}n)
+	est\'{a} bien definida porque $\geom{s}$ es convexo. Ambas partes
+	de la definici\'{o}n en la uni\'{o}n disjunta son continuas.
+	La funci\'{o}n $f$ es, en consecuencia, continua.
+
+	Para ver que $f$ es un homeomorfismo, es suficiente ver que es una
+	biyecci\'{o}n. Supongamos que $[\alpha,t]$ y $[\beta,t']$ son
+	tales que
+	\begin{align*}
+		tw_{0}+(1-t)\alpha & \,=\,t'w_{0}+(1-t')\beta
+		\text{ .}
+	\end{align*}
+	%
+	Como $\alpha\in\geom{\carasp{s}}$, $\alpha$ se anula en al menos uno
+	de los v\'{e}rtices de $s$. Por otro lado, como $w_{0}$ est\'{a}
+	en el s\'{\i}mplice interior $\simpinterior{s}$, todas las
+	coordenadas de $w_{0}$ son positivas. Si $v\in s$ es tal que
+	$\alpha(v)=0$, entonces
+	\begin{align*}
+		tw_{0}(v) & \,=\,t'w_{0}(v)+(1-t')\beta(v)
+		\text{ .}
+	\end{align*}
+	%
+	Como $w_{0}(v)>0$, se deduce que $t\geq t'$. An\'{a}logamente,
+	intercambiando los roles de $\alpha$ y de $\beta$, se deduce que
+	$t'\geq t$. En definitiva, $t=t'$. La igualdad
+	\begin{align*}
+		(1-t)\alpha & \,=\,(1-t)\beta
+	\end{align*}
+	%
+	implica que, o bien $t=t'=1$, o bien $t=t'$ y $\alpha=\beta$. En todo
+	caso $[\alpha,t]=[\beta,t']$.
+
+	Para ver que $f$ es suryectiva, notamos, primero, que, si
+	$\alpha\in\geom{\carasp{s}}$, entonces $f[\alpha,0]=\alpha$ y que
+	$f[w]=w_{0}$. Resta ver que los puntos en
+	$\simpinterior{s}\setmin\{w_{0}\}$ tambi\'{e}n est\'{a}n en la
+	imagen de $f$. Para eso, veremos que por todo punto
+	$\alpha\in\simpinterior{s}$, $\alpha\not=w_{0}$ pasa un segmento
+	que va desde $w_{0}$ a alg\'{u}n punto de $\geom{\carasp{s}}$.
+	Sea $\phi:\,\bb{R}\rightarrow F$ la funci\'{o}n
+	\begin{align*}
+		\phi(t) & \,=\, (1+t)\alpha -tw_{0}
+		\text{ ,}
+	\end{align*}
+	%
+	donde $F=F\big(\{\alpha_{v}\}_{v\in s}\big)$ (abusando un poco m\'{a}s
+	de la notaci\'{o}n, podr\'{\i}amos escribir $F(s)$ para denotar este
+	espacio). Esta funci\'{o}n es continua y
+	$\phi(0)=\alpha\in\simpinterior{s}$ que es abierto en $F$. Como
+	$\alpha\not =w_{0}$ y las coordenadas de ambos suman $1$, debe valer
+	que $\alpha(v')<w_{0}(v')$ para alg\'{u}n v\'{e}rtice $v'\in s$.
+	Mirando esta coordenada, se obtiene una funci\'{o}n mon\'{o}tona
+	decresciente estrictamente en $t$:
+	\begin{align*}
+		\phi(t)(v') & \,=\,\alpha(v') - t(w_{0}(v')-\alpha(v'))
+		\text{ .}
+	\end{align*}
+	%
+	Por lo tanto, existe un \'{u}nico valor de $t$ tal que
+	$\phi(t)(v')=0$, adem\'{a}s este valor de $t$ debe ser positivo.
+	Como los v\'{e}rtices de $s$ son finitos, debe existir un menor
+	valor positivo $t_{0}>0$ tal que $\phi(t_{0})(v)=0$ para alg\'{u}n
+	v\'{e}rtice $v\in s$. En particular, el punto $\phi(t_{0})\in\geom{s}$
+	pertenece, en realidad, a $\geom{\carasp{s}}$ y
+	\begin{align*}
+		\alpha & \,=\,\frac{t_{0}}{1+t_{0}}\,w_{0}+
+			\frac{1}{1+t_{0}}\,\phi(t_{0})
+		\text{ .}
+	\end{align*}
+	%
+	En particular, $f$ es sobre.
+\end{proof}
+
+Contar con un punto en $\simpinterior{s}$ permite parametrizar los
+puntos del espacio $\geom{s}$ mediante las coordenadas $[\alpha,t]$ del
+cono $\cono{\geom{\carasp{s}}}$ y la funci\'{o}n correspondiente
+definida como en la demostraci\'{o}n del lema
+\ref{thm:conosobrelascaraspropias}. Para poder hacer esto de alguna manera
+can\'{o}nica, definimos el \emph{baricentro} de un s\'{\i}mplice $s$ como
+el punto $b(s)\in\simpinterior{s}$ dado por
+\begin{align*}
+	b(s) & \,=\,\sum_{v\in s}\,\frac{1}{1+\dim\,s}\,\alpha_{v}
+	\text{ .}
+\end{align*}
+%
+
+\begin{lemaRetractoPorDeformacionSimplices}%
+	\label{thm:retractopordeformacionsimplices}
+	Sea $s\in K$ un s\'{\i}mplice. El subespacio
+	$(\geom{s}\times\{0\})\cup(\geom{\carasp{s}}\times\intervalo)$ es un
+	retracto por deformaci\'{o}n fuerte de $\geom{s}\times\intervalo$.
+\end{lemaRetractoPorDeformacionSimplices}
+
+\begin{proof}
+	Si $\dim\,s=0$, $\geom{s}$ consta de un \'{u}nico punto y
+	$\geom{\carasp{s}}=\varnothing$, $\geom{s}\times\{0\}$ es un punto
+	en el intervalo $\geom{s}\times\intervalo$. Si $\dim\,s>0$, se
+	define una homotop\'{\i}a
+	\begin{align*}
+		& F\,:\,(\geom{s}\times\intervalo)\times\intervalo
+			\,\rightarrow\,\geom{s}\times\intervalo
+	\end{align*}
+	%
+	mediante una especie de proyecci\'{o}n estereogr\'{a}fica desde un
+	punto imaginario por fuera del s\'{\i}mplice y por encima del
+	baricentro, siguiendo los rayos que parten desde este punto hacia
+	los lados de
+	$(\geom{s}\times\{0\})\cup(\geom{\carasp{s}}\times\intervalo)$.
+	La f\'{o}rmula es la siguiente:
+	\begin{align*}
+		F([\alpha,t],t',t'') & \,=\,
+			\begin{cases}
+				\Big(\left[\alpha,(1-t'')t+
+					\frac{t''(2t-t')}{2-t'}\right],
+				(1-t'')t'\Big) & t'\leq 2t \\[10pt]
+				\Big(\left[\alpha,(1-t'')t\right],
+				(1-t'')t'+\frac{t''(t'-2t)}{1-t}\Big) &
+					t'\geq 2t
+			\end{cases}
+			\text{ .}
+	\end{align*}
+	%
+\end{proof}
+
+\begin{coroRetractoPorDeformacionComplejos}%
+	\label{thm:retractopordeformacioncomplejos}
+	Sea $K$ un complejo simplicial y sea $L\subset K$ un subcomplejo.
+	Entonces el subespacio
+	$(\geom{K}\times\{0\})\cup(\geom{L}\times\intervalo)$ es un
+	retracto por deformaci\'{o}n fuerte de $\geom{K}\times\intervalo$.
+\end{coroRetractoPorDeformacionComplejos}
+
+\begin{proof}
+	Para cada $n\geq -1$, definimos
+	\begin{align*}
+		X^{n} & \,=\,(\geom{K}\times\{0\})\,\cup\,
+			(\geom{\qesq{n}{K}\cup L}\times\intervalo)
+		\text{ .}
+	\end{align*}
+	%
+	La demostraci\'{o}n se divide en dos partes: primero deformar
+	$X^{n}$ en $X^{n-1}$ para $n\geq 0$ y luego pegar, concatenar
+	adecuadamente las deformaciones. Notemos que
+	\begin{align*}
+		X^{-1} & \,=\,(\geom{K}\times\{0\})\,\cup\,
+			(\geom{L}\times\intervalo)\quad\text{y} \\
+		\geom{K}\times I & \,=\,\bigcup_{n\geq -1}\,X^{-1}
+		\text{ .}
+	\end{align*}
+	%
+
+	Sea $n\geq 0$ y sea $s\in\qesq{n}{K}\setmin L$. Por el lema
+	\ref{thm:retractopordeformacionsimplices}, existe una retracci\'{o}n
+	por deformaci\'{o}n fuerte
+	\begin{align*}
+		& F_{s}\,:\,\geom{s}\times\intervalo\times\intervalo
+			\,\rightarrow\,
+			\geom{s}\times\intervalo
+	\end{align*}
+	%
+	de $\geom{s}\times\intervalo$ en
+	\begin{math}
+		(\geom{s}\times\{0\})\cup
+			(\geom{\carasp{s}}\times\intervalo)
+	\end{math}~.
+	Definimos $F_{n}:\,X^{n}\times\intervalo\rightarrow X^{n}$ por
+	\begin{align*}
+		F_{n}|_{\geom{s}\times\intervalo\times\intervalo} & \,=\,F_{s}
+			\qquad\text{si }s\in\qesq{K}\setmin L\quad\text{y} \\
+		F_{n}(x,t) & \,=\,x\qquad\text{si }
+			x\in X^{n-1},\,t\in\intervalo
+		\text{ .}
+	\end{align*}
+	%
+	Entonces $F_{n}$ es una retracci\'{o}n por deformaci\'{o}n fuerte
+	de $X^{n}$ en $X^{n-1}$. Sea $f_{n}:\,X^{n}\rightarrow X^{n-1}$
+	la retracci\'{o}n correspondiente $f_{n}(x)=F_{n}(x,1)$.
+
+	Sea $a_{n}=\frac{1}{n}$ ($n\geq 1$). Para $n\geq 0$, sea
+	$G_{n}:\,X^{n}\times\intervalo\rightarrow X^{n}$ la funci\'{o}n
+	dada por
+	\begin{align*}
+		G_{0}(x,t) & \,=\,
+			\begin{cases}
+				x &\quad\text{si }t\leq a_{2} \\
+				F_{0}\big(x,\frac{t-a_{2}}{1-a_{2}}\big) &
+					\quad\text{si }t\geq a_{2}
+			\end{cases}
+		\text{ ,}
+	\end{align*}
+	%
+	si $n=0$ y, para $n\geq 1$,
+	\begin{align*}
+		G_{n}(x,t) & \,=\,
+			\begin{cases}
+				x & \quad t\leq a_{n+2} \\[10pt]
+				F_{n}\big(x,\frac{t-a_{n+2}}{a_{n+1}-a_{n+2}}
+					\big) & \quad
+				a_{n+2}\leq t\leq a_{n+1} \\[10pt]
+				G_{n-1}(f_{n}(x),t) & \quad\geq a_{n+1}
+			\end{cases}
+		\text{ ,}
+	\end{align*}
+	%
+	definida inductivamente. Para cada $n\geq 0$, la funci\'{o}n
+	$G_{n}$ es una retracci\'{o}n por deformaci\'{o}n fuerte de $X^{n}$
+	en $X^{n-1}$ y cumple que
+	\begin{align*}
+		G_{n}|_{X^{n-1}\times\intervalo} & \,=\,G_{n-1}
+		\text{ .}
+	\end{align*}
+	%
+	Entonces queda definida una funci\'{o}n
+	\begin{align*}
+		& G\,:\,\geom{K}\times\intervalo\times\intervalo
+			\,\rightarrow\,\geom{K}\times\intervalo
+	\end{align*}
+	%
+	tal que $G|_{X^{n}\times\intervalo}=G_{n}$. Esta funci\'{o}n es una
+	retracci\'{o}n por deformaci\'{o}n fuerte de $\geom{K}\times\intervalo$
+	en $(\geom{K}\times\{0\})\cup(\geom{L}\times\intervalo)$.
+\end{proof}
+
+\begin{coroExtensionDeHomotopiasEnSubcomplejos}%
+	\label{thm:extensiondehomotopiasensubcomplejos}
+	Sea $L\subset K$ un subcomplejo. El par $(\geom{K},\geom{L})$
+	(con la inclusi\'{o}n) tiene la propiedad de extensi\'{o}n de
+	homotop\'{\i}as respecto de cualquier espacio.
+\end{coroExtensionDeHomotopiasEnSubcomplejos}
+
+\begin{proof}
+	Sea $g:\,\geom{K}\rightarrow Y$ una funci\'{o}n continua y sea
+	$G:\,\geom{L}\times\intervalo\rightarrow Y$ tal que
+	$G(\alpha,0)=g(\alpha)$, si $\alpha\in\geom{L}$. Sea
+	$f:\,(\geom{K}\times\{0\})\cup(\geom{L}\times\intervalo)\rightarrow Y$
+	la funci\'{o}n
+	\begin{align*}
+		f(\alpha,0) & \,=\,g(\alpha)
+			\qquad\text{si }\alpha\in\geom{K} \\
+		f(\alpha,t) & \,=\,G(\alpha,t)
+			\qquad\text{si }\alpha\in\geom{L},\,t\in\intervalo
+		\text{ .}
+	\end{align*}
+	%
+	Esta funci\'{o}n es continua. Sea $H$ la funci\'{o}n del
+	corolario \ref{thm:retractopordeformacioncomplejos} y sea
+	\begin{align*}
+		& r\,:\,\geom{K}\times\intervalo\,\rightarrow\,
+			(\geom{K}\times\{0\})\,\cup\,(\geom{L}\times\intervalo)
+	\end{align*}
+	%
+	la retracci\'{o}n fuerte $r(x,t)=H((x,t),1)$. Entonces
+	$F=f\circ r$ es una extensi\'{o}n de $f$ y verifica
+	\begin{align*}
+		F(\alpha,0) & \,=\,g(\alpha)
+			\qquad\text{si }\alpha\in\geom{K} \\
+		F|_{\geom{L}\times\intervalo} & \,=\,G
+		\text{ .}
+	\end{align*}
+	%
+\end{proof}

@@ -1,0 +1,205 @@
+\theoremstyle{plain}
+\newtheorem{lemaInmersionDeUnSimplice}{Lema}[section]
+\newtheorem{lemaLocalmenteFinitoLocalmenteFinito}[lemaInmersionDeUnSimplice]%
+	{Lema}
+\newtheorem{teoEquivalenciasLocalmenteFinito}[lemaInmersionDeUnSimplice]%
+	{Teorema}
+\newtheorem{teoInmersionDeUnComplejo}[lemaInmersionDeUnSimplice]{Teorema}
+
+\theoremstyle{remark}
+
+%-------------
+
+\begin{lemaInmersionDeUnSimplice}\label{thm:inmersiondeunsimplice}
+	Una funci\'{o}n lineal $f:\,\geom{s}\rightarrow\bb{R}^{n}$ es una
+	inmersi\'{o}n si y s\'{o}lo si el conjunto $\{f(v)\}_{v\in s}$
+	es un conjunto en posici\'{o}n general, af\'{\i}nmente independiente.
+\end{lemaInmersionDeUnSimplice}
+
+\begin{proof}
+	Sea $s=\{\lista[0]{v}{q}$ y sea $p_{i}=f(\alpha_{v_{i}})$ el punto
+	correspondiente al v\'{e}rtice $v_{i}$. Supongamos que existen
+	n\'{u}meros reales $\lista*[0]{t}{q}$ no todos nulos tales que
+	$\sum_{i=0}^{q}\,t^{i}p_{i}=0$ y $\sum_{i=0}^{q}\,t^{i}=0$ y
+	supongamos, sin p\'{e}rdida de generalidad, que $t^{i}\geq 0$ para
+	$i\geq i_{0}$ y $t^{i}<0$, si $i<i_{0}$. Entonces
+	\begin{align*}
+		p & \,:=\,\sum_{i<i_{0}}\,(-t^{i})\,p_{i} \,=\,
+			\sum_{i\geq i_{0}}\,t^{i}\,p_{i} \quad\text{y} \\
+		a & \,:=\,\sum_{i<i_{0}}\,(-t^{i}) \,=\,
+			\sum_{i\geq i_{0}}\,t^{i}
+		\text{ .}
+	\end{align*}
+	%
+	Sean $\alpha,\beta\in\geom{s}$ los puntos dados por
+	\begin{align*}
+		\alpha & \,=\,\sum_{i<i_{0}}\,\frac{-t^{i}}{a}\,
+				\alpha_{v_{i}} \quad\text{y} \\
+		\beta & \,=\,\sum_{i\geq i_{0}}\,\frac{t^{i}}{a}\,
+				\alpha_{v_{i}}
+		\text{ .}
+	\end{align*}
+	%
+	Entonces $f(\alpha)=f(\beta)$, por linealidad, y $f$ no es inyectiva.
+	Rec\'{\i}procamoente, si $\alpha,\beta\in\geom{s}$,
+	$\alpha\not=\beta$ y $f(\alpha)=f(\beta)$, supongamos que
+	$\alpha^{i_{0}}\not=\beta^{i_{0}}$. Entonces
+	\begin{align*}
+		\sum_{i=0}^{q}\,\alpha^{i}\,p_{i} & \,=\,f(\alpha) \,=\,
+			f(\beta) \,=\,\sum_{i=0}^{q}\,\beta^{i}\,p_{i}
+			\quad\text{y} \\
+		\sum_{i=0}^{q}\,\alpha^{i} & \,=\,1\,=\,
+			\sum_{i=0}^{q}\,\beta^{i}
+		\text{ .}
+	\end{align*}
+	%
+	Tomando la diferncia, los coeficientes $\alpha^{i}-\beta^{i}$ no son
+	todos nulos y
+	\begin{align*}
+		\sum_{i=0}^{q}\,(\alpha^{i}-\beta^{i})\,p_{i} & \,=\,0
+			\quad\text{y} \\
+		\sum_{i=0}^{q}\,(\alpha^{i}-\beta^{i}) & \,=\,0
+		\text{ ,}
+	\end{align*}
+	%
+	con lo cual, los puntos $\{\lista[0]{p}{q}\}$ no est\'{a}n en
+	posici\'{o}n general.
+\end{proof}
+
+Sea $\alpha\in\geom{K}$. Entonces $\alpha\in\simpinterior{s}$ para
+alg\'{u}n s\'{\i}mplice $s\in K$ y $\alpha\estrella{v}$ para alg\'{u}n
+v\'{e}rtice $v$ de $K$. Este v\'{e}rtice, si $K$ es un complejo localmente
+finito, pertenece a finitos s\'{\i}mplices. Sea $C=\bigcup_{v\in s}\,\geom{s}$.
+Entonces $\alpha\in C$ y $C$ es una uni\'{o}n finita de subconjuntos
+compactos de $\geom{K}_{d}$ y, por lo tanto, compacto. Si
+$L=\bigcup_{v\in s}\,\caras{s}$, entonces $L$ es un subcomplejo finito de $K$
+y $\alpha\in\estrella{v}\subset\geom{L}_{d}$. Esto demuestra el siguiente lema.
+(Notemos que tambi\'{e}n podemos incluir $C$ en la uni\'{o}n de una cantidad
+finita de s\'{\i}mplices ``abiertos'' $\simpinterior{s}$).
+
+\begin{lemaLocalmenteFinitoLocalmenteFinito}
+	\label{thm:localmentefinitolocalmentefinito}
+	Sea $K$ un complejo simplicial localmente finito. Todo punto
+	$\alpha\in \geom{K}_{d}$ tiene un entorno de la forma
+	$\geom{L}_{d}$ para alg\'{u}n subcomplejo finito $L\subset K$.
+	Es decir, $\alpha\in U$ para cierto abierto $U\subset\geom{L}_{d}$.
+\end{lemaLocalmenteFinitoLocalmenteFinito}
+
+\begin{teoEquivalenciasLocalmenteFinito}%
+	\label{thm:equivalenciaslocalmentefinito}
+	Sea $K$ un complejo simplicial. Las siguientes afirmaciones son
+	equivalentes:
+	\begin{itemize}
+		\item[(a)] $K$ es localmente finito;
+		\item[(b)] $\geom{K}$ es localmente compacto;
+		\item[(c)] la identidad $\geom{K}\rightarrow\geom{K}_{d}$ es
+			un homeomorfismo;
+		\item[(d)] $\geom{K}$ es metrizable;
+		\item[(e)] $\geom{K}$ verifica el primer axioma de
+			numerabilidad: todo punto posee una base numerable de
+			entornos.
+	\end{itemize}
+	%
+\end{teoEquivalenciasLocalmenteFinito}
+
+\begin{proof}
+	\emph{(b) implica (c):} Sea $U\subset\geom{K}$ un abierto con clausura
+	$\clos{U}$ compacta ($\geom{K}$ es Hausdorff). Como $\clos{U}$ es
+	compacta, existe una cantidad finita de s\'{\i}mplices $s$
+	tales que $\clos{U}$ est\'{a} contenida en la uni\'{o}n de los finitos
+	s\'{\i}mplices abiertos $\simpinterior{s}$, por el corolario
+	\ref{thm:compactocontenidoenfinitossimplices}. La uni\'{o}n de estos
+	s\'{\i}mplices forma un subcomplejo finito $L\subset K$ y
+	$\clos{U}\subset\geom{L}$. Como $L$ es finito, la identidad
+	$\geom{L}\rightarrow\geom{L}_{d}$ es un homeomorfismo. Por lo tanto,
+	$U$ es abierto en $\geom{L}_{d}$. Sea $K_{1}\subset K$ el subcomplejo
+	\begin{align*}
+		K_{1} &\,=\,\big\{ s\in K\,:\,U\cap \geom{s}=\varnothing\big\}
+		\text{ .}
+	\end{align*}
+	%
+	Como $U\subset\geom{K}$ es abierto (con la topolog\'{\i}a coherente),
+	\begin{align*}
+		U\,\cap\,\geom{s}\,=\,\varnothing & \quad\Leftrightarrow\quad
+			U\,\cap\,\simpinterior{s}\,=\,\varnothing
+		\text{ ,}
+	\end{align*}
+	%
+	con lo cual, si $s\in K\setmin K_{1}$, entonces
+	$\simpinterior{s}\cap\geom{L}\not=\varnothing$. En particular,
+	si $s\in K\setmin K_{1}$, existe $\alpha\in\geom{K}$ tal que
+	\begin{align*}
+		\alpha\,\in\,\simpinterior{s}\,\cap\,\geom{L}
+		\text{ .}
+	\end{align*}
+	%
+	Pero $\alpha\in\geom{L}$ quiere decir que $\{\alpha\not=0\}\in L$
+	y $\alpha\in\simpinterior{s}$ quiere decir que
+	$\{\alpha\not=0\}=s$. En definitiva, tenemos una descomposici\'{o}n
+	del complejo $K$ como uni\'{o}n de los dos subcomplejos:
+	\begin{align*}
+		K & \,=\, K_{1}\,\cup\,L
+		\text{ .}
+	\end{align*}
+	%
+	De esta descomposici\'{o}n se deduce la descomposici\'{o}n
+	\begin{align*}
+		\geom{K}_{d} & \,=\,\geom{K_{1}}_{d}\,\cup\,
+					\geom{L}_{d}
+		\text{ .}
+	\end{align*}
+	%
+	En particular,
+	\begin{math}
+		\geom{K}_{d}\setmin\geom{K_{1}}_{d}=
+			\geom{L}_{d}\setmin\geom{K_{1}}_{d}
+	\end{math}~.
+	Como $U\subset\geom{L}_{d}$ es abierto y $U$ est\'{a} contenido en
+	$\geom{L}_{d}\setmin\geom{K_{1}}_{d}$, se deduce que $U$ es abierto
+	en $\geom{K}_{d}\setmin\geom{K_{1}}_{d}$. Pero
+	$\geom{K_{1}}_{d}$ es cerrado en $\geom{K}_{d}$ y, en consecuencia,
+	$U$ es abierto en $\geom{K}_{d}$.
+
+	\emph{(e) implica (a): } si $K$ no es localmente finito, existe
+	alg\'{u}n v\'{e}rtice $v\in K$ que pertenece a todos los
+	s\'{\i}mplices de una familia infinita numerable de s\'{\i}mplices de
+	$K$, $\{s_{i}\}_{i\geq 1}$. Supongamos que dicho v\'{e}rtice $v$
+	admite una base numerable de entornos (del punto correspondiente
+	$\alpha_{v}\in\geom{K}$), $\{U_{i}\}_{i\geq 1}$ en $\geom{K}$
+	(topolog\'{\i}a coherente), y supongamos, sin p\'{e}rdida de
+	generalidad, que $U_{i}\supset U_{i+1}$ para todo $i\geq 1$.
+	Para cada $i\geq 1$, como $\geom{s_{i}}\subset\geom{K}$ es cerrado,
+	$\clos{\simpinterior{s_{i}}}=\geom{s_{i}}$. Como
+	$\alpha_{v}\in\geom{s_{i}}$ y $U_{j}$ es un abierto que contiene al
+	punto $\alpha_{v}$, se deduce que existe
+	\begin{align*}
+		& \alpha_{i}\,\in\,\simpinterior{s_{i}}\,\cap\,U_{i}
+		\text{ .}
+	\end{align*}
+	%
+	Como los abiertos $U_{i}$ constituyen una base de entornos de
+	$\alpha_{v}$ y $U_{i}\supset U_{i+1}$ para todo $i$, la sucesi\'{o}n
+	$\{\alpha_{i}\}_{i\geq 1}$ tiende a $\alpha_{v}$ en la topolog\'{\i}a
+	de $\geom{K}$. Como $\alpha_{i}\in\simpinterior{s_{i}}$, en
+	particular $\alpha_{i}\not=\alpha_{v}$ para todo $i$, pero
+	tambi\'{e}n, dado un s\'{\i}mplice arbitrario $s\in K$, la
+	intersecci\'{o}n $\geom{s}\cap\{\alpha_{i}\}_{i\geq 1}$ es a lo sumo
+	un conjunto finito. Como en el comentario previo al lema
+	\ref{thm:compactocontenidoenfinitossimplices}, esto implica que
+	$\{\alpha_{i}\}_{\i\geq 1}$ es discreto en $\geom{K}$, lo que
+	contradice el hecho de que tenga un punto de acumulaci\'{o}n.
+\end{proof}
+
+Una \emph{realizaci\'{o}n} de un complejo simplicial $K$ en un
+$\bb{R}$-espacio vectorial $E$ (cuya topolog\'{\i}a se caracteriza por
+ser coherente con los subespacios de dimensi\'{o}n finita) es una
+inmersi\'{o}n lineal $\geom{K}\rightarrow\bb{R}^{n}$.
+
+\begin{teoInmersionDeUnComplejo}\label{thm:inmersiondeuncomplejo}
+	Sea $K$ un complejo simplicial. Si $K$ admite una realizaci\'{o}n
+	$\geom{K}\rightarrow\bb{R}^{n}$ en un espacio de dimensi\'{o}n
+	finita, entonces $K$ es a lo sumo numerable, localmente finito y
+	$\dim\,K\leq n$. Rec\'{\i}procamente, si $K$ es numerable, localmente
+	finito y $\dim\,K\leq n$, entonces $K$ admite una realizaci\'{o}n
+	en $\bb{R}^{2n+1}$.
+\end{teoInmersionDeUnComplejo}

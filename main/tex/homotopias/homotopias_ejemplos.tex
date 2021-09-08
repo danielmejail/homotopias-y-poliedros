@@ -1,0 +1,186 @@
+\theoremstyle{definition}
+\newtheorem{ejemploIdentidadDeEspacioEuclideo}{Ejemplo}[section]
+\newtheorem{ejemploIdentidadDelIntervalo}[ejemploIdentidadDeEspacioEuclideo]%
+	{Ejemplo}
+\newtheorem{ejemploReflexionEnElDisco}[ejemploIdentidadDeEspacioEuclideo]%
+	{Ejemplo}
+\newtheorem{ejemploHomotopiaLinealEnUnConvexo}%
+	[ejemploIdentidadDeEspacioEuclideo]{Ejemplo}
+\newtheorem{ejemploElPeine}[ejemploIdentidadDeEspacioEuclideo]{Ejemplo}
+\newtheorem{ejemploElPeineYElCuadrado}[ejemploIdentidadDeEspacioEuclideo]%
+	{Ejemplo}
+\newtheorem{ejemploPuntoDeformacionFuerteDeConvexos}%
+	[ejemploIdentidadDeEspacioEuclideo]{Ejemplo}
+\newtheorem{ejemploEsferaDeformacionFuerteDelEspacioSinUnPunto}%
+	[ejemploIdentidadDeEspacioEuclideo]{Ejemplo}
+\newtheorem{ejemploElPeineYElCuadradoNoEsRetracto}%
+	[ejemploIdentidadDeEspacioEuclideo]{Ejemplo}
+\newtheorem{ejemploElPuntoYElPeine}%
+	[ejemploIdentidadDeEspacioEuclideo]{Ejemplo}
+
+%-------------
+
+\begin{ejemploIdentidadDeEspacioEuclideo}%
+	\label{ejemplo:identidaddeespacioeuclideo}
+	Sean $X=Y=\bb{R}^{n}$ y sean $f_{0}(x)=x$ y $f_{1}(x)=0$ para todo
+	punto $x\in\bb{R}^{n}$. Sea
+	$F:\,\bb{R}^{n}\times\intervalo\rightarrow\bb{R}^{n}$ la funci\'{o}n
+	\begin{align*}
+		F(x,t) & \,=\,(1-t)\,x
+		\text{ .}
+	\end{align*}
+	%
+	Entonces $F$ es una homotop\'{\i}a de $f_{0}=\id[\bb{R}^{n}]$ en la
+	funci\'{o}n constante $f_{1}=0$ relativa al subespacio $\{0\}$.
+\end{ejemploIdentidadDeEspacioEuclideo}
+
+\begin{ejemploIdentidadDelIntervalo}\label{ejemplo:identidaddelintervalo}
+	Si ahora $X=Y=\intervalo$, $f_{0}(t)=t$ y $f_{1}(t)=0$, para todo
+	instante $t\in\intervalo$, y
+	$F:\,\intervalo\times\intervalo\rightarrow\intervalo$ es la funci\'{o}n
+	\begin{align*}
+		F(t,t') & \,=\,(1-t')\,t
+		\text{ ,}
+	\end{align*}
+	%
+	entonces $F$ es una homotop\'{\i}a de $f_{0}=\id[\intervalo]$ en
+	la funci\'{o}n constante $f_{1}=0$ relativa al subespacio $\{0\}$.
+\end{ejemploIdentidadDelIntervalo}
+
+\begin{ejemploReflexionEnElDisco}\label{ejemplo:reflexioneneldisco}
+	Sean $X=Y=\disco{2}$ y sean $A=B=\esfera{1}$. Sea
+	\begin{math}
+		f_{0},f_{1}:\,(\disco{2},\esfera{1})\rightarrow
+			(\disco{2},\esfera{1})
+	\end{math}
+	las funciones dadas por
+	\begin{align*}
+		f_{0}(re^{i\theta}) & \,=\,re^{i\theta} \\
+		f_{1}(re^{i\theta}) & \,=\,re^{i(\theta+\pi)}
+		\text{ ,}
+	\end{align*}
+	%
+	es decir, $f_{0}=\id[\disco{2}]$ y $f_{1}$ es hacer medio giro, o bien
+	reflejar un punto en el origen. Sean $F,F'$ las funciones definidas por
+	\begin{align*}
+		F(re^{i\theta},t) & \,=\,re^{i(\theta+t\pi)} \\
+		F'(re^{i\theta},t) & \,=\,re^{i(\theta-t\pi)}
+		\text{ .}
+	\end{align*}
+	%
+	Entonces $f_{0}\simeq f_{1}\,\rel{\{0\}}$, tanto v\'{\i}a $F$ como
+	v\'{\i}a $F'$.
+\end{ejemploReflexionEnElDisco}
+
+\begin{ejemploHomotopiaLinealEnUnConvexo}\label{ejemplo:contraccionenunconvexo}
+	Sea $X$ un espacio topol\'{o}gico arbitrario y sea $Y\subset\bb{R}^{n}$
+	un subespacio convexo. Sean $f_{0},f_{1}:\,X\rightarrow Y$ funciones
+	continuas y sea $X'\subset X$ un subespacio en donde $f_{0}$ y $f_{1}$
+	coinciden. Si $F:\,X\times\intervalo\rightarrow Y$ es la funci\'{o}n
+	definida por
+	\begin{align*}
+		F(x,t) & \,=\,t\,f_{1}(x) + (1-t)\,f_{0}(x)
+		\text{ ,}
+	\end{align*}
+	%
+	entonces $F$ es una homotop\'{\i}a de $f_{0}$ en $f_{1}$ relativa a
+	$X'$.
+\end{ejemploHomotopiaLinealEnUnConvexo}
+
+\begin{ejemploElPeine}\label{ejemplo:elpeine}
+	Sea $Y\subset\bb{R}^{2}$ el subespacio del plano dado por
+	\begin{align*}
+		Y & \,=\,\big\{(x,y)\in\bb{R}^{n}\,:\,
+			(0\leq y\leq 1 \wedge x=1/n)\vee
+			(y=0\wedge 0\leq x\leq 1)\big\}
+		\text{ .}
+	\end{align*}
+	%
+	Si $F:\,Y\times\intervalo\rightarrow Y$ es la funci\'{o}n
+	\begin{align*}
+		F((x,y),t) & \,=\,(x,(1-t)\,y)
+		\text{ ,}
+	\end{align*}
+	%
+	entonces $F$ es una homotop\'{\i}a de $\id[Y]$ en la proyecci\'{o}n
+	$\pi:\,(x,y)\mapsto (x,0)$ (relativa al subespacio
+	$\{(x,0)\,:\,0\leq x\leq 1\}$). Como este subespacio es contr\'{a}ctil,
+	por transitividad, se deduce que $Y$ es contr\'{a}ctil. En particular,
+	si $c:\,Y\rightarrow Y$ es la funci\'{o}n constante
+	$c(x,y)=(1,0)$, entonces $\id[Y]\simeq c$ y coinciden en $(1,0)$.
+	Pero, como la topolog\'{\i}a de $Y$ es la de subespacio del plano,
+	no existe una homotop\'{\i}a de $\id[Y]$ en $c$ relativa al
+	punto $\{(1,0)\}$, es decir, que deje fijo el punto.
+\end{ejemploElPeine}
+
+\begin{ejemploElPeineYElCuadrado}\label{ejemplo:elpeineyelcuadrado}
+	Sea $X=\intervalo^{2}\subset\bb{R}^{2}$ y sea $A$ el espacio del
+	ejemplo \ref{ejemplo:elpeine}. Entonces $A$ y $X$ son contr\'{a}ctiles.
+	De acuerdo con la observaci\'{o}n \ref{obs:encontractilsonhomotopicos},
+	la inclusi\'{o}n $\inc:\,A\rightarrow X$ es una equivalencia
+	homot\'{o}pica. En particular $A$ es un retracto d\'{e}bil de $X$.
+	Pero $A$ no es un retracto de $X$, pues, por ejemplo, el punto
+	$(0,1)$ posee puntos arbitrariamente cerca que debieran ser
+	proyectados lejos.
+\end{ejemploElPeineYElCuadrado}
+
+\begin{ejemploPuntoDeformacionFuerteDeConvexos}%
+	\label{ejemplo:puntodeformacionfuertedeconvexos}
+	Si $C$ es un subespacio convexo en un espacio vectorial topol\'{o}gico
+	y $x_{0}\in C$ es un punto arbitrario, entonces
+	\begin{align*}
+		F(x,t) & \,=\,t\,x_{0}+(1-t)\,x
+	\end{align*}
+	%
+	es una homotop\'{\i}a de la identidad $\id[C]$ en la funci\'{o}n
+	constante $x\mapsto x_{0}$ relatiova al punto $\{x_{0}\}$. Esto
+	muestra que todo punto en un conjunto convexo es un retracto por
+	deformaci\'{o}n fuerte del convexo.
+\end{ejemploPuntoDeformacionFuerteDeConvexos}
+
+\begin{ejemploEsferaDeformacionFuerteDelEspacioSinUnPunto}%
+	\label{ejemplo:esferadeformacionfuertedelespaciosinunpunto}
+	Sea $\esfera{n}$ la esera de dimenensi\'{o}n $n$ vista como
+	subespacio de $\bb{R}^{n+1}\setmin\{0\}$ y sea
+	\begin{math}
+		F:\,\big(\bb{R}^{n+1}\setmin\{0\}\big)\times\intervalo
+			\bb{R}^{n+1}\setmin\{0\}
+	\end{math}
+	la funci\'{o}n
+	\begin{align*}
+		F(x,t) & \,=\,(1-t)\,x +t\,\frac{x}{|x|}
+	\end{align*}
+	%
+	entonces $F$ es una retracci\'{o}n por deformaci\'{o}n fuerte de
+	$\bb{R}^{n+1}\setmin\{0\}$ en $\esfera{n}$, pues, si llamamos
+	$r(x)=F(x,1)=\frac{x}{|x|}$, entonces $r$ es una retracci\'{o}n
+	de la inclusi\'{o}n ($r\circ\inc[\esfera{n}]=\id[\esfera{n}]$) y
+	$F$ es una homotop\'{\i}a de $\inc[\esfera{n}]\circ r$ en
+	$\id[\bb{R}^{n+1}\setmin\{0\}]$ relativa a la esfera.
+\end{ejemploEsferaDeformacionFuerteDelEspacioSinUnPunto}
+
+\begin{ejemploElPeineYElCuadradoNoEsRetracto}%
+	\label{ejemplo:elpeineyelcuadradonoesretracto}
+	Sea $X=\intervalo^{2}$ y sea $A\subset X$ el subespacio del ejemplo
+	\ref{ejemplo:elpeine}. Como $X$ y $A$ son contr\'{a}ctiles, la
+	inclusi\'{o}n $A\subset X$ es una equivalencia homot\'{o}pica, con lo
+	$A$ es un retracto d\'{e}bil de $X$ y una deformaci\'{o}n,
+	un retracto por deformaci\'{o}n d\'{e}bil. Pero, seg\'{u}n el ejemplo
+	\ref{ejemplo:elpeineyelcuadrado}, $A$ no es un retracto de $X$ y, por
+	lo tanto, $A$ no es un retracto por deformaci\'{o}n de $X$.
+
+	Tal vez $A$ sea un retracto d\'{e}bil por deformaci\'{o}n fuerte, es
+	decir, la deformaci\'{o}n se pueda tomar relativa a $A$.
+\end{ejemploElPeineYElCuadradoNoEsRetracto}
+
+\begin{ejemploElPuntoYElPeine}\label{ejemplo:elpuntoyelpeine}
+	Si ahora $X$ es el espacio del ejemplo \ref{ejemplo:elpeine} y
+	$A=\{(0,1)\}$, entonces, como $X$ es contr\'{a}ctil,
+	$\id[X]\simeq\inc[A]\circ c$, donde $c:\,X\rightarrow A$ es la
+	funci\'{o}n constante $(x,y)\mapsto (0,1)$. Como
+	$c\circ\inc[A]=\id[A]$, se deduce que $A$ es un retracto por
+	deformaci\'{o}n de $X$. Pero, como se mencion\'{o} en el ejemplo
+	\ref{ejemplo:elpeineyelcuadrado}, no existe una homotop\'{\i}a
+	de $\id[X]$ en $\inc[A]\circ c$ relativa al punto $A$, es decir que
+	$A$ no es un retracto por deformaci\'{o}n fuerte de $X$.
+\end{ejemploElPuntoYElPeine}

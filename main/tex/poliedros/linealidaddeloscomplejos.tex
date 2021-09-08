@@ -1,0 +1,141 @@
+\theoremstyle{plain}
+\newtheorem{lemaCombinacionConvexaEnComplejos}{Lema}[section]
+
+\theoremstyle{remark}
+\newtheorem{obsSimplicialEsLineal}[lemaCombinacionConvexaEnComplejos]%
+	{Observaci\'{o}n}
+
+%-------------
+
+\begin{lemaCombinacionConvexaEnComplejos}%
+	\label{thm:combinacionconvexaencomplejos}
+	Sea $K$ un complejo simplicial. Una combinaci\'{o}n convexa
+	de puntos de $\geom{K}$ pertenece a $\geom{K}$, si y s\'{o}lo si
+	dichos puntos pertenecen a un mismo s\'{\i}mplice en $K$.
+\end{lemaCombinacionConvexaEnComplejos}
+
+\begin{proof}
+	Sean $\lista{\alpha}{r}\in\geom{K}$ puntos pertenecientes a un
+	mismo s\'{\i}mplice $\geom{s}$, $s\in K$. Dados n\'{u}meros reales
+	$\lista*{t}{r}\in [0,1]$ tales que $\sum_{i=1}^{r}\,t^{i}=1$,
+	la funci\'{o}n $\alpha:\,V\rightarrow [0,1]$ dada por
+	$\alpha=\sum_{i=1}^{r}\,t^{i}\alpha_{i}$ pertenece a $\geom{s}$,
+	pues $\{\alpha\not=0\}\subset s$ y $s\in K$ es un s\'{\i}mplice.
+	Rec\'{\i}procamente, si $\lista{\alpha}{r}\in\geom{K}$ son puntos que
+	verifican $\alpha=\sum_{i=1}^{r}\,t^{i}\alpha_{i}\in\geom{K}$ para
+	ciertos n\'{u}meros reales \emph{positivos} $t^{i}$ que suman $1$
+	(ninguno de los puntos $\alpha_{i}$ aparece trivialmente), entonces
+	existe un s\'{\i}mplice $s\in K$ m\'{a}s chico que contiene a
+	$\alpha$. Como $\alpha\in\simpinterior{s}$, si $v\not\in s$ es un
+	v\'{e}rtice de $K$ que no pertenece a $s$, entonces
+	$\alpha(v)=0$ y, para cada $i=1,\,\dots,\,r$, $\alpha_{i}(v)=0$.
+	Por lo tanto, $\alpha_{i}\in\geom{s}$.
+\end{proof}
+
+Dado un v\'{e}rtice $v\in K$, llamamos $\alpha_{v}$ a la funci\'{o}n
+$\alpha_{v}\in\geom{K}$ tal que $\alpha_{v}(v)=1$ (\textit{a fortiori},
+$\alpha_{v}(v')=0$, si $v'\not = v$). Todo elemento $\alpha\in\geom{K}$
+se puede escribir (de manera \'{u}nica) como una combinaci\'{o}n lineal
+convexa de estas funciones:
+\begin{align*}
+	\alpha & \,=\,\sum_{v\in V}\,\alpha(v)\,\alpha_{v}
+	\text{ .}
+\end{align*}
+%
+
+Sea $E$ un $\bb{R}$-espacio vectorial y sea $X\subset E$ un espacio
+topol\'{o}gico cuya topolog\'{\i}a es coherente con su intersecci\'{o}n
+con los subespacios de dimensi\'{o}n finita de $E$ (d\'{a}ndole a \'{e}stos
+la \'{u}nica topolog\'{\i}a con respecto a la cual son espacios vectoriales
+topol\'{o}gicos).
+% (Por ejemplo, $E$ tiene la topolog\'{\i}a d\'{e}bil respecto
+% de una familia de funcionales lineales que separa puntos)
+Entonces, si $F\subset E$ es un subespacio vectorial de dimensi\'{o}n finita,
+$X\cap F$ tiene la topolog\'{\i}a de subespacio de $F$, donde $F$ tiene
+la etructura de e.v.t. de dimnsi\'{o}n finita.
+
+Una funci\'{o}n $f:\,\geom{K}\rightarrow E$ se dice \emph{lineal}, si
+\begin{align*}
+	f(\alpha) & \,=\,f\Big(\sum_{v\in V}\,\alpha(v)\alpha_{v}\Big) \,=\,
+		\sum_{v\in V}\,\alpha(v)\,f(\alpha_{v})
+\end{align*}
+%
+para todo $\alpha\in\geom{K}$. Una funci\'{o}n $f:\,\geom{K}\rightarrow X$ se
+dice lineal, si $\inc[X\hookrightarrow E]\circ f:\,\geom{K}\rightarrow E$ es
+lineal (en particular, la combinaci\'{o}n lineal
+$\sum_{v}\,\alpha(v)\,f(\alpha_{v})$ tiene que ser un punto de $X$).
+
+Toda funci\'{o}n lineal en $\geom{K}$ est\'{a} determinada por su valor en
+los v\'{e}rtices $\alpha_{v}$. Rec\'{\i}procamente, toda funci\'{o}n
+$f_{0}:\,V\rightarrow E$ determina una funci\'{o}n lineal
+$f:\,\geom{K}\rightarrow E$. Si $X\subset E$ y $f_{0}:\,V\rightarrow X$,
+entonces la funci\'{o}n lineal correspondiente, $f$, es una funci\'{o}n
+lineal en $X$, si y s\'{o}lo si, para todo s\'{\i}mplice $s\in K$, las
+combinaciones convexas $\sum_{v\in s}\,t^{v}f_{0}(\alpha_{v})$ tambi\'{e}n
+pertenecen a $X$. En particular, si $X$ es un subconjunto convexo de $E$,
+entonces toda funci\'{o}n $V\rightarrow X$ se extiende a una funci\'{o}n
+lineal $\geom{K}\rightarrow X$.
+
+En cuanto a la continuidad de una funci\'{o}n lineal
+$f:\,\geom{K}\rightarrow X$, si $s\in K$ es un $q$-s\'{\i}mplice, entonces la
+restricci\'{o}n $f|_{\geom{s}}$ coincide con la restricci\'{o}n de una
+funci\'{o}n lineal definida en el $\bb{R}$-espacio vectorial generado
+por los v\'{e}rtices de $s$. A este espacio lo denotamos
+$F\big(\{\alpha_{v}\}_{v\in s}\big)$. Todo punto de este espacio vectorial se
+escribe de manera \'{u}nica como combinaci\'{o}n lineal de los v\'{e}rtices
+$\{\alpha_{v}\}_{v\in s}$. A su vez, los puntos de $\geom{s}$ se escriben
+de manera \'{u}nica como combinaciones lineales convexas de estos mismos
+elementos. As\'{\i}, podemos identificar can\'{o}nicamente $\geom{s}$
+con un subconjunto de $F\big(\{\alpha_{v}\}_{v\in s}\big)$. En cuanto a la
+funci\'{o}n $f$, si $\alpha\in\geom{s}$ y
+$\alpha=\sum_{v\in s}\,\alpha(v)\,\alpha_{v}$, entonces
+$f(\alpha)=\sum_{v\in s}\,\alpha(v)\,f(\alpha_{v})$. Pero, por otro lado,
+por propiedad universal de $F\big(\{\alpha_{v}\}_{v\in s}\big)$, las
+asignaciones $\alpha_{v}\mapsto f(\alpha_{v})$ determinan un\'{\i}vocamente
+una funci\'{o}n lineal
+$f_{s}:\,F\big(\{\alpha_{v}\}_{v\in s}\big)\rightarrow E$. Esta extensi\'{o}n
+cumple que
+\begin{align*}
+	f_{s}|_{\geom{s}} & \,=\,f|_{\geom{s}}
+	\text{ ,}
+\end{align*}
+%
+pues ambas est\'{a}n dadas por la misma f\'{o}rmula en t\'{e}rminos de los
+elementos de la base $\{\alpha_{v}\}_{v\in s}$. En particular,
+$f_{s}(\geom{s})\subset X$. Notemos tambi\'{e}n que la topolog\'{\i}a en
+$\geom{s}$ es exactamente la topolog\'{\i}a inducida como subespacio de
+$F\big(\{\alpha_{v}\}_{v\in s}\big)$ y que $X$ es un subespacio topol\'{o}gico
+de $E$, con lo cual, para ver $f:\,\geom{K}\rightarrow X$ es continua,
+alcanza con ver que las funciones $f_{s}$ son continuas. Pero $f_{s}$, por
+ser lineal, tiene imagen en un subespacio $W\subset E$ de dimensi\'{o}n
+finita. Por lo tanto,
+$f_{s}:\,F\big(\{\alpha_{v}\}_{v\in s}\big)\rightarrow W$ es continua.
+Como la inclusi\'{o}n $W\rightarrow E$ es continua, $f_{s}$ es continua.
+En definitiva, toda funci\'{o}n lineal $f:\,\geom{K}\rightarrow X$ es
+autom\'{a}ticamente continua\dots
+
+\begin{obsSimplicialEsLineal}\label{obs:simplicialeslineal}
+	Dado un complejo simplicial $K$ consideramos el $\bb{R}$-espacio
+	vectorial generado por todos los v\'{e}rtices de $K$:
+	$E=F\big(\{\alpha_{v}\}_{v\in K}\big)$. El conjunto $\geom{K}$ es
+	un subconjunto de este espacio: todo elemento $\alpha\in\geom{K}$
+	es una combinaci\'{o}n lineal convexa de los elementos de la base
+	(pero no todas tales combinaciones pertenecen a $\geom{K}$).
+	La topolog\'{\i}a coherente en $\geom{K}$ est\'{a} determinada
+	por la topolog\'{\i}a en cada uno de los subconjuntos $\geom{s}$,
+	$s\in K$. Pero la topolog\'{\i}a en $\geom{s}$ es la topolog\'{\i}a
+	de subespacio del $\bb{R}$-espacio de dimensi\'{o}n finita
+	generado por aquellos v\'{e}rtices de $K$ que pertenecen a $s$.
+
+	Dada una transformaci\'{o}n simplicial $\varphi:\,K\rightarrow K'$,
+	aplicando el funtor $\geom{\cdot}$, se obtiene una funci\'{o}n
+	lineal: $\geom{\varphi}:\,\geom{K}\rightarrow\geom{K'}$ est\'{a}
+	dada por la f\'{o}rmula
+	\begin{align*}
+		\geom{\varphi}(\alpha) & \,=\,
+			\sum_{v\in V}\,\alpha(v)\,\alpha_{\varphi(v)} \,=\,
+			\sum_{v\in V}\,\alpha(v)\,\geom{\varphi}(\alpha_{v})
+		\text{ .}
+	\end{align*}
+	%
+\end{obsSimplicialEsLineal}

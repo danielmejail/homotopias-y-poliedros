@@ -1,0 +1,572 @@
+\theoremstyle{plain}
+\newtheorem{teoExistenciaDeAproximaciones}{Teorema}[section]
+\newtheorem{lemaDefinicionAproximacionSimplicial}%
+	[teoExistenciaDeAproximaciones]{Lema}
+\newtheorem{lemaAproximacionEsHomotopica}%
+	[teoExistenciaDeAproximaciones]{Lema}
+\newtheorem{teoCaracterizacionAproximacionesSimpliciales}%
+	[teoExistenciaDeAproximaciones]{Teorema}
+\newtheorem{coroAproximacionInducidaEnSubcomplejos}%
+	[teoExistenciaDeAproximaciones]{Corolario}
+\newtheorem{propoCaracterizacionDeAproximables}%
+	[teoExistenciaDeAproximaciones]{Proposici\'{o}n}
+\newtheorem{coroCaracterizacionDeAproximacionesPorSubdivision}%
+	[teoExistenciaDeAproximaciones]{Corolario}
+
+\theoremstyle{remark}
+\newtheorem{obsDefinicionAproximacionSimplicial}%
+	[teoExistenciaDeAproximaciones]{Observaci\'{o}n}
+\newtheorem{obsAproximacionDeParesEsDePares}%
+	[teoExistenciaDeAproximaciones]{Observaci\'{o}n}
+\newtheorem{obsComposicionDeAproximacionesEsAproximacion}%
+	[teoExistenciaDeAproximaciones]{Observaci\'{o}n}
+
+%-------------
+
+Sean $h_{1}:\,X_{1}\rightarrow X_{1}'$ y $h_{2}:\,X_{2}\rightarrow X_{2}'$
+pares de espacios topol\'{o}gicos y sea $(f',f):\,h_{1}\rightarrow h_{2}$ un
+morfismo de pares. Supongamos que existen transformaciones simpliciales
+$\varphi_{1}:\,K_{1}'\rightarrow K_{1}$ y
+$\varphi_{2}:\,K_{2}'\rightarrow K_{2}$ y triangulaciones
+$(\varphi_{1},(\psi_{1}',\psi_{1}))$ de $h_{1}$ y
+$(\varphi_{2},(\psi_{2}',\psi_{2}))$ de $h_{2}$.
+\begin{center}
+\begin{tikzcd}
+	\geom{K_{1}}\arrow[dr,"\varphi_{1}"]\arrow[dd,"\psi_{1}"'] & &
+		\geom{K_{2}}\arrow[dr,"\varphi_{2}"]\arrow[dd,"\psi_{2}"] & \\
+	& \geom{K_{1}'}\arrow[dd,crossing over,near start,"\psi_{1}'"'] & &
+		\geom{K_{2}'}\arrow[dd,"\psi_{2}'"] \\
+	X_{1}\arrow[dr,"h_{1}"']\arrow[rr,near end,"f"'] & &
+		X_{2}\arrow[dr,"h_{2}"'] & \\
+	& X_{1}'\arrow[rr,"f'"'] & & X_{2}'
+\end{tikzcd}
+\end{center}
+La pregunta que surge es si existe una transformaci\'{o}n simplicial
+$\varphi_{1}\rightarrow\varphi_{2}$ cuya realizaci\'{o}n haga conmutar el
+diagrama anterior.
+
+No hablaremos de pares por el momento. Sean $K_{1}$, $K_{2}$ complejos
+simpliciales y sea $f:\,\geom{K_{1}}\rightarrow\geom{K_{2}}$ una funci\'{o}n
+continua. Una transformaci\'{o}n simplicial $\varphi:\,K_{1}\rightarrow K_{2}$
+se dice que es una \emph{aproximaci\'{o}n simplicial de $f$}, si, dados
+$\alpha\in\geom{K_{1}}$ y $s_{2}\in K_{2}$, $f(\alpha)\in\simpinterior{s_{2}}$
+implica que $\geom{\varphi}\alpha\in\geom{s_{2}}$ (o, lo que es equivalente
+(por que esto es cierto para todo $s_{2}\in K_{2}$),
+$\geom{\varphi}\alpha\in\geom{s_{2}}$ si $f(\alpha)\in\geom{s_{2}}$).
+
+\begin{obsDefinicionAproximacionSimplicial}%
+	\label{obs:definicionaproximacionsimplicial}
+	Sea $f:\,\geom{K_{1}}\rightarrow\geom{K_{2}}$ una funci\'{o}n continua
+	y sea $\varphi:\,K_{1}\rightarrow K_{2}$ una aproximaci\'{o}n
+	simplicial de $f$. Si $v$ es un v\'{e}rtice de $K_{1}$ y
+	$f(\alpha_{v})$ se corresponde con un v\'{e}rtice de $K_{2}$, entonces
+	$\geom{\varphi}\alpha_{v}=f(\alpha_{v})$ y, por lo tanto,
+	$f(\alpha_{v})=\beta_{\varphi(v)}$. ($\alpha_{v}$ denota la
+	caracter\'{\i}stica de $v$ y $\beta_{\varphi(v)}$ denota la
+	caracter\'{\i}stica de $\varphi(v)$). Notemos que, en principio,
+	$f(\alpha_{v})$ no est\'{a} forzada a ser un punto correspondiente a
+	un v\'{e}rtice de $K_{2}$. Incluso si este fuese el caso, $f$
+	podr\'{\i}a no ser simplicial\dots El siguiente lema muestra que el
+	caso en que $f$ es ``simplicial'' no es muy interesante.
+\end{obsDefinicionAproximacionSimplicial}
+
+\begin{lemaDefinicionAproximacionSimplicial}%
+	\label{thm:definicionaproximacionsimplicial}
+	Sea $f:\,\geom{K_{1}}\rightarrow\geom{K_{2}}$ una funci\'{o}n continua
+	y sea $L_{1}\subset K_{1}$ un subcomplejo. Supongamos que existe una
+	transformaci\'{o}n simplicial $\psi:\,L_{1}\rightarrow K_{2}$ tal que
+	\begin{align*}
+		f|_{\geom{L_{1}}} & \,=\,\geom{\psi}
+		\text{ .}
+	\end{align*}
+	%
+	Si $\varphi:\,K_{1}\rightarrow K_{2}$ es una aproximaci\'{o}n
+	simplicial de $f$, entonces
+	\begin{align*}
+		\geom{\varphi}|_{\geom{L_{1}}} & \,=\,\geom{\psi}
+		\text{ ,}
+	\end{align*}
+	%
+	es decir, $\varphi|_{L_{1}}=\psi$. En particular, existe una
+	\'{u}nica aproximaci\'{o}n simplicial a una funci\'{o}n continua
+	de la forma $\geom{\varphi}$ y dicha transformaci\'{o}n es $\varphi$.
+\end{lemaDefinicionAproximacionSimplicial}
+
+En otras palabras, si una funci\'{o}n continua $f$ est\'{a} inducida por
+una transformaci\'{o}n simplicial en alg\'{u}n subcomplejo del dominio,
+entonces toda aproximaci\'{o}n simplicial de $f$ est\'{a} forzada a
+coincidir con dicha transformaci\'{o}n en dicho subcomplejo.
+
+\begin{proof}
+	Sean $f$ ,$\psi$ y $\varphi$ como en el enunciado. Sea
+	$\alpha\in\geom{L_{1}}$ y supongamos que $\alpha=\alpha_{v}$ con
+	$v$ un v\'{e}rtice de $L_{1}$. Por hip\'{o}tesis, como
+	$f|_{L_{1}}=\geom{\psi}$, se cumple
+	\begin{align*}
+		f(\alpha_{v}) & \,=\,\geom{\psi}\alpha_{v}\,=\,\beta_{\psi(v)}
+	\end{align*}
+	%
+	y, por otro lado, si $\varphi$ es una aproximaci\'{o}n simplicial de
+	$f$, entonces, por lo visto en la observaci\'{o}n
+	\ref{obs:definicionaproximacionsimplicial},
+	\begin{align*}
+		\geom{\varphi}\alpha_{v} & \,=\,f(\alpha_{v})
+		\text{ .}
+	\end{align*}
+	%
+	En particular, $\geom{\varphi}\alpha_{v}=\geom{\psi}\alpha_{v}$,
+	$\beta_{\varphi(v)}=\beta_{\psi(v)}$ y $\varphi(v)=\psi(v)$ para
+	todo v\'{e}rtice de $L_{1}$.
+\end{proof}
+
+Repetimos la definici\'{o}n de aproximaci\'{o}n simplicial: si
+$f:\,\geom{K_{1}}\rightarrow\geom{K_{2}}$ es una funci\'{o}n continua, lo que
+se requiere de una transformaci\'{o}n $\varphi:\,K_{1}\rightarrow K_{2}$
+para que sea una aproximaci\'{o}n simplicial de $f$ es que, para todo
+punto $\alpha\in\geom{K_{1}}$, si su imagen $f(\alpha)$ est\'{a} contenida
+en (el interior de) un s\'{\i}mplice $s_{2}\in K_{2}$, entonces
+$\geom{\varphi}\alpha$ no puede estar muy lejos: de hecho debe pertenecer
+al mismo s\'{\i}mplice (a lo sumo pertenece a la clausura de
+$\simpinterior{s_{2}}$).
+
+\begin{lemaAproximacionEsHomotopica}\label{thm:aproximacioneshomotopica}
+	Sea $\varphi:\,K_{1}\rightarrow K_{2}$ una aproximaci\'{o}n
+	simplicial de $f:\,\geom{K_{1}}\rightarrow\geom{K_{2}}$. Sea
+	$A\subset\geom{K_{1}}$ el conjunto $\{\geom{\varphi}=f\}$. Entonces
+	$\geom{\varphi}\simeq f\,(\rel A)$.
+\end{lemaAproximacionEsHomotopica}
+
+\begin{proof}
+	Sea $F:\,\geom{K_{1}}\times\intervalo\rightarrow\geom{K_{2}}$ la
+	homotop\'{\i}a
+	\begin{align*}
+		F(\alpha,t) & \,=\,t\,f(\alpha)+(1-t)\,\geom{\varphi}(\alpha)
+		\text{ .}
+	\end{align*}
+	%
+	Esta funci\'{o}n est\'{a} bien definida: si $\alpha\in\geom{K_{1}}$ y
+	$s_{2}\in K_{2}$ es tal que $f(\alpha)\in\simpinterior{s_{2}}$,
+	entonces $\geom{\varphi}\alpha\in\geom{s_{2}}$ y la combinaci\'{o}n
+	convexa de estos dos puntos est\'{a} definida y es un punto de
+	$\geom{s_{2}}$. Restringiendo a cada s\'{\i}mplice de $K_{1}$,
+	la imagen por $f$ y la imagen por $\geom{\varphi}$ son compactas
+	en $\geom{K_{2}}$. Por el corolario
+	\ref{thm:compactocontenidoenfinitossimplices}, si $s\in K_{1}$, existe
+	una cantidad finita de s\'{\i}mplices $\lista{t}{r}\in K_{2}$ tales que
+	\begin{align*}
+		f(s) & \,\subset\,\bigcup_{i=1}^{r}\,\simpinterior{t_{i}}
+		\text{ .}
+	\end{align*}
+	%
+	Dado que $\varphi$ es una aproximaci\'{o}n simplicial, se cumple que
+	\begin{align*}
+		\geom{\varphi}(s) & \,\subset\,
+			\bigcup_{i=1}^{r}\,\geom{t_{i}}
+		\text{ .}
+	\end{align*}
+	%
+	Esta uni\'{o}n, por ser finita, est\'{a} contenida en alg\'{u}n
+	subcomplejo finito $L_{2}\subset K_{2}$. Por finitud de $L_{2}$,
+	$\geom{L_{2}}=\geom{L_{2}}_{d}$ y la topolog\'{\i}a en $\geom{L_{2}}$
+	est\'{a} dada por la m\'{e}trica euclidea en sus s\'{\i}mplices. Pero
+	la topolog\'{\i}a en $\geom{s}$ tambi\'{e}n est\'{a} dada por la
+	m\'{e}trica euclidea. Como $\geom{L_{2}}\subset\geom{K_{2}}$ es un
+	subespacio, las funciones
+	$f,\geom{\varphi}:\,\geom{s}\rightarrow\geom{L_{2}}$ son continuas.
+	En particular, son continuas respecto de la m\'{e}trica. Sea
+	$\alpha\in\geom{s}$. Dado $\epsilon>0$, existe $\delta>0$ tal que,
+	si $\alpha'\in\geom{s}$ y $d(\alpha,\alpha')<\delta$, entonces, si
+	bien sus im\'{a}genes pueden pertenecer a distintos s\'{\i}mplices
+	en $K_{2}$ las mismas (por $f$ o por $\geom{\varphi}$) pertenecen a
+	$\geom{L_{2}}$ y
+	\begin{align*}
+		d\big(f(\alpha),f(\alpha')\big)\,<\,\epsilon
+			& \quad\text{y}\quad
+		d\big(\geom{\varphi}\alpha,\geom{\varphi}\alpha'\big)
+			\,<\,\epsilon
+	\end{align*}
+	%
+	En cuanto a $F$, si $t,t'\in\intervalo$, entonces
+	$F(\alpha,t),F(\alpha',t')\in\geom{L_{2}}$ y
+	\begin{align*}
+		d\big(F(\alpha,t),F(\alpha',t')\big) & \,\leq\,
+			d\big(F(\alpha,t),F(\alpha,t')\big) \,+\,
+			d\big(F(\alpha,t'),F(\alpha',t')\big)
+		\text{ .}
+	\end{align*}
+	%
+	Por un lado,
+	\begin{align*}
+		d\big(F(\alpha,t),F(\alpha',t)\big)^{2} & \,=\,
+			\sum_{w\in L_{2}}\,
+				\big|F(\alpha,t)(w)-F(\alpha',t)(w)\big|^{2} \\
+		& \,=\,\sum_{w\in L_{2}}\,
+			\big|t\,\big(f(\alpha) w-f(\alpha')w\big)+
+				(1-t)\,\big(\geom{\varphi}\alpha w-
+				\geom{\varphi}\alpha' w\big)\big|^{2} \\
+		& \,\leq\,\sum_{w\in L_{2}}\,
+			t\,\big|f(\alpha)w-f(\alpha')w\big|^{2} +
+			(1-t)\,\big|\geom{\varphi}\alpha w
+				\geom{\varphi}\alpha' w\big|^{2} \\
+		& \,\leq\,t\,d\big(f(\alpha),f(\alpha')\big)^{2}\,+\,
+			(1-t)\,d\big(\geom{\varphi}\alpha,
+				\geom{\varphi}\alpha'\big)^{2}
+	\end{align*}
+	%
+	Por otro,
+	\begin{align*}
+		d\big(F(\alpha',t),F(\alpha',t')\big)^{2} & \,=\,
+			\sum_{w\in L_{2}}\,\big|F(\alpha',t)(w)
+				-F(\alpha',t')(w)\big|^{2} \\
+		& \,=\,\sum_{w\in L_{2}}\,\big|(t-t')\,f(\alpha')w
+			+(t'-t)\,\geom{\varphi}\alpha'w\big|^{2} \\
+		& \,=\,|t-t'|^{2}\sum_{w\in L_{2}}\,\big(f(\alpha')w
+			+\geom{\varphi}\alpha'w\big)^{2} \\
+		& \,=\,|t-t'|^{2}\Big(
+			\sum_{w\in L_{2}}\,\big(f(\alpha')w\big)^{2}
+			\,+\,
+			\sum_{w\in L_{2}}\,2\,f(\alpha')w\,
+				\geom{\varphi}\alpha'w \\
+		&\qquad\qquad\qquad\,+\,
+			\sum_{w\in L_{2}}\,\big(\geom{\varphi}\alpha'w\big)^{2}
+			\Big) \\
+		& \,\leq\,|t-t'|^{2}\,\Big(
+			\sum_{w\in L_{2}}\,f(\alpha')w
+			\,+\,
+			2\,\sum_{w\in L_{2}}\,f(\alpha')w\,
+				\geom{\varphi}\alpha'w \\
+		&\qquad\qquad\qquad\,+\,
+			\sum_{w\in L_{2}}\,\geom{\varphi}\alpha'w
+			\Big) \\
+		& \,\leq\,4\,|t-t'|^{2}
+	\end{align*}
+	%
+	Esto demuestra que, si $\alpha,\alpha'\in\geom{s}$ verifican
+	$d(\alpha,\alpha')<\delta$ y $|t-t'|<\sqrt{\epsilon}/2$ entonces
+	$d\big(F(\alpha,t),F(\alpha',t')\big)<2\epsilon$ y $F$ es
+	continua en $\geom{s}\times\intervalo$.
+
+	Como $F|_{\geom{s}\times\intervalo}$ es continua para todo
+	$s\in K_{1}$, $F$ es continua, por el teorema
+	\ref{thm:homotopiasdecomplejos}. Dado que $F(\alpha,t)=f(\alpha)$,
+	si $\alpha\in A$, concluimos que $F$ es una homotop\'{\i}a
+	que realiza $\geom{\varphi}\simeq f\,(\rel{A})$.
+	% de $f$ en $\geom{\varphi}$ relativa a $A$.
+\end{proof}
+
+\begin{teoCaracterizacionAproximacionesSimpliciales}%
+	\label{thm:caracterizacionaproximacionessimpliciales}
+	Sea $\varphi:\,K_{1}\rightarrow K_{2}$ una aplicaci\'{o}n
+	definida \'{u}nicamente en los v\'{e}rtices
+	($\varphi:\,V_{1}\rightarrow V_{2}$) y sea
+	$f:\,\geom{K_{1}}\rightarrow\geom{K_{2}}$ una funci\'{o}n continua.
+	Entonces $\varphi$ determina una aproximaci\'{o}n simplicial de $f$,
+	si y s\'{o}lo si, para todo v\'{e}rtice $v$ de $K_{1}$, se cumple que
+	\begin{align*}
+		f\big(\estrella v\big) &\,\subset\,\estrella{\varphi(v)}
+		\text{ .}
+	\end{align*}
+	%
+\end{teoCaracterizacionAproximacionesSimpliciales}
+
+La funci\'{o}n $\varphi$ est\'{a} \'{u}nicamente definida en los v\'{e}rtices.
+En particular, no se asume que es una transformaci\'{o}n simplicial.
+
+\begin{proof}
+	Supongamos que $\varphi:\,K_{1}\rightarrow K_{2}$ es una
+	aproximaci\'{o}n simplicial de $f$ y sean $\alpha\in\geom{K_{1}}$ y
+	$s_{2}\in K_{2}$ tales que $f(\alpha)\in\simpinterior{s_{2}}$.
+	Como $\varphi$ es una aproximaci\'{o}n simplicial,
+	$\geom{\varphi}\alpha\in\geom{s_{2}}$. Por otra parte,
+	$\alpha\in\estrella v$ para cierto v\'{e}rtice $v$ de $K_{1}$.
+	Entonces $\alpha(v)\not =0$ y $\geom{\varphi}\alpha(\varphi(v))$
+	es distinto de cero, tambi\'{e}n. En particular, el v\'{e}rtice
+	$\varphi(v)$ peretenece a $s_{2}$ y
+	$f(\alpha)\in\estrella{\varphi(v)}$. Como $\alpha\in\estrella v$
+	era arbitrario, se verifica
+	\begin{align*}
+		f\big(\estrella v\big) & \,\subset\,\estrella{\varphi(v)}
+		\text{ .}
+	\end{align*}
+	%
+	Rec\'{\i}procamente, si la funci\'{o}n en v\'{e}rtices $\varphi$
+	verifica esta condici\'{o}n para todo v\'{e}rtice de $K_{1}$,
+	entonces, dado $s=\{\lista[0]{v}{q}\}\in K_{1}$, por el corolario
+	\ref{thm:simplicedesubcomplejo}, la intersecci\'{o}n
+	$\bigcap_{i=0}^{q}\,\estrella{v_{i}}$ es no vac\'{\i}a. Pero esto
+	implica que
+	\begin{align*}
+		\bigcap_{i=0}^{q}\,\estrella{\varphi(v_{i})} & \,\supset\,
+			\bigcap_{i=0}^{q}\,f\big(\estrella{v_{i}}\big)
+				\,\supset\,
+			f\Big(\bigcap_{i=0}^{q}\,\estrella{v_{i}}\Big)
+			\,\not=\,\varnothing
+		\text{ .}
+	\end{align*}
+	%
+	Apelando de nuevo al corolario \ref{thm:simplicedesubcomplejo},
+	los v\'{e}rtices $\{\varphi(v_{0}),\,\dots,\,\varphi(v_{q})\}$
+	son los v\'{e}rtices de un s\'{\i}mplice en $K_{2}$. Es definitiva,
+	$\varphi:\,K_{1}\rightarrow K_{2}$ es simplicial.
+
+	Finalmente, para ver que $\varphi$ es una aproximaci\'{o}n simplicial
+	de $f$, sea $\alpha\in\geom{K_{1}}$ y sea $s_{2}\in K_{2}$ tal que
+	$f(\alpha)\in\simpinterior{s_{2}}$. Sea $s\in K_{1}$ tal que
+	$\alpha\in\simpinterior{s}$ y sea $v\in s$ un v\'{e}rtice cualquiera
+	de $s$. Entonces, por hip\'{o}tesis, como $\alpha\in\estrella v$,
+	se cumple que $f(\alpha)\in\estrella{\varphi(v)}$. En particular,
+	$\varphi(v)$ es un v\'{e}rtice de $s_{2}$. Como $\varphi$ es
+	simplicial, $\varphi(s)\subset s_{2}$ y, por lo tanto,
+	$\geom{\varphi}\big(\geom{s}\big)\subset\geom{s_{2}}$. As\'{\i},
+	$\geom{\varphi}\alpha\in\geom{s_{2}}$.
+\end{proof}
+
+Sean $\varphi_{1}:\,L_{1}\rightarrow K_{1}$ y
+$\varphi_{2}:\,L_{2}\rightarrow K_{2}$ dos pares simpliciales y sea
+$(f',f):\,\geom{\varphi_{1}}\rightarrow\geom{\varphi_{2}}$ una funci\'{o}n
+continua en pares ($f'\circ\geom{\varphi_{1}}=\geom{\varphi_{2}}\circ f$).
+Supongamos que existe una transformaci\'{o}n de pares simpliciales
+$(\psi',\psi):\,\varphi_{1}\rightarrow\varphi_{2}$ tal que
+$\psi':\,K_{1}\rightarrow K_{2}$ es una aproximaci\'{o}n simplicial de $f'$.
+Si $\beta\in\geom{L_{1}}$ y $t_{2}\in L_{2}$ es tal que
+$f(\beta)\in\simpinterior{t_{2}}$, entonces
+\begin{align*}
+	f'\big(\geom{\varphi_{1}}\beta\big) & \,=\,
+		\geom{\varphi_{2}}f(\beta) \,\in\,
+		\geom{\varphi_{2}}\big(\simpinterior{t_{2}}\big) \,\subset\,
+		\simpinterior{\varphi_{2}t_{2}}
+\end{align*}
+%
+($\varphi_{2}$ es simplicial, con lo que $\varphi_{2}t_{2}\in K_{2}$). Como
+$f'$ es aproximada por $\psi'$, vale que
+\begin{align*}
+	\geom{\psi'}\big(\geom{\varphi_{1}}\beta\big) & \,\in\,
+		\geom{\varphi_{2}t_{2}}
+	\text{ .}
+\end{align*}
+%
+Pero
+\begin{align*}
+	\geom{\psi'}\geom{\varphi_{1}} & \,=\,\geom{\psi'\varphi_{1}}\,=\,
+		\geom{\varphi_{2}\psi}\,=\,\geom{\varphi_{2}}\geom{\psi}
+	\text{ .}
+\end{align*}
+%
+Entonces se deduce que
+\begin{align*}
+	\geom{\varphi_{2}}\big(\geom{\psi}\beta\big) & \,\in\,
+		\geom{\varphi_{2}}\big(\geom{t_{2}}\big)
+	\text{ .}
+\end{align*}
+%
+No parece haber raz\'{o}n para esperar que $\psi$ sea una aproximaci\'{o}n
+simplicial de $f$. Supongamos, por otro lado, que $w_{0}$ es un v\'{e}rtice de
+$L_{1}$. Sabemos, porque $\psi$ es simplicial, que $\psi(w_{0})$ es un
+v\'{e}rtice de $L_{2}$.
+% Supongamos que $f(\beta)\not\in\estrella{\psi(w_{0})}$.
+Supongamos que $\beta\in\estrella w_{0}$.
+Entonces
+\begin{align*}
+	\big(\geom{\varphi_{1}}\beta\big)(\varphi_{1}w_{0}) & \,=\,
+		\sum_{\varphi_{1}w=\varphi_{1}w_{0}}\,\beta(w) \,>\,0
+\end{align*}
+%
+y $\geom{\varphi_{1}}\beta\in\estrella{\varphi_{1}(w_{0})}$. De esto podemos
+deducir que $f'\big(\geom{\varphi_{1}}\beta\big)$ pertenece a
+$\estrella{\psi'(\varphi_{1}w_{0})}$. Pero esto significa que
+\begin{align*}
+	\geom{\varphi_{2}}\circ f(\beta) & \,\in\,
+		\estrella{\varphi_{2}(\psi w_{0})}
+	\text{ .}
+\end{align*}
+%
+De nuevo, si $\varphi_{2}$ identifica s\'{\i}mplices distintos en $L_{2}$,
+no hay raz\'{o}n para esperar que $\psi$ sea una aproximaci\'{o}n simplicial
+de $f$. El siguiente corolario garantiza que, cuando los pares $(K_{j},L_{j})$
+son subcomplejos, toda aproximaci\'{o}n simplicial de
+$f':\,K_{1}\rightarrow K_{2}$ induce una aproximaci\'{o}n de
+$f=f'|_{\geom{L_{1}}}$ en los subcomplejos.
+
+\begin{coroAproximacionInducidaEnSubcomplejos}%
+	\label{thm:aproximacioninducidaensubcomplejos}
+	Sea $f:\,\geom{K_{1}}\rightarrow\geom{K_{2}}$ una funci\'{o}n
+	continua y sean $L_{1}\subset K_{1}$ y $L_{2}\subset K_{2}$
+	subcomplejos. Supongamos que
+	$f\big(\geom{L_{1}}\big)\subset\geom{L_{2}}$ y que $f$ admite
+	una aproximaci\'{o}n simplicial $\varphi:\,K_{1}\rightarrow K_{2}$.
+	Entonces $\varphi\big(L_{1}\big)\subset L_{2}$ y
+	$\varphi|_{L_{1}}:\,L_{1}\rightarrow L_{2}$ es una aproximaci\'{o}n
+	simplicial de $f|_{\geom{L_{1}}}$.
+\end{coroAproximacionInducidaEnSubcomplejos}
+
+Notemos que, si bien $\varphi$ se restringe a una aplicaci\'{o}n de los
+v\'{e}rtices de $L_{1}$ en los v\'{e}rtices de $L_{2}$, como no se asume
+que ni $L_{2}$ ni $L_{1}$ sean subcomplejos plenos, no es inmediato que
+la restricci\'{o}n de $\varphi$ sea simplicial de $L_{1}$ \emph{en} $L_{2}$.
+
+\begin{proof}
+	Por el teorema \ref{thm:caracterizacionaproximacionessimpliciales},
+	alcanzar\'{a} con demostrar que, dado un v\'{e}rtice $w$ de $L_{1}$,
+	entonces $\varphi(w)$ es un v\'{e}rtice de $L_{2}$ y que se verifica
+	que
+	\begin{align*}
+		f\big(\estrella w\,\cap\,\geom{L_{1}}\big) & \,\subset\,
+			\big(\estrella{\varphi(w)}\big)\,\cap\,\geom{L_{2}}
+		\text{ .}
+	\end{align*}
+	%
+	Por un lado, por hip\'{o}tesis,
+	$f\big(\estrella w\big)\subset\estrella{\varphi(w)}$. Por otro lado,
+	como $f\big(\geom{L_{1}}\big)\subset\geom{L_{2}}$, existe un
+	s\'{\i}mplice $t_{2}\in L_{2}$ tal que $f(w)\in\simpinterior{t_{2}}$.
+	En particular, $\geom{\varphi}(\alpha_{w})\in\geom{t_{2}}$ y
+	$\varphi(w)$ es un v\'{e}rtice ($\varphi$ es simplicial) de $t_{2}$.
+	Entonces $\varphi(w)$ es un v\'{e}rtice de $L_{2}$ y
+	\begin{align*}
+		f\big(\estrella w\,\cap\,\geom{L_{1}}\big) & \,\subset\,
+			f\big(\estrella w\big)\,\cap\,\geom{L_{2}} \,\subset\,
+			\big(\estrella{\varphi(w)}\big)\,\cap\,\geom{L_{2}}
+		\text{ .}
+	\end{align*}
+	%
+\end{proof}
+
+\begin{obsAproximacionDeParesEsDePares}\label{obs:aproximaciondeparesesdepares}
+	Sean $L_{1}\subset K_{1}$ y $L_{2}\subset K_{2}$ subcomplejos y
+	sea
+	\begin{math}
+		f:\,(\geom{K_{1}},\geom{L_{1}})\rightarrow
+			(\geom{K_{2}},\geom{L_{2}})
+	\end{math}
+	una funci\'{o}n continua de pares de espacios topol\'{o}gicos. Por
+	el corolario \ref{thm:aproximacioninducidaensubcomplejos}, toda
+	aproximaci\'{o}n simplicial $\varphi:\,K_{1}\rightarrow K_{2}$ es
+	est\'{a} forzada a ser una transformaci\'{o}n de pares
+	$\varphi:\,(K_{1},L_{1})\rightarrow (K_{2},L_{2})$.
+
+	Una pregunta que surge de esto es, si $\psi'$ es una aproximaci\'{o}n
+	de $f'$ y $\psi$ es una aproximaci\'{o}n de $f$ (donde
+	$(f',f'):\,\geom{\varphi_{1}}\rightarrow\geom{\varphi_{2}}$ es un
+	morfismo de pares entre los espacios de los pares de complejos
+	$\varphi_{1}$ y $\varphi_{2}$) ?`es cierto que
+	$\psi'\varphi_{1}=\varphi_{2}\psi$?, es decir, ?`es $(\psi',\psi)$ una
+	transformaci\'{o}n simplicial de pares? En general, parece ser que
+	la respuesta es negativa: lo que se puede deducir es que el punto
+	\begin{align*}
+		\geom{\varphi_{2}}f(\beta_{w}) & \,=\,
+			f'\big(\geom{\varphi_{1}}\beta_{w}\big)
+	\end{align*}
+	%
+	($w$ un v\'{e}rtice de $L_{1}$) pertenece a la intersecci\'{o}n
+	\begin{align*}
+		& \estrella{\psi'(\varphi_{1}w)}\,\cap\,
+			\geom{\varphi_{2}}\big(\estrella{\psi(w)}\big)
+		\text{ .}
+	\end{align*}
+	%
+
+	Volviendo al caso de los subcomplejos, si
+	$\varphi:\,(K_{1},L_{1})\rightarrow (K_{2},L_{2})$ es una
+	aproximaci\'{o}n simplicial de
+	\begin{math}
+		f:\,(\geom{K_{1}},\geom{L_{1}})\rightarrow
+			(\geom{K_{2}},\geom{L_{2}})
+	\end{math}~,
+	entonces la homotop\'{\i}a $f\simeq\geom{\varphi}$ dada por el lema
+	\ref{thm:aproximacioneshomotopica} es, en realidad, una homotop\'{\i}a
+	de pares, pues la imagen de $\geom{L_{1}}\times\intervalo$ debe
+	mantenerse dentro de $\geom{L_{2}}$.
+\end{obsAproximacionDeParesEsDePares}
+
+\begin{obsComposicionDeAproximacionesEsAproximacion}%
+	\label{obs:composiciondeaproximacionesesaproximacion}
+	Sean $g:\,\geom{K_{2}}\rightarrow\geom{K_{3}}$ y
+	$f:\,\geom{K_{1}}\rightarrow\geom{K_{2}}$ funciones continuas y sean
+	$\psi:\,K_{2}\rightarrow K_{3}$ y $\varphi:\,K_{1}\rightarrow K_{2}$
+	aproximaciones simpliciales. Entonces, dado un v\'{e}rtice $v$ de
+	$K_{1}$,
+	\begin{align*}
+		g\circ f\big(\estrella v\big) & \,\subset\,
+			g\big(\estrella{\varphi(v)}\big) \,\subset\,
+			\estrella{\psi\circ\varphi(v)}
+		\text{ .}
+	\end{align*}
+	%
+	Por lo tanto, $\psi\circ\varphi$ es una aproximaci\'{o}n
+	simplicial de $g\circ f$.
+\end{obsComposicionDeAproximacionesEsAproximacion}
+
+\begin{propoCaracterizacionDeAproximables}%
+	\label{thm:caracterizaciondeaproximables}
+	Sea $f:\,\geom{K_{1}}\rightarrow\geom{K_{2}}$ una funci\'{o}n
+	continua. Entonces $f$ admite una aproximaci\'{o}n simplicial,
+	si y s\'{o}lo si $K_{1}$ refina el cubrimiento por abiertos
+	\begin{align*}
+		\cal U & \,=\, \big\{f^{-1}\big(\estrella v'\big)\,:\,
+			v'\text{ v\'{e}rtice de }K_{2}\big\}
+		\text{ .}
+	\end{align*}
+	%
+\end{propoCaracterizacionDeAproximables}
+
+\begin{proof}
+	Supongamos que existe una aproximaci\'{o}n simplicial
+	$\varphi:\,K_{1}\rightarrow K_{2}$ de $f$. Entonces, dado un
+	v\'{e}rtice $v$ de $K_{1}$, $\varphi(v)=v'$ es un v\'{e}rtice de
+	$K_{2}$ y
+	\begin{align*}
+		\estrella v & \,\subset\,f^{-1}\big(\estrella v'\big)
+		\text{ .}
+	\end{align*}
+	%
+	En particular, $K_{1}$ refina el cubrimiento $\cal U$ de
+	$\geom{K_{1}}$. Rec\'{\i}procamente, si para todo v\'{e}rtice $v$ de
+	$K$ existe alg\'{u}n v\'{e}rtice $v'$ tal que $\estrella v$ est\'{e}
+	contenido en el abierto $f^{-1}\big(\estrella v'\big)$, entonces
+	$\varphi:\,v\mapsto v'$ define una aplicaci\'{o}n de los v\'{e}rtices
+	de $K_{1}$ en los de $K_{2}$ que verifica las hip\'{o}tesis del
+	teorema \ref{thm:caracterizacionaproximacionessimpliciales}.
+\end{proof}
+
+\begin{coroCaracterizacionDeAproximacionesPorSubdivision}%
+	\label{thm:caracterizaciondeaproximacionesporsubdivision}
+	Sea $K'$ una subdivisi\'{o}n de un complejo simplicial $K$ y sea
+	$\varphi$ una aplicaci\'{o}n definida en los v\'{e}rtices de $K'$
+	con imagen en los v\'{e}rtices de $K$. Entonces $\varphi$ determina
+	una aproximaci\'{o}n simplicial de la identidad
+	$\geom{K'}\rightarrow\geom{K}$, si y s\'{o}lo si
+	$v'\in\estrella{\varphi(v')}$ para todo v\'{e}rtice $v'$ en $K'$.
+\end{coroCaracterizacionDeAproximacionesPorSubdivision}
+
+\begin{proof}
+	Este resultado es consecuencia de la observaci\'{o}n
+	\ref{obs:subdivisionesyestrellas} y del teorema
+	\ref{thm:caracterizacionaproximacionessimpliciales}.
+\end{proof}
+
+Notemos que esto implica la existencia de aproximaciones simpliciales de la
+identidad $\geom{K'}\rightarrow\geom{K}$ para toda subdivisi\'{o}n $K'$ de $K$.
+Llegamos al teorema central de existencia de aproximaciones simpliciales.
+
+\begin{teoExistenciaDeAproximaciones}\label{thm:existenciadeaproximaciones}
+	Sea $(K_{1},L_{1})$ un par simplicial finito y sea
+	\begin{math}
+		f:\,(\geom{K_{1}},\geom{L_{1}})\rightarrow
+			(\geom{K_{2}},\geom{L_{2}})
+	\end{math}
+	una funci\'{o}n continua. Existe $N\geq 1$ tal que, si $n\geq N$,
+	entonces $f$ admite una aproximaci\'{o}n simplicial
+	\begin{math}
+		\varphi:\,(\subdiv[n]{K_{1}},\subdiv[n]{L_{1}})\rightarrow
+			(K_{2},L_{2})
+	\end{math}~.
+\end{teoExistenciaDeAproximaciones}
+
+\begin{proof}
+	Ver el corolario \ref{thm:aproximacioninducidaensubcomplejos},
+	la proposici\'{o}n \ref{thm:caracterizaciondeaproximables},
+	el corolario \ref{thm:caracterizaciondeaproximacionesporsubdivision} y
+	el teorema \ref{thm:refinarportriangulaciones}.
+	El valor de $N$ depender\'{a} del codominio (ver el ejemplo
+	\ref{ejemplo:aproximacionesenelcirculo}).
+\end{proof}

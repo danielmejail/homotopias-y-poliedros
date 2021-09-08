@@ -1,0 +1,371 @@
+\theoremstyle{plain}
+\newtheorem{teoTodoComplejoEsNormal}{Teorema}[section]
+\newtheorem{coroTodoComplejoEsPerfectamenteNormal}[teoTodoComplejoEsNormal]%
+	{Corolario}
+\newtheorem{coroCompactoContenidoEnFinitosSimplices}[teoTodoComplejoEsNormal]%
+	{Corolario}
+\newtheorem{coroComplejoFinitoEspacioCompacto}[teoTodoComplejoEsNormal]%
+	{Corolario}
+\newtheorem{coroTodoComplejoEsCompactamenteGenerado}[teoTodoComplejoEsNormal]%
+	{Corolario}
+\newtheorem{coroComplejoLocalmenteFinitoEspacioLocalmenteCompacto}%
+	[teoTodoComplejoEsNormal]{Corolario}
+\newtheorem{teoHomotopiasDeComplejos}[teoTodoComplejoEsNormal]{Teorema}
+\newtheorem{coroSimpliceDeSubcomplejo}[teoTodoComplejoEsNormal]{Corolario}
+\newtheorem{teoTodoComplejoEsNervio}[teoTodoComplejoEsNormal]{Teorema}
+
+\theoremstyle{remark}
+\newtheorem{obsFuncionesContinuasEnUnComplejo}[teoTodoComplejoEsNormal]%
+	{Observaci\'{o}n}
+
+%-------------
+
+Dado un complejo simplicial $K$, el espacio topol\'{o}gico $\geom{K}_{d}$
+es perfectamente normal, pues es metrizable. Veamos que propiedades de
+separabilidad verifica $\geom{K}$. El espacio $\geom{K}$ es Hausdorff, pues
+posee m\'{a}s abiertos que $\geom{K}_{d}$. Pero esto no es todo.
+
+\begin{teoTodoComplejoEsNormal}\label{thm:todocomplejoesnormal}
+	Sea $K$ un complejo simplicial. Entonces $\geom{K}$ es un
+	espacio topol\'{o}gico $T_{4}$ (normal Hausdorff)
+\end{teoTodoComplejoEsNormal}
+
+\begin{obsFuncionesContinuasEnUnComplejo}%
+	\label{obs:funcionescontinuasenuncomplejo}
+	Una funci\'{o}n $F:\,\geom{K}\rightarrow [0,1]$ es continua, si y
+	s\'{o}lo si las restricciones $F|_{\geom{s}}$ lo son. As\'{\i} la
+	existencia de una funci\'{o}n continua $F:\,\geom{K}\rightarrow [0,1]$
+	equivale a la existencia de una familia compatible de funciones
+	continuas $\{f_{s}:\,\geom{s}\rightarrow [0,1]\}_{s\in K}$. La
+	compatibilidad de esta familia significa que, dados s\'{\i}mplices
+	$s$ y $s'$ y dadas sus funciones correspondientes $f_{s}$ y $f_{s'}$,
+	o bien $\geom{s}\cap\geom{s'}=\varnothing$, o, si la intersecci\'{o}n
+	es no vac\'{\i}a, se cumple
+	\begin{align*}
+		f_{s}|_{\geom{s}\cap\geom{s'}} & \,=\,
+			f_{s'}|_{\geom{s}\cap\geom{s'}}
+		\text{ .}
+	\end{align*}
+	%
+	Como $\geom{s}\cap\geom{s'}=\varnothing$ equivale a
+	$s\cap s'=\varnothing$ y, en caso contrario,
+	$\geom{s}\cap\geom{s'}=\geom{s\cap s'}$ es una cara tanto de $s$ como
+	de $s'$, la comatibilidad de las funciones $\{f_{s}\}_{s\in K}$ se
+	traduce en la condici\'{o}n
+	\begin{equation}
+		\label{eq:funcionescontinuasenuncomplejo}
+		f_{s}|_{\geom{s'}} \,=\,f_{s'}
+		\text{ ,}
+	\end{equation}
+	%
+	para todo s\'{\i}mplice $s$ y toda cara $s'\subset s$.
+\end{obsFuncionesContinuasEnUnComplejo}
+
+\begin{proof}%[Demostraci\'{o}n de \ref{thm:todocomplejoesnormal}]
+	Demostraremos que $\geom{K}$ es normal probando que es
+	posible extender toda funci\'{o}n continua definida en un subespacio
+	cerrado. Sea $A\subset\geom{K}$ un subespacio cerrado y sea
+	$f:\,A\rightarrow [0,1]$ una funci\'{o}n continua. Una funci\'{o}n
+	$F:\,\geom{K}\rightarrow [0,1]$ es una extensi\'{o}n continua de $f$,
+	si y s\'{o}lo si, adem\'{a}s de la condici\'{o}n de continuidad
+	(compatibilidad) \eqref{eq:funcionescontinuasenuncomplejo}, se
+	verifica
+	\begin{equation}
+		\label{eq:todocomplejoesnormal}
+		F_{s}|_{A\cap\geom{s}} \,=\,f|_{A\cap\geom{s}}
+	\end{equation}
+	%
+	para todo s\'{\i}mplice $s\in K$. Definimos una extensi\'{o}n de
+	manera inductiva en la dimensi\'{o}n de los s\'{\i}mplices de $K$.
+	Si $s\in K$ es un $0$-s\'{\i}mplice, un v\'{e}rtice, entonces
+	$\geom{s}\in\geom{K}$ consiste en un \'{u}nico punto, al que llamamos
+	$\alpha_{s}$ y, o bien $\alpha_{s}\in A$, o bien
+	$\alpha_{s}\not\in A$. En el primer caso definimos
+	$f_{s}=f(\alpha_{s})$; en el segundo caso definimos $f_{s}$ de manera
+	arbitraria, por ejemplo, $f_{s}=1$. As\'{\i},
+	\begin{align*}
+		f_{s} & \,=\,
+			\begin{cases}
+				f(\alpha_{s}) & \quad\text{ si }
+					\alpha_{s}\in A \\
+				1 & \quad\text{ si no}
+			\end{cases}
+		\text{ .}
+	\end{align*}
+	%
+	Supongamos que $q>0$ y que existen funciones $\{f_{s}\,:\,\dim\,s<q\}$
+	que verifican \eqref{eq:funcionescontinuasenuncomplejo} y
+	\eqref{eq:todocomplejoesnormal}. Dado un $q$-s\'{\i}mplice $s$ y un
+	punto $\alpha\in\geom{s}$, o bien $\alpha\in\geom{carasp{s}}$, es
+	decir $\alpha\in\geom{s'}$ para cierta cara $s'\subset s$ propia,
+	o bien $\alpha$ pertenece al interior de $\geom{s}$ (ver
+	\ref{obs:topologiaensimplices}, este conjunto no es el interior
+	como subespacio de $\geom{K}$, son simplemente los puntos de
+	$\geom{s}$ que no pertenecen a caras propias, pero s\'{\i} es abierto
+	en $\geom{s}$). Definimos un funci\'{o}n intermedia
+	$f'_{s}:\,\geom{\carasp{s}}\cup (A\cap\geom{s})\rightarrow [0,1]$
+	de la siguiente manera:
+	\begin{align*}
+		f'_{s}|_{\geom{s'}} & \,=\,f_{s'}
+			\quad\text{ si } s'\text{ es una cara propia,} \\
+		f'_{s}|_{A\cap\geom{s}} & \,=\,f|_{A\cap\geom{s}}\text{ .}
+	\end{align*}
+	%
+	(Si la intersecci\'{o}n $A\cap\geom{s}$ es vac\'{\i}a, $f'_{s}$
+	queda sin definir all\'{\i}). Esto define una funci\'{o}n continua
+	en el subespacio cerrado $\geom{\carasp{s}}\cup (A\cap\geom{s})$ de
+	$\geom{s}$ con imagen en el intervalo $[0,1]$. Por el teorema de
+	extensi\'{o}n de Tietze ($\geom{s}$ es, entre otras cosas, un
+	espacio $T_{4}$), existe una funci\'{o}n continua
+	$f_{s}:\,\geom{s}\rightarrow [0,1]$ que extiende a $f'_{s}$. La
+	familia $\{f_{s}\}_{s\in K}$ definida inductivamente determina una
+	extensi\'{o}n continua de la funci\'{o}n $f:\,A\rightarrow [0,1]$ a
+	todo el espacio $\geom{K}$.
+\end{proof}
+
+!`Y aun hay m\'{a}s!
+
+\begin{coroTodoComplejoEsPerfectamenteNormal}%
+	\label{thm:todocomplejoesperfectamentenormal}
+	El espacio $\geom{K}$ es $T_{6}$\dots (perfectamente normal Hausdorff).
+\end{coroTodoComplejoEsPerfectamenteNormal}
+
+\begin{proof}
+	Sea $A\subset\geom{K}$ un subespacio cerrado. Veremos que $A$ es el
+	conjunto de ceros de una funci\'{o}n continua definida en $\geom{K}$.
+	Consideramos la funci\'{o}n $f:\,A\rightarrow [0,1]$, $f=0$.
+	Procedemos inductivamente, como en la demostraci\'{o}n de
+	\ref{thm:todocomplejoesnormal}, pero con algunas salvedades.
+	Empezamos con los $0$-s\'{\i}mplices: si $s\in K$ es tal que
+	$\dim\,s=0$ y llamamos $\alpha_{s}$ al \'{u}nico punto en $\geom{s}$,
+	entonces definimos
+	\begin{align*}
+		f_{s} & \,=\,
+			\begin{cases}
+				0 & \quad\text{si } \alpha_{s}\in A \\
+				1 & \quad\text{si } \alpha_{s}\not\in A
+			\end{cases}
+		\text{ .}
+	\end{align*}
+	%
+	Supongamos que $q>0$ y que las funciones $f_{s}$ est\'{a}n definidas
+	para todo s\'{\i}mplice de dimensi\'{o}n $\dim\,s<q$, de manera tal
+	que
+	\begin{equation}
+		\label{eq:todocomplejoesperfectamentenormal}
+		\begin{aligned}
+			f_{s}|_{\geom{s'}} & \,=\,f_{s'}
+				\quad\text{si } s'\subset s\text{ es una %
+				cara propia} \\
+			f_{s}|_{A\cap\geom{s}} & \,=\,0
+			\text{ .}
+		\end{aligned}
+	\end{equation}
+	%
+	(Para ser un poco m\'{a}s precisos, podemos suponer, adem\'{a}s, que
+	$f_{s}=1$, si $\geom{s}\cap A=\varnothing$ y que $f_{s}(\alpha)>0$,
+	si $\alpha\not\in A$, aunque esto se podr\'{a} deducir de la forma
+	en la que se realizar\'{a}n los pasos inductivos).
+	Sea $s\in K$ un $q$-s\'{\i}mplice. Si $\geom{s}\subset A$,
+	definimos $f_{s}=0$, si $\geom{s}\cap A=\varnothing$, definimos
+	$f_{s}=1$. En otro caso, $A\cap\geom{s}\subset\geom{s}$ es un
+	subespacio cerrado y tambi\'{e}n lo es el subespacio que se
+	obtiene a partir de las caras propias de $s$, $\geom{\carasp{s}}$.
+	Definimos dos funciones intermedias: sean $f'_{s}$ y $f''_{s}$ las
+	funciones $\geom{\carasp{s}}\cup(A\cap\geom{s})\rightarrow [0,1]$
+	dadas por:
+	\begin{align*}
+		f'_{s}|_{\geom{s'}} & \,=\,f_{s'}
+			\quad\text{si } s'\subset s
+			\text{ es una cara propia} \\
+		f'_{s}|_{A\cap\geom{s}} & \,=\, 0 \text{ ;}
+	\end{align*}
+	%
+	y por
+	\begin{align*}
+		f''_{s}|_{\geom{s'}} & \,=\,0 \\
+		f''_{s}|_{A\cap\geom{s}} & \,=\,0 \text{ .}
+	\end{align*}
+	%
+	Como $\geom{\carasp{s}}\cup(A\cap\geom{s})\subset\geom{s}$ es cerrado
+	y $\geom{s}$ es $T_{4}$, existe, por el teorema de extensi\'{o}n
+	de Tietze, una funci\'{o}n $g_{s}:\,\geom{s}\rightarrow [0,1]$
+	continua que extiende a $f'_{s}$ (de nuevo remarcamos que, si
+	$\geom{s}\cap A=\varnothing$, elegimos $g_{s}=1$). Por otro lado,
+	como, adem\'{a}s, $\geom{s}$ es $T_{6}$, existe una extensi\'{o}n
+	$h_{s}:\,\geom{s}\rightarrow [0,1]$ de $f''_{s}=0$ que es
+	estrictamente positiva fuera de $\geom{\carasp{s}}\cup(A\cap\geom{s})$.
+	Sea finalmente $f_{s}:\,\geom{s}\rightarrow [0,1]$ la funci\'{o}n
+	dada por
+	\begin{align*}
+		f_{s} & \,=\,g_{s} + \frac{h_{s}}{h_{s}+1}\cdot(1-g_{s})
+		\text{ .}
+	\end{align*}
+	%
+	Entonces $f_{s}$ es continua, coincide con $f'_{s}$ en
+	$\geom{\carasp{s}}\cup(A\cap\geom{s})$ y es estrictamente positiva
+	$\geom{s}\setmin A$. Adem\'{a}s, $f_{s}=0$, si $\geom{s}\subset A$ y
+	$f_{s}=1$, si $\geom{s}\cap A=\varnothing$. La familia de funciones
+	$\{f_{s}\}_{s\in K}$ definida de manera inductiva determina una
+	funci\'{o}n continua en $\geom{K}$ que es cero en $A$ y estrictamente
+	positiva fuera de $A$. Esta funci\'{o}n verifica tambi\'{e}n que
+	vale $1$ en todo s\'{\i}mplice disjunto de $A$.
+\end{proof}
+
+Sea $\simpinterior{s}=\geom{s}\setmin\geom{\carasp{s}}$. Este subconjunto
+es abierto en $\geom{s}$, pero no necesariamente en $\geom{K}$ (nunca ser\'{a}
+abierto si $s$ est\'{a} contenido en un s\'{\i}mplice de dimensi\'{o}n
+estrictamente mayor). Los subconjuntos $\simpinterior{s}$ cubren $\geom{K}$.
+Sea $A\subset\geom{K}$ un subconjunto arbitrario. Para cada s\'{\i}plice
+$s\in K$, sea $\alpha_{s}\in A\cap\simpinterior{s}$ (siempre que la
+intersecci\'{o}n sea no vac\'{\i}a). Como $\alpha_{s}$ no pertenece a ninguna
+cara propia de $s$,
+% (e, invirtiendo la perspectiva, no pertenece a $\simpinterior{s'}$ para
+% ning\'{u}n s\'{\i}mplice del cual $s$ sea una cara propia),
+$\alpha_{s}$ est\'{a}
+un\'{\i}vocamente asociado a $s$, es decir, $\alpha_{s}=\alpha_{s'}$ implica
+$s=s'$. En particular, $\alpha_{s}\in \geom{s'}$ implica que $s\subset s'$,
+con lo cual, si $A'=\{\alpha_{s}\}_{A\cap\simpinterior{s}\not=\varnothing}$,
+entonces $\geom{s}\cap A'$ es a lo sumo finita para todo s\'{\i}mplice
+$s\in K$. Se deduce entonces que $A'\subset\geom{K}$ es discreto.
+
+\begin{coroCompactoContenidoEnFinitosSimplices}%
+	\label{thm:compactocontenidoenfinitossimplices}
+	Todo subespacio compacto $A\subset\geom{K}$ est\'{a} contenido en
+	la uni\'{o}n de una cantidad finita de s\'{\i}mplices
+	abiertos $\simpinterior{s}$.
+\end{coroCompactoContenidoEnFinitosSimplices}
+
+\begin{coroTodoComplejoEsCompactamenteGenerado}%
+	\label{thm:todocomplejoescompactamentegenerado}
+	Dado un complejo simplicial $K$, el espacio $\geom{K}$ con
+	la topolog\'{\i}a coherente es compactamente generado, es decir,
+	la topolog\'{\i}a es coherente con la familia de subespacios
+	compactos de $\geom{K}$.
+\end{coroTodoComplejoEsCompactamenteGenerado}
+
+\begin{proof}
+	Si $A\subset\geom{K}$ es cerrado, como $\geom{K}$ es Hausdorff,
+	$A\cap C$ es cerrado en $C$ para todo compacto $C\subset\geom{K}$.
+	Rec\'{\i}procamente, si $A\cap C$ es cerrado en $C$ para todo
+	compacto $C$, entonces $A\cap\geom{s}$ es cerrado para todo
+	s\'{\i}mplice $s\in K$ y, en particular, $A$ es cerrado.
+\end{proof}
+
+\begin{coroComplejoFinitoEspacioCompacto}%
+	\label{thm:complejofinitoespaciocompacto}
+	Un complejo simplicial $K$ es finito, si y s\'{o}lo si $\geom{K}$
+	es compacto.
+\end{coroComplejoFinitoEspacioCompacto}
+
+\begin{coroComplejoLocalmenteFinitoEspacioLocalmenteCompacto}%
+	\label{thm:complejolocalmentefinitoespaciolocalmentecompacto}
+	Un complejo simplicial $K$ es localmente finito, si y s\'{o}lo si
+	$\geom{K}$ es localmente compacto. (???)
+\end{coroComplejoLocalmenteFinitoEspacioLocalmenteCompacto}
+
+\begin{teoHomotopiasDeComplejos}\label{thm:homotopiasdecomplejos}
+	Sea $K$ un complejo simplicial. Una funci\'{o}n
+	$F:\,\geom{K}\times [0,1]\rightarrow X$ es continua, si y s\'{o}lo si
+	las restricciones $F|_{\geom{s}\times [0,1]}$ son continuas
+	para todo s\'{\i}mplice $s\in K$.
+\end{teoHomotopiasDeComplejos}
+
+\begin{proof}
+	Como $[0,1]$ es localmente compacto Hausdorff y $\geom{K}$ es
+	compactamente generado, el producto $\geom{K}\times [0,1]$ es
+	compactamente generado, tambi\'{e}n. Si $C\subset\geom{K}\times [0,1]$
+	es compacto y $C_{1}\subset\geom{K}$ denota su proyecci\'{o}n en
+	el primer factor, entonces $C_{1}$ es compacto y, por el
+	corolario \ref{thm:compactocontenidoenfinitossimplices}, existen
+	s\'{\i}mplices $\lista{s}{r}$ tales que
+	\begin{align*}
+		C_{1} & \,\subset\,\simpinterior{s_{1}}\,\cup\,\cdots\,\cup\,
+					\simpinterior{s_{r}}
+	\end{align*}
+	%
+	En particular, el subcomplejo finito
+	$L=\caras{s_{1}}\cup\cdots\cup\caras{s_{r}}$ de $\geom{K}$ cumple que
+	\begin{align*}
+		C & \,\subset\,\geom{L}\times [0,1]
+		\text{ .}
+	\end{align*}
+	%
+	De esto y de que $\geom{K}\times [0,1]$ es compactamente generado,
+	se deduce que la topolog\'{\i}a de $\geom{K}\times [0,1]$ coincide
+	con la topolog\'{\i}a determinada por la familia de subconjuntos
+	$\big\{\geom{L}\times [0,1]\big\}_{L}$, donde $L$ var\'{\i}a entre
+	todos los subcomplejos finitos de $K$.
+	% un subconjunto A\subset $\geom{K}\times [0,1]$ es cerrado, si
+	% y s\'{o}lo si su intersecci\'{o}n con $\geom{L}\times [0,1]$
+	% es cerrada.
+	Esta topolog\'{\i}a es, a su vez, equivalente a la topolog\'{\i}a
+	determinada por $\big\{\geom{s}\times [0,1]\,:\,s\in K\big\}$, pues,
+	si $L$ es finito, la topolog\'{\i}a en $\geom{L}\times [0,1]$
+	coincide con la topolog\'{\i}a determinada por la familia
+	$\big\{\geom{s}\times [0,1]\,:\,s\in L\big\}$.
+\end{proof}
+
+Sea $K$ un complejo simplicial. Sea $v\in V$ un v\'{e}rtice. Definimos la
+\emph{estrella centrada en $v$} como el subconjunto
+\begin{align*}
+	\estrella{v} & \,=\,\big\{\alpha\in\geom{K}\,:\,\alpha(v)\not=0\big\}
+	\text{ .}
+\end{align*}
+%
+La funci\'{o}n
+\begin{math}
+	\big(\alpha\mapsto\alpha(v)\big):\,\geom{K}_{d}\rightarrow [0,1]
+\end{math}~,
+dada por tomar ``coordenada en $v$'', es continua con respecto a la
+m\'{e}trica en $\geom{K}_{d}$. En particular, $\estrella{v}$ es un
+subconjunto abierto de $\geom{K}_{d}$ y, por lo tanto, tambi\'{e}n de
+$\geom{K}$.
+
+Sea $\alpha\in\geom{K}$ un punto arbitrario. Entonces, excepto que $\alpha$
+sea un v\'{e}rtice de $\geom{K}$ ($\alpha(v)=1$ para alg\'{u}n v\'{e}rtice
+en $K$), existe un s\'{\i}mplice $s$ tal que $\alpha\in\geom{s}$, pero
+$\alpha\not\in\geom{s'}$, si $s'\subset s$ es una cara propia. Este
+s\'{\i}mplice (o $\{v\}$, si $\alpha(v)=1$ para alg\'{u}n $v$), es el
+s\'{\i}mplice m\'{a}s chico que contiene a $\alpha$. Dado que
+\begin{align*}
+	\simpinterior{s} & \,=\,\geom{s}\setmin\geom{\carasp{s}} \,=\,
+		\big\{\alpha\in\geom{K}\,:\,
+			\alpha(v)\not =0\Leftrightarrow v\in s\big\}
+		\text{ ,}
+\end{align*}
+%
+entonces $\alpha\in\estrella{v}$, si y s\'{o}lo si $\alpha\in\simpinterior{s}$
+para alg\'{u}n s\'{\i}mplice $s\in K$ que tenga a $v$ como v\'{e}rtice. En
+particular,
+\begin{align*}
+	\estrella{v} & \,=\,\bigcup\,
+		\big\{\simpinterior{s}\,:\,v\in s, s\in K\big\}
+	\text{ .}
+\end{align*}
+%
+
+\begin{coroSimpliceDeSubcomplejo}\label{thm:simplicedesubcomplejo}
+	Sea $L\subset K$ un subcomplejo y sean $\lista[0]{v}{q}$ v\'{e}rtices
+	(distintos) de $K$. Entonces $\lista[0]{v}{q}$ son los v\'{e}rtices
+	de un s\'{\i}mplice en $L$, si y s\'{o}lo si
+	\begin{align*}
+		\bigcap_{i=0}^{q}\,\estrella{v_{i}}\cap\geom{L} & \,\not=\,
+			\varnothing
+		\text{ .}
+	\end{align*}
+	%
+\end{coroSimpliceDeSubcomplejo}
+
+\begin{teoTodoComplejoEsNervio}\label{thm:todocomplejoesnervio}
+	Sea $K$ un complejo simplicial y sea
+	$\cal{U} =\big\{\estrella{v}\,:\,v\in V$ la familia de estrellas
+	centradas en v\'{e}rtices de $K$. La aplicaci\'{o}n
+	$v\mapsto\estrella{v}$ define una transformaci\'{o}n simplicial
+	$\varphi:\,K\rightarrow\nerv{\cal{U}}$ de $K$ en el nervio de la
+	colecci\'{o}n de abiertos $\cal{U}$ de $\geom{K}$. La
+	transformaci\'{o}n $\varphi$ es un isomorfismo y, para todo
+	subcomplejo $L\subset K$, la restricci\'{o}n
+	$\varphi|_{L}:\,L\rightarrow\nerv[\geom{L}]{\cal{U}}$ tambi\'{e}n
+	lo es.
+\end{teoTodoComplejoEsNervio}

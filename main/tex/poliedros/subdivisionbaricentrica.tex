@@ -1,0 +1,208 @@
+\theoremstyle{plain}
+\newtheorem{lemaSubdividirUnSimplice}{Lema}[section]
+\newtheorem{propoBaricentricaEsSubdivision}[lemaSubdividirUnSimplice]%
+	{Porposici\'{o}n}
+\newtheorem{propoSubcomplejoEsRetracto}[lemaSubdividirUnSimplice]%
+	{Porposici\'{o}n}
+
+\theoremstyle{remark}
+\newtheorem{obsBaricentricaDeSubcomplejoEsPlena}[lemaSubdividirUnSimplice]%
+	{Observaci\'{o}n}
+
+%-------------
+
+En esta secci\'{o}n introducimos una forma can\'{o}nica de subdividir un
+complejo.
+
+\begin{lemaSubdividirUnSimplice}\label{thm:subdividirunsimplice}
+	Sea $s\in K$ un s\'{\i}mplice en un complejo $K$. Sea $K'$ una
+	subdivisi\'{o}n del subcomplejo $\carasp{s}$ de caras propias de $s$.
+	Entonces, dado un punto arbitrario $w_{0}\in\simpinterior{s}$,
+	el complejo $K'*w_{0}$ (ver ejemplo \ref{ejemplo:sumadecomplejos}) es
+	una subdivisi\'{o}n de $\caras{s}$.
+\end{lemaSubdividirUnSimplice}
+
+\begin{proof}
+	El complejo $K'*w_{0}$ es la suma de los complejos $K'$ y
+	$\{\{w_{0}\}\}$ (es decir, el complejo que tiene a $w_{0}$ como
+	\'{u}nico v\'{e}rtice). Los s\'{\i}mplices de este compejo son de la
+	forma: $s'\in K'$, el s\'{\i}mplice puntual $\{w_{0}\}$ o
+	$s'\sqcup\{w_{0}\}$ con $s'\in K'$. Entonces se cumplen \emph{(i)}
+	lso v\'{e}rtices de $K'* w_{0}=V'\sqcup\{w_{0}\}$ son puntos de
+	$\geom{\caras{s}}$ y \emph{(ii)} los s\'{\i}mplices de $K'*w_{0}$
+	est\'{a}n contenidos en la realizaci\'{o}n de alg\'{u}n s\'{\i}mplice
+	de $\caras{s}$ (todos est\'{a}n contenidos en $\geom{s}$). Del lema
+	\ref{thm:conosobrelascaraspropias} (o de su demostraci\'{o}n) se
+	deduce que los puntos de la realizaci\'{o}n
+	$\geom{s}=\geom{\caras{s}}$ o bien son iguales a $w_{0}$, o bien
+	pertenecen a $\geom{\carasp{s}}$, o bien pertenecen a
+	$\simpinterior{s'\sqcup\{w_{0}\}}$, para un \'{u}nico s\'{\i}mplice
+	$s'\in K'$. Esto implica que \emph{(iii')} los s\'{\i}mplices
+	abiertos de $K'*w_{0}$ determinan una partici\'{o}n finita de
+	$\geom{s}$. Precisamente, si $s_{1}\in\caras{s}$, entonces el conjunto
+	\begin{math}
+		\big\{\simpinterior{t'}\,:\,t'\in K'*w_{0},\,
+			\simpinterior{t'}\subset\simpinterior{s_{1}}\big\}
+	\end{math}
+	es una partici\'{o}n finita de $\simpinterior{s_{1}}$. Por el lema
+	\ref{thm:subdivisionequivaleaparticion}, $K'*w_{0}$ es una
+	subdivisi\'{o}n de $\caras{s}$.
+\end{proof}
+
+Sea $K$ un complejo simplicial y sea $\subdiv{K}$ la colecci\'{o}n de
+conjuntos finitos y no vac\'{\i}os de baricentros de s\'{\i}mplices de $K$
+que est\'{a}n totalmente ordenados por inclusi\'{o}n de una cara en un
+s\'{\i}mplice m\'{a}s grande. Es decir, un elemento de $\subdiv{K}$ es un
+conjunto de la forma
+\begin{align*}
+	& \{\bari{s_{0}},\,\dots,\,\bari{s_{q}}\}
+	\text{ ,}
+\end{align*}
+%
+donde $\lista[0]{s}{q}\in K$ y $s_{i-1}$ es una cara (propia) de $s_{i}$.
+En general, asumiremos que los elementos de un conjunto perteneciente a
+$\subdiv K$ est\'{a}n numerados de esta manera. La colecci\'{o}n $\subdiv{K}$
+constituye un complejo simplicial cuyos v\'{e}rtices son los conjuntos
+puntuales de baricentros de s\'{\i}mplices de $K$.
+
+De la definici\'{o}n del complejo $\subdiv{K}$, se deduce que
+los v\'{e}rtices de $\subdiv{K}$ son puntos de $\geom{K}$ y que,
+si $s'=\{\bari{s_{0}},\,\dots,\,\bari{s_{q}}\}\in\subdiv{K}$, entonces
+$s'\subset\geom{s_{q}}$. En particular, $\subdiv{K}$ y $K$ satisfacen
+las propiedades \emph{(i)} y \emph{(ii)} de la definici\'{o}n de
+subdivisi\'{o}n. Se puede ver tambi\'{e}n que, si $L\subset K$ es un
+subcomplejo, entonces $\subdiv{L}$ es un subcomplejo de $\subdiv{K}$ y que,
+si $s'\subset\geom{s_{q}}$ y $\bari{s_{q}}\in s'$, entonces $s_{q}$ es el
+s\'{\i}mplice m\'{a}s chico de $K$ que contiene a $s'$ (tal que
+$s'\subset\geom{s_{q}}$).
+
+\begin{propoBaricentricaEsSubdivision}\label{thm:baricentricaessubdivision}
+	$\subdiv K$ es una subdivisi\'{o}n de $K$.
+\end{propoBaricentricaEsSubdivision}
+
+\begin{proof}
+	Todo lo que hay que ver es que se verifica la condici\'{o}n
+	\emph{(iii')}. Sea $s\in K$. Por la observaci\'{o}n
+	\ref{obs:definicionsubdivisiones}, si $K'$ es un complejo
+	simplicial cuyos v\'{e}rtices son puntos de $\geom{K}$, $s'\in K'$
+	y $s\in K$ es el s\'{\i}mplice m\'{a}s chico tal que
+	$s'\subset\geom{s}$, entonces
+	$f\big(\simpinterior{s'}\big)\subset\simpinterior{s}$. De esto y
+	de los comentarios anteriores, se deduce que
+	\begin{align*}
+		\big\{s'\in\subdiv K\,:\,
+			\simpinterior{s'}\subset\simpinterior s\big\} & \,=\,
+			\big\{s'\in\subdiv K\,:\,\bari s
+				\text{ es el \'{u}ltimo v\'{e}rtice de } s'
+				\big\} \\
+		& \,=\,\big\{s'\in\subdiv {\caras s}\,:\,
+			\simpinterior{s'}\subset\simpinterior s\big\}
+		\text{ .}
+	\end{align*}
+	%
+	Veamos que para todo s\'{\i}mplice $s\in K$ se cumple que
+	$\subdiv{\caras s}$ es una subdivisi\'{o}n de $\caras s$ y que
+	estamos en las condiciones del lema
+	\ref{thm:subdivisionequivaleaparticion}. Si $\dim\,s=q=0$, entonces
+	$\subdiv{\caras s}=\caras s$. Si $q>0$ y asumimos que
+	$\subdiv{\caras{s_{1}}}$ es una subdivisi\'{o}n de $\caras{s_{1}}$
+	para todo s\'{\i}mplice $s_{1}$ de dimensi\'{o}n menor, entonces,
+	$\subdiv{\caras{s_{1}}}$ es una subdivisi\'{o}n de $\caras{s_{1}}$
+	para toda cara propia $s_{1}\in\carasp s$. En particular, se deduce
+	que $\subdiv{\carasp s}$ es una subdivisi\'{o}n de $\carasp s$.
+	Finalmente, como
+	\begin{math}
+		\subdiv{\caras s}=\big(\subdiv{\carasp s}\big)*\bari s
+	\end{math}~,
+	por el lema \ref{thm:subdividirunsimplice}, concluimos que
+	$\subdiv{\caras s}$ es una subdivisi\'{o}n de $\caras s$.
+\end{proof}
+
+Llamamos \emph{subdivisi\'{o}n baric\'{e}ntrica de $K$} a la subdivisi\'{o}n
+$\subdiv K$ de $K$.
+
+\begin{obsBaricentricaDeSubcomplejoEsPlena}%
+	\label{obs:baricentricadesubcomplejoesplena}
+	Sea $L\subset K$ un subcomplejo y sean $\subdiv L$ y $\subdiv K$ las
+	subdivisiones baric\'{e}ntricas correspondientes a $L$ y a $K$.
+	Entonces $\subdiv L$ es un subcomplejo de $\subdiv K$. Supongamos que
+	$\{\bari{s_{0}},\,\dots,\,\bari{s_{q}}\}$ es un s\'{\i}mplice de
+	$\subdiv K$ cuyos v\'{e}rtices pertenecen a $\subdiv L$. Entonces,
+	por definici\'{o}n, $s_{i-1}$ es una cara propia de $s_{i}$ y cada
+	$s_{i}$ pertenece a $L$. En particular,
+	$\{\bari{s_{0}},\,\dots,\,\bari{s_{q}}\}\in\subdiv L$ y
+	$\subdiv L\subset\subdiv K$ es un subcomplejo pleno.
+\end{obsBaricentricaDeSubcomplejoEsPlena}
+
+Sea $L\subset K$ un subcomplejo y consideremos el par de espacios
+$(\geom{K},\geom{L})$ (un \emph{par poliedral}. En general, un par poliedral
+es un par $h:\,A\rightarrow X$ (no necesariamente un subespacio) que admite
+una triangulaci\'{o}n $(\varphi:\,L\rightarrow K, (f',f))$ (no necesariamente
+un subcomplejo)).
+
+\begin{propoSubcomplejoEsRetracto}\label{thm:subcomplejoesretracto}
+	El subespacio $\geom{L}\subset\geom{K}$ es un retracto por
+	deformaci\'{o}n fuerte de un entorno de $\geom{L}$ en $\geom{K}$.
+\end{propoSubcomplejoEsRetracto}
+
+\begin{proof}
+	Por la observaci\'{o}n \ref{obs:baricentricadesubcomplejoesplena},
+	podemos asumir que $L$ es un subcomplejo pleno de $K$. Sea $N\subset K$
+	el complemento de $L$ en $K$. Notemos que $\geom{K}\setmin\geom{N}$
+	es abierto en $\geom{K}$ y contiene a $\geom{L}$, por el lema
+	\ref{thm:subcomplejopleno}. Demostraremos que $\geom{L}$ es un
+	retracto por deformaci\'{o}n fuerte de este abierto.
+
+	Sea $\alpha\in\geom{K}\setmin\geom{N}$. Entonces, o bien
+	$\alpha\in\geom{L}$, o bien existen v\'{e}rtices
+	$\lista[0]{v}{p}\in L$ y $\lista[p+1]{v}{q}\in N$ tales que
+	$\alpha\in\simpinterior{\{\lista[0]{v}{q}\}}$. En el segundo caso,
+	\begin{align*}
+		\alpha & \,=\,\sum_{i=0}^{q}\,\alpha^{i}\,\alpha_{v_{i}}
+		\text{ ,}
+	\end{align*}
+	%
+	donde $\alpha^{i}>0$ para todo $i\in[\![0,q]\!]$. Definimos
+	\begin{align*}
+		a & \,=\,\sum_{i=0}^{p}\,\alpha^{i}\text{ ,} \\
+		\alpha' \,=\,\sum_{i=0}^{p}\,
+			\frac{\alpha^{i}}{a}\,\alpha_{v_{i}}
+			& \quad\text{y}\quad
+		\alpha'' \,=\,\sum_{i=p+1}^{q}\,
+			\frac{\alpha^{i}}{1-a}\,\alpha_{v_{i}}
+		\text{ .}
+	\end{align*}
+	%
+	Entonces $\alpha = a\,\alpha'+(1-a)\,\alpha''$, $\alpha' \in\geom{L}$
+	y $\alpha''\in\geom{N}$. Sea
+	\begin{align*}
+		F & \,:\,\big(\geom{K}\setmin\geom{N}\big)\,\times\,\intervalo
+			\,\rightarrow\,\big(\geom{K}\setmin\geom{N}\big)
+	\end{align*}
+	%
+	la funci\'{o}n dada por
+	\begin{align*}
+		F(\alpha,t) & \,=\,
+			\begin{cases}
+				\alpha & \quad\text{si }\alpha\in\geom{L} \\
+				t\,\alpha'+(1-t)\,\alpha &
+					\quad\text{si }\alpha\in
+					\geom{K}\setmin\big(
+						\geom{N}\cup\geom{L}\big)
+			\end{cases}
+		\text{ .}
+	\end{align*}
+	%
+	Entoncs $F$ es continua y es una retracci\'{o}n por deformaci\'{o}n
+	fuerte de $\geom{K}\setmin\geom{N}$ en $\geom{L}$. La continuidad de
+	$F$ se deduce de que $F$ es continua en $\geom{L}$, por ser constante,
+	y de que $F$ es continua en cada subconjunto de la forma
+	$\geom{s'\cup s''}\cap\big(\geom{K}\setmin\geom{N}\big)$, por ser
+	una homotop\'{\i}a lineal. Adem\'{a}s ambas definiciones se pegan
+	bien: en la clausura de
+	\begin{math}
+		\geom{s'\cup s''}\cap\big(\geom{K}\setmin\geom{N}\big)
+	\end{math}
+	dentro de $\geom{K}\setmin\geom{N}$, $\alpha'=\alpha$ y ambas
+	definiciones coinciden.
+\end{proof}

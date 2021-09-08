@@ -1,0 +1,129 @@
+\theoremstyle{plain}
+\newtheorem{lemaAcotarLaMetricaEnSimplices}{Lema}[section]
+\newtheorem{lemaAcotarLaMetricaEnComplejos}[lemaAcotarLaMetricaEnSimplices]%
+	{Lema}
+\newtheorem{teoRefinarPorTriangulaciones}[lemaAcotarLaMetricaEnSimplices]%
+	{Teorema}
+
+\theoremstyle{remark}
+
+%-------------
+
+Todo complejo simplcial $K$ admite una m\'{e}trica, pero, en general,
+la topolog\'{\i}a inducida no coincide con la topolog\'{\i}a coherente
+en $\geom{K}$. De hecho esto es as\'{\i} si y s\'{o}lo si $K$ es localmente
+finito. Diremos que una m\'{e}trica en $\geom{K}$ es \emph{lineal}, si
+coincide con la m\'{e}trica inducida por una realizaci\'{o}n de $K$ dentro de
+un espacio vectorial topol\'{o}gico $E$ cuya topolog\'{\i}a sea compatible con
+una m\'{e}trica. M\'{a}s espec\'{\i}ficamente, diremos que una m\'{e}trica en
+$\geom{K}$ es lineal, si es la m\'{e}trica inducida por una norma
+(cualquiera) en alg\'{u}n espacio $\bb{R}^{n}$ v\'{\i}a una realizaci\'{o}n
+de $K$ en $\bb{R}^{n}$. Notemos que todo complejo finito admite una
+m\'{e}trica lineal. Tambi\'{e}n es cierto que, dada una m\'{e}trica lineal
+en $\geom{K}$ y una subdivisi\'{o}n $K'$ de $K$, entonces la misma m\'{e}trica
+es lineal en $\geom{K'}$. Dada una m\'{e}trica (arbitraria) en $\geom{K}$,
+se define la \emph{densidad} (o \emph{apertura}, \emph{fineza}) de $K$ como
+el supremo de los di\'{a}metros de sus s\'{\i}mplices con respecto a
+esta m\'{e}trica:
+\begin{align*}
+	\mesh K & \,=\,\sup\,\{\diam\geom{s}\,:\,s\in K\}
+	\text{ .}
+\end{align*}
+%
+
+\begin{lemaAcotarLaMetricaEnSimplices}\label{thm:acotarlametricaensimplices}
+	Dada una m\'{e}trica lineal en un $m$ s\'{\i}mplice $s$ y dado un
+	s\'{\i}mplice $s'\in\subdiv{\caras s}$ de la subdivisi\'{o}n
+	baric\'{e}ntrica, se cumple que
+	\begin{align*}
+		\diam\geom{s'} & \,\leq\,\frac{m}{m+1}\,
+			\diam\geom{s}
+		\text{ .}
+	\end{align*}
+	%
+\end{lemaAcotarLaMetricaEnSimplices}
+
+\begin{lemaAcotarLaMetricaEnComplejos}\label{thm:acotarlametricaencomplejos}
+	Si $K$ es un complejo de dimensi\'{o}n $m$, dada una m\'{e}trica
+	lineal en $\geom{K}$, se cumple que
+	\begin{align*}
+		\mesh{\big(\subdiv K\big)} & \,\leq\,\frac{m}{m+1}\,
+			\mesh K
+		\text{ .}
+	\end{align*}
+	%
+\end{lemaAcotarLaMetricaEnComplejos}
+
+Sea $X$ un espacio topol\'{o}gico y sea $(K,f)$, $f:\,\geom{K}\rightarrow X$,
+una triangulaci\'{o}n de $X$ por un complejo simplicial $K$. Sea $\cal{U}$ un
+cubrimiento de $X$ por abierto. Se dice que la triangulaci\'{o}n
+\emph{es m\'{a}s fina que $\cal{U}$} o que \emph{refina a $\cal{U}$}, si,
+para todo v\'{e}rtice $v$ de $K$, existe un abierto $U\in\cal{U}$ tal que
+$f\big(\estrella v\big)\subset U$. Si $X=\geom{K}$ y
+$f:\,\geom{K}\rightarrow\geom{K}$ es la identidad de $\geom K$, decimos
+tambi\'{e}n que el complejo $K$ refina el cubrimiento $\cal U$. Si $K'$ es
+una subdivisi\'{o}n de $K$ y $f:\,\geom{K'}\rightarrow\geom{K}$ es el
+homeomorfismo dado por $\alpha_{v'}\mapsto v'$ en los v\'{e}rtices, tambi\'{e}n
+decimos que $K'$ refina el cubrimiento $\cal U$.
+
+\begin{teoRefinarPorTriangulaciones}\label{thm:refinarportriangulaciones}
+	Sea $\cal U$ un cubrimiento por abiertos de un espacio triangulable
+	compacto $X$. Entonces existe una triangulaci\'{o}n de $X$ m\'{a}s
+	fina que $\cal U$.
+\end{teoRefinarPorTriangulaciones}
+
+La siguiente definici\'{o}n aprecer\'{a} en la demostraci\'{o}n del teorema.
+Denominamos \emph{subdivisiones baric\'{e}ntricas iteradas} de un complejo
+simplicial $K$ a las subdivisiones definidas recursivamente de la siguiente
+manera:
+\begin{align*}
+	\subdiv[0]{K} & \,=\, K\text{ ,}\\
+	\subdiv[n]{K} & \,=\,\subdiv{\big(\subdiv[n-1]{K}\big)}
+		\quad\text{si } n\geq 1
+	\text{ .}
+\end{align*}
+%
+
+\begin{proof}
+	Sea $(K,f)$ una triangulaci\'{o}n arbitraria de $X$. Entonces,
+	como $f:\,\geom{K}\rightarrow X$ es un homeomorfismo y $X$ es
+	compacto, por el corolario \ref{thm:complejofinitoespaciocompacto},
+	$K$ es un complejo finito y, por el teorema
+	\ref{thm:inmersiondeuncomplejo}, admite una realizaci\'{o}n en
+	un $\bb{R}$-espacio de dimensi\'{o}n finita. La m\'{e}trica inducida
+	por la norma euclidea de este espacio, por ejemplo, es lineal en
+	$\geom{K}$.
+
+	Supongamos que el espacio $\geom{K}$ viene dado con una m\'{e}trica
+	lineal. Sea $\epsilon >0$ un n\'{u}mero de Lebesque para el
+	cubrimiento $\big\{f^{-1}(U)\,:\,U\in\cal U\big\}$ de $\geom{K}$
+	respecto de esta m\'{e}trica. Esto quiere decir que, si
+	$A\subset\geom{K}$ tiene di\'{a}metro menor que $\epsilon$, entonces
+	$f(A)$ est\'{a} contenido en $U$ para alg\'{u}n abieto $U$ del
+	cubrimiento $\cal U$. Sea $m=\dim\,K$ y sea $N\geq 1$ tal que
+	\begin{align*}
+		\Big(\frac{m}{m+1}\Big)^{N}\cdot\mesh K & \,\leq\,
+			\epsilon / 2
+		\text{ .}
+	\end{align*}
+	%
+	Para $n\geq N$, $\mesh{\subdiv[n]{K}}\leq\epsilon/2$. Si
+	$v'$ es un v\'{e}rtice de $\subdiv[n]{K}$, entonces el conjunto
+	$\estrella{v'}$ tiene di\'{a}metro acotado por
+	\begin{align*}
+		\diam{\estrella{v'}} & \,\leq\,2\cdot
+			\mesh{\subdiv[n]{K}} \,\leq\,\epsilon
+		\text{ .}
+	\end{align*}
+	%
+	Entonces, para $n\geq N$, vale que
+	\begin{align*}
+		f\big(\estrella{v'}\big)\,\subset\,U
+	\end{align*}
+	%
+	para alg\'{u}n abierto $U\in\cal U$, con lo que
+	$(\subdiv[n]{K},f)$ es refina el cubrimiento $\cal U$.
+\end{proof}
+
+% ?`Es cierto este resultado para pares triangulables? ?`Es cierto para espacios
+% triangulables no compactos?

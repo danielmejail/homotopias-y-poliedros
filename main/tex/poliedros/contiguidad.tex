@@ -1,0 +1,590 @@
+\theoremstyle{plain}
+\newtheorem{teoHomotopicasAdmitenAproximacionesContiguas}{Teorema}[section]
+\newtheorem{lemaAproximacionesSonContiguas}%
+	[teoHomotopicasAdmitenAproximacionesContiguas]{Lema}
+\newtheorem{teoHomotopicasPorContiguas}%
+	[teoHomotopicasAdmitenAproximacionesContiguas]{Teorema}
+\newtheorem{coroCodominioNumerableHomotopicasNumerables}%
+	[teoHomotopicasAdmitenAproximacionesContiguas]{Corolario}
+
+\theoremstyle{remark}
+\newtheorem{obsComposicionesDeContiguasSonContiguas}%
+	[teoHomotopicasAdmitenAproximacionesContiguas]{Observaci\'{o}n}
+\newtheorem{obsContiguasSonHomotopicas}%
+	[teoHomotopicasAdmitenAproximacionesContiguas]{Observaci\'{o}n}
+\newtheorem{obsLimiteDirectoDeSubdivisiones}%
+	[teoHomotopicasAdmitenAproximacionesContiguas]{Observaci\'{o}n}
+
+%-------------
+
+En esta secci\'{o}n definimos una relaci\'{o}n an\'{a}loga a la relaci\'{o}n
+de homotop\'{\i}a entre pares de espacios topol\'{o}gicos. Nos concentraremos
+en pares $(K,L)$ de complejos simpliciales donde $L\subset K$ es un
+subcomplejo. El objetivo es entender la relaci\'{o}n, valaga la redundancia,
+entre estas dos nociones de equivalencia.
+
+Sean $K_{1},K_{2}$ complejos simpliciales y sea $L_{1}\subset K_{1}$ y
+$L_{2}\subset K_{2}$ subcomplejos. Dos transformaciones simpliciales
+$\varphi,\varphi':\,(K_{1},L_{1})\rightarrow (K_{2},L_{2})$ se dicen
+\emph{contiguas}, si,
+\begin{itemize}
+	\item[(i)] dado un s\'{\i}mplice $s\in K_{1}$, la uni\'{o}n
+		$\varphi(s)\cup\varphi'(s)$ es un s\'{\i}mplice de $K_{2}$ y
+	\item[(ii)] si $s\in L_{1}$, entonces $\varphi(s)\cup\varphi'(s)$
+		es un s\'{\i}mplice de $L_{2}$.
+\end{itemize}
+%
+Esto no define una relaci\'{o}n de equivalencia, pero s\'{\i} sim\'{e}trica y
+reflexiva en el conjunto de transformaciones simpliciales
+$(K_{1},L_{1})\rightarrow (K_{2},L_{2})$. Para definir una relaci\'{o}n de
+equivalencia, transitivizamos la relaci\'{o}n: decimos que dos transformaciones
+simpliciales $\varphi,\varphi'$ est\'{a}n relacionadas, o que
+\emph{pertenecen a la misma clase de contig\"{u}idad}, si existe una
+cantidad finita de transformaciones simpliciales $\lista{\varphi}{r}$
+tales que $\varphi_{1}=\varphi$, $\varphi_{r}=\varphi'$ y
+$\varphi_{i-1}$ y $\varphi_{i}$ son contiguas. Escribimos
+$\varphi\sim\varphi'$ para denotar que $\varphi$ y $\varphi'$ pertenecen a la
+misma clase de contig\"{u}idad. Denotamos el conjunto de estas clases por
+$\contiguas{K_{1},L_{1}}{K_{2},L_{2}}$ y la clase de una transformaci\'{o}n
+simplicial $\varphi$ por $\clase{\varphi}$.
+
+\begin{obsComposicionesDeContiguasSonContiguas}%
+	\label{obs:composicionesdecontiguassoncontiguas}
+	Si $\varphi,\varphi':\,(K_{1},L_{1})\rightarrow (K_{2},L_{2})$
+	son contiguas y
+	$\psi,\psi':\,(K_{2},L_{2})\rightarrow (K_{3},L_{3})$ son contiguas,
+	entonces $\psi\varphi$ y $\psi'\varphi'$ son contiguas: dado un
+	s\'{\i}mplice $s\in K_{1}$,
+	\begin{align*}
+		\psi\varphi(s)\,\cup\,\psi'\varphi'(s) & \,\subset\,
+			\psi\big(\varphi(s)\cup\varphi'(s)\big)\,\cup\,
+			\psi'\big(\varphi(s)\cup\varphi'(s)\big)
+		\text{ .}
+	\end{align*}
+	%
+	Entonces, como la uni\'{o}n de la derecha es, por hip\'{o}tesis, un
+	s\'{\i}mplice de $K_{3}$, el subconjunto de la izquierda tambi\'{e}n
+	lo es; si $s\in L_{1}$, entonces lo mismo es cierto reemplazando los
+	s\'{\i}mplices $K_{i}$ por los $L_{i}$.
+
+	De esto se deduce que, si, m\'{a}s en general, $\varphi\sim\varphi'$
+	y $\psi\sim\psi'$, entonces $\psi\varphi\sim\psi'\varphi'$ y la
+	composici\'{o}n de clases de contig\"{u}idad est\'{a} bien
+	definida como la clase de las composiciones:
+	\begin{align*}
+		\clase{\psi}\circ\clase{\varphi} & \,=\,
+			\clase{\psi\circ\varphi}
+		\text{ .}
+	\end{align*}
+	%
+\end{obsComposicionesDeContiguasSonContiguas}
+
+\begin{obsContiguasSonHomotopicas}\label{obs:contiguassonhomotopicas}
+	Sean
+	\begin{math}
+		\varphi,\varphi':\,(K_{1},L_{1})\rightarrow (K_{2},L_{2})
+	\end{math}
+	transformaciones simpliciales contiguas que coinciden en alg\'{u}n
+	subcomplejo $L\subset K_{1}$. Sea
+	\begin{align*}
+		F & \,:\,\big(\geom{K_{1}}\times\intervalo,
+			\geom{L_{1}}\times\intervalo\big)\,\rightarrow\,
+				(\geom{K_{2}},\geom{L_{2}})
+	\end{align*}
+	%
+	la homotop\'{\i}a de $\geom{\varphi}$ en $\geom{\varphi'}$ dada por
+	\begin{align*}
+		F(\alpha,t) & \,=\,(1-t),\geom{\varphi}\alpha + 
+					t\,\geom{\varphi'}\alpha
+		\text{ .}
+	\end{align*}
+	%
+	Para $\alpha\in\geom{L_{1}}$, como $s\in L_{1}$ implica
+	$\varphi(s)\cup\varphi'(s)\in L_{2}$, $F(\alpha,t)\in\geom{L_{2}}$.
+	Para $\alpha\in\geom{L}$, el resultado no depende de $t$. En
+	definitiva, si $\varphi$ y $\varphi'$ son contiguas y coinciden en
+	alg\'{u}n subcomplejo del dominio (independiente de $L_{1}$ y de
+	$L_{2}$), entocnes
+	\begin{math}
+		\geom{\varphi}\simeq\geom{\varphi'}\big(\rel{\geom{L}}\big)
+	\end{math}~.
+
+	En particular, $\varphi\sim\varphi'$ implica
+	$\geom{\varphi}\simeq\geom{\varphi'}$.
+\end{obsContiguasSonHomotopicas}
+
+De las \'{u}ltimas dos observaciones se deduce que, en primer lugar,
+las clases de contig\"{u}idad de transformaciones simpliciales determinan
+una categor\'{\i}a cuyos objetos son los pares simpliciales, cuyos morfismos
+son las clases de contig\"{u}idad de transformaciones simpliciales con
+la composici\'{o}n dada por la clase de las composiciones. Los objetos son
+los mismos que en la categor\'{\i}a de pares simpliciales. En segundo lugar,
+las aplicaciones $(K,L)\mapsto (\geom{K},\geom{L})$ y
+$\clase{\varphi}\mapsto\clase{\geom{\varphi}}$ determinan un funtor de la
+categor\'{\i}a \emph{de contig\"{u}idad} de pares de complejos simpliciales
+en la categor\'{\i}a de homotop\'{\i}a de pares de espacios topol\'{o}gicos.
+
+\begin{lemaAproximacionesSonContiguas}\label{thm:aproximacionessoncontiguas}
+	Sean
+	\begin{math}
+		\varphi,\varphi':\,(K_{1},L_{1})\rightarrow (K_{2},L_{2})
+	\end{math}
+	dos aproximaciones simpliciales de una misma funci\'{o}n continua
+	\begin{math}
+		f:\,(\geom{K_{1}},\geom{L_{1}})\rightarrow
+			(\geom{K_{2}},\geom{L_{2}})
+	\end{math}~.
+	Entonces $\varphi$ y $\varphi'$ son contiguas.
+\end{lemaAproximacionesSonContiguas}
+
+\begin{proof}
+	Sea $s=\{\lista[0]{v}{q}\}\in K_{1}$ un s\'{\i}mplice. Por
+	el corolario \ref{thm:simplicedesubcomplejo},
+	$\bigcap_{i=0}^{q}\,\estrella v_{i}\not=\varnothing$. Por el teorema
+	\ref{thm:caracterizacionaproximacionessimpliciales},
+	\begin{align*}
+		\bigcap_{i=0}^{q}\,\big(
+			\estrella{\varphi(v_{i})}\cap\estrella{\varphi'(v_{i})}
+			\big) & \,\supset\,
+			\bigcap_{i=0}^{q}\,f\big(\estrella{v_{i}}\big)
+				\,\supset\,
+			f\Big(\bigcap_{i=0}^{q}\,\estrella{v_{i}}\Big)
+				\,\not=\,\varnothing
+		\text{ .}
+	\end{align*}
+	%
+	Por el corolario \ref{thm:simplicedesubcomplejo}, la uni\'{o}n
+	\begin{math}
+		\varphi(s)\cup\varphi'(s)=
+			\{\varphi(v_{i})\}_{i}\cup\{\varphi'(v_{i})\}_{i}
+	\end{math}
+	es el conjunto de v\'{e}rtices de un s\'{\i}mplice en $K_{2}$. Si
+	asumimos que $s\in L_{1}$, entonces esta uni\'{o}n es un subconjunto
+	de v\'{e}rtices de $L_{2}$ tales que la intersecci\'{o}n de las
+	estrellas correspondientes es no vac\'{\i}a y, por lo tanto,
+	constituyen el conjunto de v\'{e}rtices de un s\'{\i}mplice en $L_{2}$.
+	En definitiva, $\varphi$ y $\varphi'$ son contiguas.
+\end{proof}
+
+Transformaciones simpliciales que definen funciones continuas homot\'{o}picas
+en los espacios de los complejos pueden no pertenecer a la misma clase de
+contig\"{u}idad. Aun as\'{\i}, en el caso de que el dominio sea un cimplejo
+finito, es posible subdividir este complejo de forma tal que transformaciones
+que inducen funciones homot\'{o}picas son aproximables en la subdivisi\'{o}n
+por transformaciones en la misma clase de contig\"{u}idad.
+
+\begin{teoHomotopicasAdmitenAproximacionesContiguas}%
+	\label{thm:homotopicasadmitenaproximacionescontiguas}
+	Sea $K_{1}$ un complejo simplicial finito. Sean
+	\begin{align*}
+		f,f' & \,:\,(\geom{K_{1}},\geom{L_{1}})\,\rightarrow\,
+			(\geom{K_{2}},\geom{L_{2}})
+	\end{align*}
+	funciones homot\'{o}picas. Entonces existe $N\geq 1$ y aproximaciones
+	simpliciales $\varphi$ de $f$ y $\varphi'$ de $f'$
+	\begin{align*}
+		\varphi,\varphi' & \,:\,(\subdiv[N]{K_{1}},\subdiv[N]{L_{1}})
+			\,\rightarrow\,(K_{2},L_{2})
+	\end{align*}
+	%
+	en la misma clase de contig\"{u}idad.
+\end{teoHomotopicasAdmitenAproximacionesContiguas}
+
+\begin{proof}
+	Sea
+	\begin{align*}
+		F & \,:\,\big(\geom{K_{1}}\times\intervalo,
+				\geom{L_{1}}\times\intervalo\big)
+			\,\rightarrow\, (\geom{K_{2}},\geom{L_{2}})
+	\end{align*}
+	%
+	una homotop\'{\i}a de $f$ en $f'$. Al ser $\geom{K_{1}}$ compacto y
+	\begin{math}
+		\big\{F^{-1}\big(\estrella{v'}\big)\,:\,
+			v'\text{ v\'{e}rtice en }K_{2}\big\}
+	\end{math}
+	un cubrimiento por abiertos de $K_{1}$, existen
+	$0=t_{0}<t_{1}<\cdots<t_{r}=1$ tales que, para todo $\alpha\in K_{1}$,
+	$F(\alpha,t_{i-1})$ y $F(\alpha,t_{i})$ pertenezcan a un mismo
+	abierto $\estrella{v'}$ de $K_{2}$.
+
+	Para cada $i=0,\,\dots,\,r$, sea
+	\begin{align*}
+		f_{i} & \,:\,(\geom{K_{1}},\geom{L_{1}})\,\rightarrow\,
+			(\geom{K_{2}},\geom{L_{2}})
+	\end{align*}
+	%
+	la funci\'{o}n dada por $f_{i}(\alpha)=F(\alpha,t_{i})$ y sea,
+	para $i\geq 1$, $\cal{U}_{i}$ el cubrimiento
+	\begin{align*}
+		\cal{U}_{i} & \,=\,\big\{
+			f_{i}^{-1}\big(\estrella{v'}\big)\cap
+				f_{i-1}^{-1}\big(\estrella{v'}\big)\,:\,
+			v'\in K_{2}\big\}
+	\end{align*}
+	%
+	por abiertos de $K_{1}$. Por el teorema
+	\ref{thm:refinarportriangulaciones}, existe $N\geq 1$ tal que la
+	subdivisi\'{o}n $\subdiv[N]{K_{1}}$ sea m\'{a}s fina que todos los
+	cubrimientos $\lista{\cal{U}}{r}$. Esto significa que, para cada
+	$i=1,\,\dots,\,r$, si $v$ es un v\'{e}rtice de $\subdiv[N]{K_{1}}$,
+	entonces existe $U\in\cal{U}_{i}$ tal que $\estrella v\subset U$.
+	Dicho de otra manera, para cada v\'{e}rtice $v$ de la subdivisi\'{o}n,
+	existe al menos un v\'{e}rtice $v'$ de $K_{2}$ tal que
+	\begin{align*}
+		\estrella v & \,\subset\,
+			f_{i}^{-1}\big(\estrella{v'}\big)\,\cap\,
+			f_{i-1}^{-1}\big(\estrella{v'}\big)
+		\text{ .}
+	\end{align*}
+	%
+	Eligiendo, debe existir una funci\'{o}n $\varphi_{i}$ definida en
+	los v\'{e}rtices de $\subdiv[N]{K_{1}}$ con imagen en los
+	v\'{e}rtices de $K_{2}$ tal que
+	\begin{align*}
+		f_{i}\big(\estrella v\big),\cup\,
+			f_{i-1}\big(\estrella v\big) & \,\subset\,
+			\estrella{\varphi_{i}(v)}
+	\end{align*}
+	%
+	para todo v\'{e}rtice $v$ de la subdivisi\'{o}n. En particular, por
+	el teorema \ref{thm:caracterizacionaproximacionessimpliciales},
+	cada una de las funciones $\varphi_{i}$ determina una
+	transformaci\'{o}n simplicial
+	\begin{align*}
+		\varphi_{i} & \,:\,(\subdiv[N]{K_{1}},\subdiv[N]{L_{1}})
+			\,\rightarrow\,(K_{2},L_{2})
+	\end{align*}
+	%
+	que es, a la vez, aproximaci\'{o}n de
+	$f_{i}$ y de $f_{i-1}$. Del lema \ref{thm:aproximacionessoncontiguas},
+	se deduce que $\varphi_{i}$ y $\varphi_{i+1}$ son contiguas.
+	En particular, $\varphi_{1}\sim\varphi_{r}$. Pero $\varphi_{1}$ es
+	una aproximaci\'{o}n de $f_{0}=f$ y $\varphi_{r}$ es una
+	aproximaci\'{o}n de $f_{r}=f'$.
+\end{proof}
+
+Este resultado no es cierto en general, si $K_{1}$ no es finito (ver el
+ejemplo \ref{ejemplo:homotopicasnocontiguas}).
+
+\begin{obsLimiteDirectoDeSubdivisiones}\label{obs:limitedirectodesubdivisiones}
+	Sea $K_{1}$ un complejo simplicial y sea $L_{1}$ un subcomplejo. Por
+	el corolario \ref{thm:caracterizaciondeaproximacionesporsubdivision},
+	existen aproximaciones simpliciales
+	\begin{align*}
+		\varphi & \,:\,(\subdiv{K_{1}},\subdiv{L_{1}})\,\rightarrow\,
+			(K_{1},L_{1})
+	\end{align*}
+	%
+	de la identidad
+	\begin{align*}
+		& (\geom{\subdiv{K_{1}}},\geom{\subdiv{L_{1}}})\,\rightarrow\,
+			(\geom{K_{1}},\geom{L_{1}})
+		\text{ .}
+	\end{align*}
+	%
+	Dos aproximaciones de la identidad son, por
+	\ref{thm:aproximacionessoncontiguas}, contiguas. Teniendo en cuenta
+	esto, si
+	\begin{math}
+		\lambda:\,(\subdiv{K_{1}},\subdiv{L_{1}})\rightarrow
+			(K_{1},L_{1})
+	\end{math}
+	es una aproximaci\'{o}n simplicial de la identidad y
+	$\varphi:\,(K_{1},L_{1})\rightarrow (K_{2},L_{2})$ es una
+	transformaci\'{o}n simplicial, la aplicaci\'{o}n
+	\begin{align*}
+		\subdiv{\clase{\varphi}} & \,=\,\clase{\varphi\circ\lambda}
+			\,=\,\clase{\varphi}\circ\clase{\lambda}
+	\end{align*}
+	%
+	est\'{a} bien definida y define una funci\'{o}n
+	\begin{align*}
+		\subdiv{\null} & \,:\,
+			\contiguas{K_{1},L_{1}}{K_{2},L_{2}}\,\rightarrow\,
+			\contiguas{\subdiv{K_{1}},\subdiv{L_{1}}}{K_{2},L_{2}}
+		\text{ .}
+	\end{align*}
+	%
+	Iterando este procedimiento, se obtiene una sucesi\'{o}n
+	\begin{align*}
+		\subdiv[n,n+1]{\null} & \,:\,
+			\contiguas{\subdiv[n]{K_{1}},\subdiv[n]{L_{1}}}%
+				{K_{2},L_{2}}\,\rightarrow\,
+			\contiguas{\subdiv[n+1]{K_{1}},\subdiv[n+1]{L_{1}}}%
+				{K_{2},L_{2}}
+	\end{align*}
+	%
+	para $n\geq 0$. Para cada entero no negativo, elegimos alguna
+	aproximaci\'{o}n
+	\begin{align*}
+		\lambda_{n+1,n} & \,:\,
+			(\subdiv[n+1]{K_{1}},\subdiv[n+1]{L_{1}})
+			\,\rightarrow\,
+			(\subdiv[n]{K_{1}},\subdiv[n]{L_{1}})
+	\end{align*}
+	%
+	de la identidad
+	\begin{align*}
+		\id & \,:\,
+			(\geom{\subdiv[n+1]{K_{1}}},\geom{\subdiv[n+1]{L_{1}}})
+			\,\rightarrow\,
+			(\geom{\subdiv[n]{K_{1}}},\geom{\subdiv[n]{L_{1}}})
+		\text{ .}
+	\end{align*}
+	%
+	Entonces
+	\begin{align*}
+		\subdiv[n,n+1]{\clase{\varphi}} & \,=\,
+			\clase{\varphi\circ\lambda_{n+1,n}}\,=\,
+			\clase{\varphi}\circ\clase{\lambda_{n+1,n}} \,=\,
+			\clase{\lambda_{n+1,n}}^{*}\big(\clase{\varphi}\big)
+		\text{ .}
+	\end{align*}
+	%
+	Notemos que, como $\lambda_{n+1,n}$ es una aproximaci\'{o}n
+	simplicial de la identidad, la realizaci\'{o}n es homot\'{o}pica a
+	la identidad: $\geom{\lambda_{n+1,n}}\simeq\id$. En particular, las
+	clases de homotop\'{\i}a
+	\begin{align*}
+		\clase{\geom{\varphi\circ\lambda_{n+1,n}}} & \,=\,
+			\clase{\geom{\varphi}}
+	\end{align*}
+	%
+	coinciden.
+
+	Dados $m\geq n$, sea
+	\begin{align*}
+		\lambda_{m,n} & \,:\,(\subdiv[m]{K_{1}},\subdiv[m]{L_{1}})
+			\,\rightarrow\,(\subdiv[n]{K_{1}},\subdiv[n]{L_{1}})
+	\end{align*}
+	%
+	la composici\'{o}n
+	\begin{align*}
+		\lambda_{m,n} & \,=\,\lambda_{n+1,n}\circ\lambda_{n+2,n+1}
+			\circ\cdots\circ\lambda_{m,m-1}
+	\end{align*}
+	%
+	y sea
+	\begin{align*}
+		\subdiv[n,m]{\null} & \,:\,
+			\contiguas{\subdiv[m]{K_{1}},\subdiv[m]{L_{1}}}%
+				{K_{2},L_{2}} \,\rightarrow\,
+			\contiguas{\subdiv[n]{K_{1}},\subdiv[n]{L_{1}}}%
+				{K_{2},L_{2}}
+	\end{align*}
+	%
+	la composici\'{o}n
+	\begin{align*}
+		\subdiv[n,m]{\null} & \,=\,\subdiv[n,n+1]{\null}\circ
+			\subdiv[n+1,n+2]{\null}\circ\cdots\circ
+			\subdiv[m-1,m]{\null}
+		\text{ .}
+	\end{align*}
+	%
+	Entonces, por un lado,
+	\begin{align*}
+		\subdiv[n,m]{\clase{\varphi}} & \,=\,
+			\clase{\varphi\circ\lambda_{m,n}}
+		\text{ .}
+	\end{align*}
+	%
+	Por otro lado, como $\lambda_{m,n}$ es una aproximaci\'{o}n de la
+	identidad, $\geom{\lambda_{m,n}}\simeq\id$. Si
+	\begin{math}
+		\varphi:\,(\subdiv[n]{K_{1}},\subdiv[n]{L_{1}})\rightarrow
+			(K_{2},L_{2})
+	\end{math}~,
+	entonces
+	\begin{align*}
+		\clase{\geom{\varphi\circ\lambda_{m,n}}} & \,=\,
+			\clase{\geom{\varphi}}
+		\text{ .}
+	\end{align*}
+	%
+	
+	Tomando el l\'{\i}mite directo, se obtiene un funtor
+	\begin{align*}
+		& \lim_{\to}\,\contiguas{\subdiv[n]{K_{1}},\subdiv[n]{L_{1}}}%
+				{K_{2},L_{2}}
+		\text{ ,}
+	\end{align*}
+	%
+	contravariante en $(K_{1},L_{1})$ y covariante en $(K_{2},L_{2})$.
+\end{obsLimiteDirectoDeSubdivisiones}
+
+\begin{teoHomotopicasPorContiguas}\label{thm:homotopicasporcontiguas}
+	Sea $K_{1}$ un complejo simplicial finito. Entonces existe una
+	isomorfismo natural
+	\begin{align*}
+		\lim_{\to}\,\contiguas{\subdiv[n]{K_{1}},\subdiv[n]{L_{1}}}%
+				{K_{2},L_{2}} & \,\simeq\,
+			\homotopicas{\geom{K_{1}},\geom{L_{1}}}%
+				{\geom{K_{2}},\geom{L_{2}}}
+		\text{ .}
+	\end{align*}
+	%
+\end{teoHomotopicasPorContiguas}
+
+\begin{proof}
+	Para definir una transformaci\'{o}n natural, es necesario definir,
+	para cada par de subcomplejos $(K_{1},L_{1})$ y $(K_{2},L_{2})$,
+	una funci\'{o}n del l\'{\i}mite directo en el conjunto de clases
+	de homotop\'{\i}a de funciones de
+	$(\geom{K_{1}},\geom{L_{1}})$ en $(\geom{K_{2}},\geom{L_{2}})$. Una
+	funci\'{o}n definida en el l\'{\i}mite directo, equivale a una
+	sucesi\'{o}n de funciones
+	\begin{align*}
+		f_{n} & \,:\,\contiguas{\subdiv[n]{K_{1}},\subdiv[n]{L_{1}}}%
+				{K_{2},L_{2}}\,\rightarrow\,
+			\homotopicas{\geom{K_{1}},\geom{L_{1}}}%
+				{\geom{K_{2}},\geom{L_{2}}}
+		\text{ ,}
+	\end{align*}
+	%
+	para $n\geq 0$, tales que
+	\begin{align*}
+		f_{n} & \,=\,f_{n+1}\circ\subdiv[n,n+1]{\null}
+		\text{ .}
+	\end{align*}
+	%
+	Definimos $f_{n}$ como la funci\'{o}n
+	\begin{align*}
+		f_{n}\big(\clase{\varphi}\big) & \,=\,\clase{\geom{\varphi}}
+		\text{ ,}
+	\end{align*}
+	%
+	si
+	\begin{math}
+		\varphi:\,(\subdiv[n]{K_{1}},\subdiv[n]{L_{1}})\rightarrow
+			(K_{2},L_{2})
+	\end{math}~.
+	Esta funci\'{o}n est\'{a} bien definida, por la observaci\'{o}n
+	\ref{obs:contiguassonhomotopicas}. Entonces, por la observaci\'{o}n
+	\ref{obs:limitedirectodesubdivisiones},
+	\begin{align*}
+		f_{n+1}\circ\subdiv[n,n+1]{\null}\big(\clase{\varphi}\big)
+			& \,=\,\clase{\geom{\varphi\circ\lambda_{n+1,n}}}
+			\,=\,\clase{\geom{\varphi}}\,=\,
+			f_{n}\big(\clase{\varphi}\big)
+		\text{ .}
+	\end{align*}
+	%
+	Las funciones $f_{n}$ son naturales en el par $(K_{1},L_{1})$:
+	dada $\psi_{1}:\,(K_{1},L_{1})\rightarrow (K'_{1},L'_{1})$,
+	el diagrama
+	\begin{center}
+		\begin{tikzcd}
+			\contiguas{\subdiv[n]{K'_{1}},\subdiv[n]{L'_{1}}}%
+				{K_{2},L_{2}} \arrow[r,"f_{n}"]
+					\arrow[d,"\clase{\psi}^{*}"'] &
+			\homotopicas{\geom{K'_{1}},\geom{L'_{1}}}%
+				{\geom{K_{2}},\geom{L_{2}}}
+					\arrow[d,"\clase{\geom{\psi}}^{*}"] \\
+			\contiguas{\subdiv[n]{K_{1}},\subdiv[n]{L_{1}}}%
+				{K_{2},L_{2}} \arrow[r,"f_{n}"'] &
+			\homotopicas{\geom{K_{1}},\geom{L_{1}}}%
+				{\geom{K_{2}},\geom{L_{2}}}
+		\end{tikzcd}
+	\end{center}
+	conmuta: dada $\varphi'$ una representante de una clase de
+	contig\"{u}idad en el extremo superior izquierdo,
+	\begin{align*}
+		f_{n}\circ\clase{\psi}^{*}\big(\clase{\varphi'}\big) & \,=\,
+			f_{n}\big(\clase{\varphi'\circ\psi}\big) \,=\,
+			\clase{\geom{\varphi'\circ\psi}}
+		\quad\text{y} \\
+		\clase{\geom{\psi}}^{*}\circ f_{n}\big(\clase{\varphi'}\big)
+			& \,=\,\clase{\geom{\psi}}^{*}
+				\big(\clase{\geom{\varphi'}}\big) \,=\,
+			\clase{\geom{\varphi'}}\circ\clase{\geom{\psi}}
+		\text{ .}
+	\end{align*}
+	%
+	De manera similar, se puede ver que la definici\'{o}n de $f_{n}$ es
+	natural en $(K_{2},L_{2})$. Queda determinada, entonces, una
+	transformaci\'{o}n natural
+	\begin{align*}
+		f & \,=\, \{f_{n}\}_{n\geq 0} \,:\,
+			\lim_{\to}\,
+			\contiguas{\subdiv[n]{K_{1}},\subdiv[n]{L_{1}}}%
+				{K_{2},L_{2}} \,\rightarrow\,
+			\homotopicas{\geom{K_{1}},\geom{L_{1}}}%
+				{\geom{K_{2}},\geom{L_{2}}}
+		\text{ .}
+	\end{align*}
+	%
+
+	Veamos que $f$ es una biyecci\'{o}n natural. Sea
+	\begin{math}
+		g:\,(\geom{K_{1}},\geom{L_{1}})\rightarrow
+			(\geom{K_{2}},\geom{L_{2}})
+	\end{math}
+	una funci\'{o}n continua y sea
+	\begin{math}
+		\varphi:\,(\subdiv[n]{K_{1}},\subdiv[n]{L_{1}})\rightarrow
+			(K_{2},L_{2})
+	\end{math}
+	una aproximaci\'{o}n simplicial de $g$, cuya existencia est\'{a}
+	garantizada por el teorema \ref{thm:existenciadeaproximaciones}.
+	Entonces
+	\begin{align*}
+		f_{n}\big(\clase{\varphi}\big) & \,=\,\clase{\geom{\varphi}}	
+			\,=\,\clase{g}
+		\text{ .}
+	\end{align*}
+	%
+	En particular, $f$ es sobreyectiva. Sean ahora
+	\begin{align*}
+		\varphi & \,:\,(\subdiv[n]{K_{1}},\subdiv[n]{L_{1}})
+			\,\rightarrow\,(K_{2},L_{2}) \\
+		\varphi' & \,:\,(\subdiv[n']{K_{1}},\subdiv[n']{L_{1}})
+			\,\rightarrow\,(K_{2},L_{2})
+	\end{align*}
+	%
+	transformaciones simpliciales tales que
+	$\geom{\varphi}\simeq\geom{\varphi'}$, es decir,
+	\begin{align*}
+		f_{n}\big(\clase{\varphi}\big) & \,=\,
+			\clase{\geom{\varphi}} \,=\,
+			\clase{\geom{\varphi'}} \,=\,
+			f_{n'}\big(\clase{\varphi'}\big)
+	\end{align*}
+	%
+	Por el teorema \ref{thm:homotopicasadmitenaproximacionescontiguas},
+	existe $m\geq n,n'$ y aproximaciones
+	\begin{align*}
+		\psi,\psi' & \,:\,(\subdiv[m]{K_{1}},\subdiv[m]{L_{1}})
+			\,\rightarrow\,(K_{2},L_{2})
+	\end{align*}
+	%
+	de $\varphi$ y, respectivamente, de $\varphi'$ que pertenecen a la
+	misma clase de contig\"{u}idad \textit{\{revisar la demo del teo\}}.
+	Ahora bien, como $\varphi$ es una aproximaci\'{o}n de $\geom{\varphi}$
+	y $\lambda_{m,n}$ es una aproximaci\'{o}n de la identidad, la
+	composici\'{o}n $\varphi\circ\lambda_{m,n}$ es, tambi\'{e}n, seg\'{u}n
+	la observaci\'{o}n \ref{obs:composiciondeaproximacionesesaproximacion},
+	una aproximaci\'{o}n simplicial de $\geom{\varphi}$. En particular,
+	por el lema \ref{thm:aproximacionessoncontiguas}, las transformaciones
+	$\varphi\circ\lambda_{m,n}$ y $\psi$ son contiguas. An\'{a}logamente,
+	$\varphi'\circ\lambda_{m,n'}$ y $\psi'$ tambi\'{e}n son contiguas.
+	Pero entonces
+	\begin{align*}
+		\subdiv[m-n]{\clase{\varphi}} & \,=\,
+			\clase{\varphi\circ\lambda_{m,n}} \,=\,
+			\clase{\varphi'\circ\lambda_{m,n'}} \,=\,
+			\subdiv[m-n']{\clase{\varphi'}}
+	\end{align*}
+	%
+	en $\contiguas{\subdiv[m]{K_{1}},\subdiv[m]{L_{1}}}{K_{2},L_{2}}$.
+	Concluimos, as\'{\i}, que $f$ es inyectiva.
+\end{proof}
+
+\begin{coroCodominioNumerableHomotopicasNumerables}%
+	\label{thm:codominionumerablehomotpicasnumerables}
+	Sea $X$ un espacio topol\'{o}gico compacto y sea $Y$ el espacio de
+	un complejo simplicial a lo sumo numerable. Sean $A\subset X$ y
+	$B\subset Y$ subespacios. Entonces el conjunto de clases de
+	homotop\'{\i}a de pares $\homotopicas{X,A}{Y,B}$ es a lo sumo
+	numerable.
+\end{coroCodominioNumerableHomotopicasNumerables}

@@ -1,0 +1,220 @@
+\theoremstyle{plain}
+\newtheorem{lemaSubcomplejoPleno}{Lema}[section]
+
+\theoremstyle{remark}
+\newtheorem{obsGeneradoPorVertices}{Observaci\'{o}n}[section]
+\newtheorem{obsSubcomplejoPleno}[obsGeneradoPorVertices]{Observaci\'{o}n}
+\newtheorem{obsParesSimpliciales}[obsGeneradoPorVertices]{Observaci\'{o}n}
+
+%-------------
+
+\subsection{Objetos}
+Un \emph{complejo simplicial} es un par $(K,V)$, compuesto por un conjunto
+$V$ de \emph{v\'{e}rtices} y un conjunto $K$ de subconjuntos finitos y no
+vac\'{\i}os de $V$, denominados \emph{s\'{\i}mplices} del complejo. Se
+requiere, adem\'{a}s, que \emph{(i)} todo subconjunto $\{v\}\subset V$
+compuesto por un \'{u}nico elemento de $V$ pertenezca a $K$, es decir,
+sea un s\'{\i}mplice; y \emph{(ii)} todo subconjunto no vac\'{\i}o de un
+s\'{\i}mplice sea, tambi\'{e}n, un s\'{\i}mplice. El complejo se suele
+denotar simplemente por $K$.
+% En s\'{\i}mbolos, \emph{(i)} $\{v\}\in K$
+% para todo $v\in V$; y \emph{(ii)} si $\varnothing\not= s'\subset s\in K$,
+% entonces $s'\in K$, tambi\'{e}n.
+Un $q$-s\'{\i}mplice en un complejo simplicial $K$ es un s\'{\i}mplice
+compuesto por exactamente $q+1$ v\'{e}rtices distintos; se dice que $q$ es
+la \emph{dimensi\'{o}n} de $s$. Si $s$ es un s\'{\i}mplice y $s'\subset s$,
+entonces se dice que $s'$ es una \emph{cara} de $s$; si, adem\'{a}s, $s'$ es
+un $p$-s\'{\i}mplice, se dice que es una $p$-cara de $s$. Una cara
+$s'\subset s$ se dice \emph{propia}, si $s'\not= s$. Las caras de un
+complejo simplicial $K$ est\'{a}n parcialmente ordenadas por inclusi\'{o}n.
+Dado un s\'{\i}mplice $s\in K$, llamamos \emph{v\'{e}rtices de $s$} a los
+elementos de $s$, es decir, aquellos v\'{e}rtices de $K$ que pertenecen
+a $s$.
+
+\begin{obsGeneradoPorVertices}\label{obs:generadoporvertices}
+	Sea $K$ un complejo simplicial. Los $0$-s\'{\i}mplices de $K$ se
+	corresponden exactamente con los v\'{e}rtices de $K$ (es decir, $V$).
+	Podemos pensar, entonces, a $K$ simplemente como el conjunto de
+	s\'{\i}mplices, identificando los v\'{e}rtices $V$ con los
+	$0$-s\'{\i}mplices del complejo. Adem\'{a}s, todo s\'{\i}mplice de
+	$K$ est\'{a} \emph{generado}, determinado, por los v\'{e}rtices que
+	contiene, es decir, por sus $0$-caras: todo s\'{\i}mplice es un
+	subconjunto de los v\'{e}rtices de $K$, es decir, es de la forma
+	$s=\{\lista[0]{v}{q}\}\subset V$ y, dado un suconjunto
+	$\{\lista[0]{v}{q}\}\subset V$ de v\'{e}rtices, existe a lo sumo un
+	s\'{\i}mplice cuyos v\'{e}rtices sean exactamente $\lista[0]{v}{q}$.
+
+	Otra manera de pensar en un complejo simplicial es en un conjunto
+	$K$ de objetos denominados \emph{s\'{\i}mplices}, parcialmente
+	ordenado y que cumple ciertas propiedades de ``finitud'':
+	existen elementos $v$ minimales en $K$, es decir, tales que,
+	si $s\in K$, entonces $v\leq s$, o bien $v$ y $s$ no son comparables;
+	si $s\in K$, entonces existe al menos un elemento minimal
+	$v\in K$ tal que $v\leq s$; dado $s\in K$, la cantidad de elementos
+	minimales por debajo de $s$ es igual a la cantidad de elementos
+	intermedios (incluyendo los extremos) entre $s$ y cualquiera
+	de los elementos minimales debajo de $s$; si $s,s'\in K$ y $s'\leq s$,
+	entonces existen a lo sumo finitos elementos intermedios
+	$s'\leq s''\leq s$. No estoy seguro de que estas propiedades sean
+	suficientes para caracterizar a los complejos simpliciales como
+	conjuntos parcialmente ordenados.
+\end{obsGeneradoPorVertices}
+
+La \emph{dimensi\'{o}n} de un complejo simplicial $K$ se define como
+\begin{align*}
+	\dim\,K & \,=\,\sup\,\{\dim\,s\,:\,s\in K\}\cup\{-1\}
+	\text{ ,}
+\end{align*}
+%
+con lo cual $\dim\,K=n$, si $K$ contiene un $n$-s\'{\i}mplice pero no
+contiene $(n+1)$-s\'{\i}mplices, $\dim\,K=\infty$ si $K$ contiene un
+$n$-s\'{\i}mplice para $n$ arbitrariamente grande y $\dim\,K=-1$, si
+$K=\varnothing$ es el complejo vac\'{\i}o. Un complejo se dice
+\emph{finito}, si contiene una cantidad finita de s\'{\i}mplices
+(no confundir ser finito con ser de dimensi\'{o}n finita). Tambi\'{e}n se
+dice que $K$ es \emph{localmente finito}, si cada v\'{e}rtice de $K$
+es parte de a lo sumo finitos s\'{\i}mplices de $K$.
+
+Un \emph{subcomplejo} de un complejo simplicial $K$ es un subconjunto de
+s\'{\i}mplices de $K$ que constituye, a su vez, un complejo simplicial.
+
+\subsection{Morfismos}
+Una \emph{transformaci\'{o}n simplicial}
+$(K_{1},V_{1})\rightarrow (K_{2},V_{2})$ (o aplicaci\'{o}n simplicial, o un
+mapa simplicial o morfismo simplicial) es un par $(\varphi,\varphi_{0})$,
+donde $\varphi_{0}:\,V_{1}\rightarrow V_{2}$ y
+$\varphi:\,K_{1}\rightarrow K_{2}$ son funciones que verifican que, si
+$s=\{\lista[0]{v}{q}\}\in K_{1}$, entonces
+\begin{equation}
+	\label{eq:transformacionsimplicial}
+	\varphi(s) \,=\, \varphi\big(\{\lista[0]{v}{q}\}\big) \,=\,
+		\{\varphi_{0}(v_{0}),\,\dots,\,\varphi_{0}(v_{q})\}
+	\text{ .}
+\end{equation}
+%
+En particular, $\varphi\big(\{v\}\big)=\varphi_{0}(v)$, para todo v\'{e}rtice
+$v\in V_{1}$. Adem\'{a}s, la funci\'{o}n en s\'{\i}mplices $\varphi$ est\'{a}
+determinada por la funci\'{o}n en v\'{e}rtices $\varphi_{0}$, pues, dada
+una funci\'{o}n $\varphi_{0}:\,V_{1}\rightarrow V_{2}$ arbitraria, existe
+una \'{u}nica funci\'{o}n $\varphi:\,\partes(V_{1})\rightarrow\partes(V_{2})$
+en subconjuntos de v\'{e}rtices que verifica
+\eqref{eq:transformacionsimplicial}. Pero no toda funci\'{o}n en los
+v\'{e}rtices define una transformaci\'{o}n simplicial. Para que un
+par $(\varphi,\varphi_{0})$ que cumple \eqref{eq:transformacionsimplicial}
+sea una transformaci\'{o}n simplicial es necesario y suficiente que
+$\varphi_{0}$ cumpla
+\begin{equation}
+	\label{eq:transformacionsimplicialvertices}
+	\{\varphi_{0}(v_{0}),\,\dots,\,\varphi_{0}(v_{q})\}\in K_{2}
+		\quad\text{para todo s\'{\i}mplice }
+		\{\lista[0]{v}{q}\}\in K_{1}
+	\text{ .}
+\end{equation}
+%
+En definitiva, las transformaciones simpliciales se pueden ver
+equivalentemente como pares
+\begin{math}
+	(\varphi:\,K_{1}\rightarrow K_{2},\,
+		\varphi_{0}:\,V_{1}\rightarrow V_{2})
+\end{math}
+que verifican \eqref{eq:transformacionsimplicial}, o bien como una
+funci\'{o}n $\varphi_{0}:\,V_{1}\rightarrow V_{2}$ que cumple
+\eqref{eq:transformacionsimplicialvertices}. Por \'{u}ltimo, notemos que,
+identificando los v\'{e}rtices $V_{i}$ con los $0$-s\'{\i}mplices
+$\qesq{0}{K_{i}}$ de los complejos, se cumple que $\varphi(V_{1})\subset V_{2}$
+y que $\varphi|_{V_{1}}=\varphi_{0}$. As\'{\i}, podemos pensar en una
+transformaci\'{o}n simpicial $(\varphi,\varphi_{0})$ como la funci\'{o}n en
+s\'{\i}mplices $\varphi:\,K_{1}\rightarrow K_{2}$, identificando $\varphi_{0}$
+con la restricci\'{o}n de $\varphi$ al $0$-esqueleto. De esta manera, nos
+podemos referir a $(\varphi,\varphi_{0})$ simplemente por $\varphi$.
+
+La composici\'{o}n $\varphi\circ\psi$ de transformaciones simpliciales
+$\varphi$ y $\psi$ se define como la transformaci\'{o}n determinada por la
+composici\'{o}n $\varphi_{0}\circ\psi_{0}$ de las funciones en los
+v\'{e}rtices. Adem\'{a}s, dado un complejo $K$ la funci\'{o}n identidad en
+v\'{e}rtices determina una transformaci\'{o}n simplicial $\id[K]$ que es la
+identidad en el conjunto de s\'{\i}mplices. As\'{\i}, queda determinada
+una categor\'{\i}a cuyos objetos son los complejos simpliciales y cuyos
+morfismos son las transformaciones simpliciales entre ellos.
+
+Sea $K$ un complejo simplicial. Los subcomplejos de $K$ se corresponden con
+transformaciones simpliciales $\inc:\,L\rightarrow K$ que son inclusiones
+$\inc:\,L\subset K$ como funciones entre los conjuntos de s\'{\i}mplices.
+Llamamos a estas transformaciones, \emph{inclusiones simpliciales}.
+Toda transformaci\'{o}n simplicial $L\rightarrow K$ que es inyectiva como
+funci\'{o}n entre los conjuntos de s\'{\i}mplices se puede pensar como una
+inclusi\'{o}n simplicial v\'{\i}a alguna biyecci\'{o}n con un subcomplejo
+de $K$ en el sentido estricto de la definici\'{o}n. Tambi\'{e}n llamaremos
+inclusiones simpliciales a estas transformaciones y subcomplejos a los
+complejos de partida de las mismas.
+
+Dado un subcomplejo $L\subset K$, el subconjunto $N\subset K$ de
+s\'{\i}mplices sin v\'{e}rtices en $L$ es un subcomplejo de $K$, al que
+podemos llamar \emph{complemento de $L$}; es el subcomplejo m\'{a}s grande
+de $K$ disjunto de $L$, es decir, que no comparte v\'{e}rtices con $L$.
+Dado $s=\{\lista[0]{v}{q}\}\in K$, entonces hay tres posibilidades:
+una primera posibilidad es $v_{i}\not\in L$ para todo $i$, con lo cual
+$s\in N$; una segunda posibilidad es que, renombrando los v\'{e}rtices,
+exista $p\geq 0,p<q$ tal que $v_{i}\in L$, si $i\leq p$ y $v_{i}\not\in L$,
+si $i>p$, en tal caso, quedan determinados dos s\'{\i}mplices
+$s'=\{\lista[0]{v}{p}\}$ y $s''=\{\lista[p+1]{v}{q}\}$ y vale que
+$s''\in N$; la tercera posibilidad es que todos los v\'{e}rtices pertenezcan
+a $L$. Un subcomplejo $L\subset K$ se dice \emph{pleno}, si se cumple que todo
+s\'{\i}mplice de $K$ cuyos v\'{e}rtices pertenecen al conjunto de
+v\'{e}rtices de $L$ pertenece al complejo $L$.
+
+\begin{lemaSubcomplejoPleno}\label{thm:subcomplejopleno}
+	Si $L\subset K$ es un subcomplejo pleno de $K$ y $N$ es
+	el complemento de $L$ en $K$, entonces, dado $s\in K$, vale que:
+	$s\in N$, o bien $s=s'\cup s''$, con $s'\in L$ y $s''\in N$, o bien
+	$s\in L$.
+\end{lemaSubcomplejoPleno}
+
+\begin{obsSubcomplejoPleno}\label{obs:subcomplejopleno}
+	La descomposici\'{o}n $s=s'\cup s''$ no tiene en cuenta las caras
+	del s\'{\i}mplice $s$, es simplemente una descomposici\'{o}n del
+	conjunto de v\'{e}rtices de $s$.
+\end{obsSubcomplejoPleno}
+
+\subsection{Subcategor\'{\i}as}
+Un \emph{par simplicial} es un par $(K,L)$, donde $K$ es un complejo
+simplicial y $L\subset K$ es un subcomplejo ($(K,\varnothing)$ es una
+posibilidad). Un morfismo de pares simpliciales
+$(K_{1},L_{1})\rightarrow (K_{2},L_{2})$ es una transformaci\'{o}n
+simplicial $\varphi:\,K_{1}\rightarrow K_{2}$ que verifica
+$\varphi(L_{1})\subset L_{2}$.
+
+\begin{obsParesSimpliciales}
+	\label{obs:paressimpliciales}
+	Un poco m\'{a}s en general, podemos llamar par simplicial a
+	un par de complejos $K,K'$ y una transformaci\'{o}n simplicial
+	$\varphi:\,K\rightarrow K'$ --es decir, un par simplicial se
+	corresponde con una transformaci\'{o}n simplicial, con esta
+	definici\'{o}n. Dadas transformaciones simpliciales
+	$\varphi_{1}:\,K_{1}\rightarrow K'_{1}$ y
+	$\varphi_{2}:\,K_{2}\rightarrow K'_{2}$, un morfismo de pares
+	simpliciales $\varphi_{1}\rightarrow\varphi_{2}$ es un
+	par de transformaciones simpliciales $(\psi',\psi)$,
+	$\psi:\,K_{1}\rightarrow K_{2}$ y $\psi':\,K'_{1}\rightarrow K'_{2}$
+	tales que
+	\begin{center}
+	\begin{tikzcd}
+		K_{1}\arrow[r,"\varphi_{1}"]\arrow[d,"\psi"'] &
+			K'_{1}\arrow[d,"\psi'"] \\
+		K_{2}\arrow[r,"\varphi_{2}"'] & K'_{2}
+	\end{tikzcd}
+	\end{center}
+	conmuta.
+\end{obsParesSimpliciales}
+
+Los pares simpliciales junto con los morfismos de pares constituyen una
+categor\'{\i}a, la \emph{categor\'{\i}a de pares simpliciales}.
+La categor\'{\i}a de complejos simpliciales se puede ver como una
+subcategor\'{\i}a plena de la categor\'{\i}a de pares simpliciales
+v\'{\i}a $K\mapsto (K,\varnothing)$. Otra subcategor\'{\i}a plena de la
+categor\'{\i}a de pares simpliciales es la categor\'{\i}a de \emph{complejos %
+simpliciales con un v\'{e}rtice distinguido}, cuyos objetos
+son los pares $(K,v)$, $v\in V$ y cuyos morfismos son los morfismos de
+complejos que preservan el v\'{e}rtice distinguido. La inclusi\'{o}n
+en la categor\'{\i}a de pares est\'{a} dada por $(K,v)\mapsto (K,\{v\})$.
+

@@ -1,0 +1,337 @@
+\theoremstyle{plain}
+\newtheorem{teoDeLaEsferaAlDisco}{Teorema}[section]
+
+\theoremstyle{remark}
+\newtheorem{obsHomotopiaEsEquivalencia}[teoDeLaEsferaAlDisco]{Observaci\'{o}n}
+\newtheorem{obsComposicionesDeHomotopicasSonHomotopicas}[teoDeLaEsferaAlDisco]%
+	{Observaci\'{o}n}
+\newtheorem{obsEnContractilSonHomotopicos}[teoDeLaEsferaAlDisco]%
+	{Observaci\'{o}n}
+\newtheorem{obsDeLaEsferaAlDisco}[teoDeLaEsferaAlDisco]{Observaci\'{o}n}
+
+%-------------
+
+\begin{quote}
+	``Many of the computable functors, because they are computable, are
+	invariant under continuous deformation. Therefore they cannot
+	distiguish between spaces (or maps) that can be continuously deformed
+	from one to the other; the most that can be hoped for from such
+	functors is that they characterize the space (or map) up to
+	continuous deformation.''
+\end{quote}
+
+Un \emph{par topol\'{o}gico} es un par de espacios $(X',X)$ junto con
+una funci\'{o}n continua $f:\,X\rightarrow X'$ entre ellos (un par
+topol\'{o}gico es una funci\'{o}n continua). Un morfismo de pares de
+$f:\,X\rightarrow X'$ en $g:\,Y\rightarrow Y'$ consiste en un par de funciones
+continuas $h:\,X\rightarrow Y$ y $h':\,X'\rightarrow Y'$ tales que
+$h'\circ f= g\circ h$. Nos concentraremos en pares $(X,A)$, donde $A\subset X$
+es un subespacio (y $f:\,A\rightarrow X$ es la inclusi\'{o}n).
+
+Sean $(X,A)$ e $(Y,B)$ dos pares topol\'{o}gicos ($A\subset X$ y $B\subset Y$)
+y sean $f_{0},f_{1}:\,(X,A)\rightarrow (Y,B)$ morfismos de pares que coinciden
+en alg\'{u}n subespacio $X'\subset X$ (independiente de $A$ y de $B$).
+Decimos que $f_{0}$ y $f_{1}$ son \emph{homot\'{o}picas relativas a $X'$},
+si existe un morfismo de pares
+\begin{align*}
+	F & \,:\,(X\times\intervalo,A\times\intervalo)\,\rightarrow\,
+		(Y,B)
+\end{align*}
+%
+(es decir, una homotop\'{\i}a $X\times\intervalo\rightarrow Y$ tal que
+$F(A\times\intervalo)\subset B$ (los puntos de $A$, que van a parar a $B$,
+permanecen en $B$ durante la deformaci\'{o}n)) tal que
+\begin{align*}
+	F(x,0) & \,=\,f_{0}(x) \text{ ,} \\
+	F(x,1) & \,=\,f_{1}(x) \quad\text{y} \\
+	F(x,t) & \,=\,f_{0}(x)\,=\,f_{1}(x) \quad\text{si }x\in X'
+	\text{ .}
+\end{align*}
+%
+Denotamos esta relaci\'{o}n entre $f_{0}$ y $f_{1}$ por
+$f_{0}\simeq f_{1}\,\rel{X'}$ y decimos que $F$ es una homotop\'{\i}a (de pares)
+relativa a $X'$ de $f_{0}$ en $f_{1}$.
+
+Dado $t\in\intervalo$, sea $h_{t}:\,(X,A)\rightarrow (X,A)\times\intervalo$ la
+funci\'{o}n
+\begin{align*}
+	h_{t}(x) & \,=\,(x,t)
+	\text{ .}
+\end{align*}
+%
+Si $F$ es una homotop\'{\i}a relativa a $X'$ de $f_{0}$ en $f_{1}$, entonces
+\begin{align*}
+	F\circ h_{0} & \,=\,f_{0} \text{ ,} \\
+	F\circ h_{1} & \,=\,f_{1} \quad\text{y} \\
+	F\circ h_{t}|_{X'} & \,=\,f_{0}|_{X'} \,=\,f_{1}|_{X'}
+	\text{ ,}
+\end{align*}
+%
+para todo $t\in\intervalo$. Una \emph{familia a un par\'{a}metro} es una
+familia de funciones $\{f_{t}\}_{t\in\intervalo}$ parametrizada por el
+intervalo unitario (o $\bb{R}$, o\dots). En el contexto de pares
+topol\'{o}gicos, se requiere que, para todo $t$, la funci\'{o}n $f_{t}$
+sea un morfismo (continuo) de pares $f_{t}:\,(X,A)\rightarrow (Y,B)$ (dominio
+y codominio independientes de $t$). Una familia a un par\'{a}metro
+$\{f_{t}:\,(X,A)\rightarrow (Y,B)\}_{t\in\intervalo}$ se dice \emph{continua},
+si el morfismo de pares
+\begin{align*}
+	\big((x,t)\mapsto f_{t}(x)\big) & \,:\,
+		(X\times\intervalo,A\times\intervalo)\,\rightarrow (Y,B)
+\end{align*}
+%
+es continuo. En tal caso, la aplicaci\'{o}n $F(x,t)=f_{t}(x)$ define una
+homotop\'{\i}a de $f_{0}$ en $f_{1}$. Toda familia a un par\'{a}metro
+tiene asociada una funci\'{o}n
+\begin{align*}
+	(t\mapsto f_{t}) & \,:\,\intervalo\,\rightarrow\,
+		\continuas{(X,A)}{(Y,B)}
+	\text{ .}
+\end{align*}
+%
+Si $\intervalo$ tiene la topolog\'{\i}a usual y a $\continuas{(X,A)}{(Y,B)}$
+se le da la topolog\'{\i}a compacto abierta, entonces la funci\'{o}n
+asociada a una familia a un par\'{a}metro continua es continua.
+Rec\'{\i}procamente, si $X$ es localmente compacto Hausdorff, entonces
+dada una funci\'{o}n continua
+\begin{math}
+	\phi:\,\intervalo\rightarrow\continuas{(X,A)}{(Y,B)}
+\end{math}~,
+la familia a un par\'{a}metro $\{\phi(t)\}_{t}$ es continua y define una
+homotop\'{\i}a de $\varphi(0)$ en $\varphi(1)$.
+
+\begin{obsHomotopiaEsEquivalencia}\label{obs:homotopiaesequivalencia}
+	La relaci\'{o}n de homotop\'{\i}a relativa a un subespacio es de una
+	relaci\'{o}n de equivalencia. Si $f:\,(X,A)\rightarrow (Y,B)$ es
+	continua y $X'\subset X$ es un subespacio, entonces la homotop\'{\i}a
+	constante $F(x,t)=f(x)$ realiza $f\simeq f\,\rel{X'}$; si
+	$f_{0},f_{1}:\,(X,A)\rightarrow (Y,B)$ y $f_{0}\simeq f_{1}\,\rel{X'}$
+	y $F$ es una homotop\'{\i}a de $f_{0}$ en $f_{1}$ relativa a $X'$,
+	entonces la homotop\'{\i}a inversa $(x,t)\mapsto F(x,1-t)$ realiza
+	$f_{1}\simeq f_{0}\,\rel{X'}$; finalmente, si
+	$f_{2}:\,(X,A)\rightarrow (Y,B)$ es un tercer morfismo de pares y
+	$G$ es una homotop\'{\i}a de $f_{1}$ en $f_{2}$ relativa a $X'$,
+	entonces la funci\'{o}n
+	\begin{align*}
+		H(x,t) & \,=\,
+			\begin{cases}
+				F(x,2t) & \quad\text{si }t\leq 1/2 \\
+				G(x,2t-1) & \quad\text{si }t\geq 1/2
+			\end{cases}
+	\end{align*}
+	%
+	es continua, por ser continua en cada uno de los cerrados en donde
+	es definida, verifica $F(A\times\intervalo)\subset B$ y es una
+	homotop\'{\i}a de $f_{0}$ en $f_{2}$ relativa a $X'$.
+
+	Dados pares  $(X,A)$ e $(Y,B)$ definimos el \emph{conjunto de clases %
+	de homotop\'{\i}a de $(X,A)$ en $(Y,B)$ relativas a $X'$} como el
+	conjunto de clases de equivalencia respecto de esta relaci\'{o}n.
+	Denotamos este conjunto por $\homotopicas[X']{X,A}{Y,B}$ y la clase
+	de un morfismo $f:\,(X,A)\rightarrow (Y,B)$ por $\clase[X']{f}$.
+\end{obsHomotopiaEsEquivalencia}
+
+\begin{obsComposicionesDeHomotopicasSonHomotopicas}%
+	\label{obs:composicionesdehomotopicassonhomotopicas}
+	Sean $f_{0},f_{1}:\,(X,A)\rightarrow (Y,B)$ y sean
+	$g_{0},g_{1}:\,(Y,B)\rightarrow (Z,C)$. Sea $X'\subset X$ y sea
+	$Y'\subset Y$. Supongamos que $f_{0}|_{X'}=f_{1}|_{X'}$, que
+	$g_{0}|_{Y'}=g_{1}|_{Y'}$ y que $f_{0}(X')=f_{1}(X')\subset Y'$.
+	Si $f_{0}\simeq f_{1}\,\rel{X'}$ y $g_{0}\simeq g_{1}\,\rel{Y'}$
+	entonces
+	\begin{align*}
+		g_{0}\circ f_{0} & \,\simeq\, g_{1}\circ f_{1}\quad\rel{X'}
+		\text{ .}
+	\end{align*}
+	%
+	Si $F$ realiza la homotop\'{\i}a entre $f_{0}$ y $f_{1}$ y $G$ realiza
+	la homotop\'{\i}a entre $g_{0}$ y $g_{1}$, entonces
+	\begin{align*}
+		g_{0}\circ F & \,:\,(X\times\intervalo,A\times\intervalo)
+			\,\rightarrow\,(Y,B)\,\rightarrow\,(Z,C)
+	\end{align*}
+	%
+	es una homotop\'{\i}a de $g_{0}\circ f_{0}$ en $g_{0}\circ f_{1}$
+	relativa a $X'$ y
+	\begin{align*}
+		G\circ (f_{1}\times\id[\intervalo]) & \,:\,
+			(X\times\intervalo,A\times\intervalo)\,\rightarrow\,
+			(Y\times\intervalo,B\times\intervalo)\,\rightarrow\,
+			(Z,C)
+	\end{align*}
+	%
+	es una homotop\'{\i}a de $g_{0}\circ f_{1}$ en $g_{1}\circ f_{1}$
+	relativa a $f_{1}^{-1}(Y')$. Pero $f_{1}(X')\subset Y'$ implica que
+	esta homotop\'{\i}a tambi\'{e}n es relativa a $X'$. Por la
+	observaci\'{o}n \ref{obs:HomotopiaEsEquivalencia}, la relaci\'{o}n de
+	homotop\'{\i}a es transitiva y se deduce que $g_{0}\circ f_{0}$ es
+	homot\'{o}pica a $g_{1}\circ f_{1}$ relativa a $X'$.
+\end{obsComposicionesDeHomotopicasSonHomotopicas}
+
+Teniendo en cuenta estas observaciones, podemos definir la
+\emph{categor\'{\i}a homot\'{o}pica de pares} como la categor\'{\i}a cuyos
+objetos son pares de espacios topol\'{o}gicos, al igual que en la
+categor\'{\i}a de pares, $(X,A)$, $(Y,B)$, pero cuyos morfismos son las clases
+de homotop\'{\i}a de morfismos de pares relativas al conjunto vac\'{\i}o,
+$\homotopicas{X,A}{Y,B}=\homotopicas[\varnothing]{X,A}{Y,B}$. La clase de un
+morfismo de pares relativa al conjunto vac\'{\i}o la denotamos simplemente
+$\clase{f}$. Diremos que un diagrama
+\begin{center}
+	\begin{tikzcd}
+		(X,A) \arrow[r] \arrow[d] & (Y,B) \arrow[d] \\
+		(X',A') \arrow[r] & (Y'B')
+	\end{tikzcd}
+\end{center}
+\emph{conmuta m\'{o}dulo homotop\'{\i}as}, si el diagrama correspondiente en
+la categor\'{\i}a homoto\'{o}pica de pares es conmutativo. Una
+\emph{equivalencia homot\'{o}pica} es un morfismo de pares
+$f:\,(X,A)\rightarrow (Y,B)$ tal que su clase de homotop\'{\i}a
+$\clase{f}\in\homotopicas{X,A}{Y,B}$ sea un isomorfismo en la categor\'{\i}a
+homot\'{o}pica, es decir, existiese $g:\,(Y,B)\rightarrow (X,B)$ tal que
+\begin{align*}
+	\clase{g\circ f} & \,=\,\clase{g}\circ\clase{f} \,=\,
+		\clase{\id[(X,A)]} \quad\text{y} \\
+	\clase{f\circ g} & \,=\,\clase{f}\circ\clase{g} \,=\,
+		\clase{\id[(Y,B)]}
+	\text{ .}
+\end{align*}
+%
+Tambi\'{e}n diremos que $\clase{f}$ es una equivalencia homot\'{o}pica y que
+$g$, o que $\clase{g}$ es su \emph{inversa homot\'{o}pica}. Decimos que dos
+pares $(X,A)$ e $(Y,B)$ \emph{tienen el mismo tipo homot\'{o}pico}, si
+existe una equivalencia homot\'{o}pica entre ellos, es decir, si son isomorfos
+en la categor\'{\i}a homot\'{o}pica.
+
+Un espacio topol\'{o}gico $X$ se dice \emph{contr\'{a}ctil}, si la identidad
+$\id[X]$ es homot\'{o}pica a una funci\'{o}n $X\rightarrow X$ constante, es
+decir, si existe $x_{0}\in X$ tal que $\id[X]\simeq (x\mapsto x_{0})$. Una
+\emph{contracci\'{o}n} de $X$ en $x_{0}\in X$ es una homotop\'{\i}a
+de $F$ de $\id[X]$ en a funci\'{o}n constante $x\mapsto x_{0}$.
+
+\begin{obsEnContractilSonHomotopicos}\label{obs:encontractilsonhomotopicos}
+	Sea $Y$ un espacio topol\'{o}gico contr\'{a}ctil. Sea $y_{0}\in Y$
+	y sea $c:\,Y\rightarrow Y$ la funci\'{o}n constante $c(y)=y_{0}$.
+	Supongamos que $\id[Y]\simeq c$. Si $f_{0},f_{1}:\,X\rightarrow Y$
+	son funciones continuas, entonces
+	\begin{align*}
+		f_{0} & \,=\,\id[Y]\circ f_{0} \,\simeq\,c\circ f_{0}
+			\quad\text{y} \\
+		f_{1} & \,=\,\id[Y]\circ f_{1} \,\simeq\,c\circ f_{1}
+		\text{ .}
+	\end{align*}
+	%
+	Pero $c\circ f_{0}=c\circ f_{1}$. Por transitividad,
+	$f_{0}\simeq f_{1}$. En definitiva, el conjunto $\homotopicas{X}{Y}$
+	consiste en una \'{u}nica clase cualquiera sea el espacio $X$, dos
+	funciones continuas de $X$ en $Y$ son homot\'{o}picas.
+
+	Si definimos $\tilde{c}:\,Y\rightarrow \{y_{0}\}$ (si identificamos $c$
+	con la funci\'{o}n cuyo codominio es el conjunto puntual $\{y_{0}\}$),
+	entonces $\tilde{c}$ es una equivalencia homot\'{o}pica: su inversa
+	homot\'{o}pica est\'{a} dada por la inclusi\'{o}n
+	$\inc:\,\{y_{0}\}\rightarrow Y$. Pero entonces $Y$ tiene el tipo
+	homot\'{o}pico del punto $\{y_{0}\}$. En particular,
+	\begin{align*}
+		\homotopicas{X}{Y} & \,\simeq\,\homotopicas{X}{\{y_{0}\}}
+	\end{align*}
+	%
+	v\'{\i}a
+	\begin{math}
+		\clase{f}\mapsto
+			\clase{\tilde{c}}\circ\clase{f}=
+			\clase{\tilde{c}\circ f}
+	\end{math}~.
+	Pero el conjunto $\homotopicas{X}{\{y_{0}\}}$ posee una \'{u}nica
+	clase, la clase de la \'{u}nica funci\'{o}n $X\rightarrow \{y_{0}\}$.
+	Concluimos, de esta manera tambi\'{e}n, que todo par de funciones
+	$f_{0},f_{1}:\,X\rightarrow Y$ cuyo codominio es contr\'{a}ctil son
+	homot\'{o}picas.
+
+	Notemos que la noci\'{o}n de ser contr\'{a}ctil equivale a tener el
+	tipo homot\'{o}pico del punto: ya vimos que
+	$\id[\{y_{0}\}]=\tilde{c}\circ\inc$ y que
+	$\id[Y]\simeq\inc\circ\tilde{c}$, con lo que $Y$ y el conjunto puntual
+	$\{y_{0}\}$ tienen el mismo tipo homot\'{o}pico. Rec\'{\i}procamente,
+	si $Y$ tiene el tipo homot\'{o}pico de un conjunto puntual $\{y_{0}\}$,
+	entonces existen $f:\,Y\rightarrow \{y_{0}\}$ y
+	$g:\,\{y_{0}\}\rightarrow Y$ tales que $f\circ g=\id[\{y_{0}\}]$
+	(pues no hay otra funci\'{o}n $\{y_{0}\}\rightarrow\{y_{0}\}$) y
+	$g\circ f\simeq\id[Y]$. En particular, la segunda equivalencia
+	implica que $Y$ es contr\'{a}ctil.
+\end{obsEnContractilSonHomotopicos}
+
+La existencia de homotop\'{\i}as est\'{a} relacionada con la posibilidad de
+extender funciones.
+
+\begin{teoDeLaEsferaAlDisco}\label{thm:delaesferaaldisco}
+	Sea $p_{0}\in\esfera{n}$ un punto arbitrario de la esfera de
+	dimensi\'{o}n $n$ ($n\geq 1$, $n\geq 0$) y sea
+	$f:\,\esfera{n}\rightarrow Y$ una funci\'{o}n continua. Las
+	siguientes afirmaciones son equivalentes:
+	\begin{itemize}
+		\item[(i)] $f$ es homot\'{o}pica a una constante;
+		\item[(ii)] $f$ se puede extender de manera continua al
+			disco $\disco{n+1}$;
+		\item[(iii)] $f$ es homot\'{o}pica a una constante relativa
+			al punto $\{p_{0}\}$.
+	\end{itemize}
+	%
+\end{teoDeLaEsferaAlDisco}
+
+La \'{u}ltima afirmaci\'{o}n es equivalente a que $f\simeq (x\mapsto p_{0})$
+v\'{\i}a una homotop\'{\i}a que deje quieto el punto $p_{0}$.
+
+\begin{proof}
+	\emph{(i) implica (ii):} sea $F$ una homotop\'{\i}a de $f$ en una
+	funci\'{o}n constante $c:\,\esfera{n}\rightarrow Y$ y sea $y_{0}\in Y$
+	tal que $c(x)=y_{0}$ para todo $x\in\esfera{n}$. Sea
+	$f':\,\disco{n+1}\rightarrow y$ la funci\'{o}n
+	\begin{align*}
+		f'(x) & \,=\,
+			\begin{cases}
+				y_{0} & \quad\text{si }
+					0\leq |x|\leq 1/2 \\[10pt]
+				F\Big(\dfrac{x}{|x|},2-2|x|\Big)
+					& \quad\text{si }1/2\leq |x|\leq 1
+			\end{cases}
+		\text{ .}
+	\end{align*}
+	%
+	Entonces $f'$ est\'{a} bien definida y es continua en $\disco{n+1}$.
+	Adem\'{a}s, como $F(x,0)=f(x)$ para $x\in\esfera{n}$, concluimos que
+	$f'$ es una extensi\'{o}n continua de $f$ al disco.
+
+	\emph{(ii) implica (iii):} Si $f':\,\disco{n+1}\rightarrow Y$ es una
+	extensi\'{o}n continua de $f$, la expresi\'{o}n
+	\begin{align*}
+		F(x,t) & \,=\,f'((1-t)\,x)
+	\end{align*}
+	%
+	define una homotop\'{\i}a de $f$ en la funci\'{o}n constante
+	$x\mapsto f'(0)$. Pero esta homotop\'{\i}a no es necesariamente
+	relativa a un punto de la esfera. Entonces, dado $p_{0}\in\esfera{n}$,
+	sea $F:\,\esfera{n}\times\intervalo\rightarrow Y$ la funci\'{o}n
+	\begin{align*}
+		F(x,t) & \,=\,f'((1-t)\,x+t\,p_{0})
+		\text{ .}
+	\end{align*}
+	%
+	Esta funci\'{o}n es continua, porque $f'$ lo es, y verifica:
+	\begin{align*}
+		F(x,0) & \,=\,f'(x) \text{ ,} \\
+		F(x,1) & \,=\,f'(p_{0}) \quad\text{y} \\
+		F(p_{0},t) & \,=\,f'(p_{0})
+		\text{ .}
+	\end{align*}
+	%
+	Entonces, como $f'|_{\esfera{n}}=f$, $F$ es una homotop\'{\i}a de
+	$f$ en la funci\'{o}n constante $x\mapsto f(p_{0})$ relativa a
+	$\{p_{0}\}$.
+\end{proof}
+
+\begin{obsDeLaEsferaAlDisco}\label{obs:delaesferaaldisco}
+	De la observaci\'{o}n \ref{obs:encontractilsonhomotopicos} y del
+	teorema \ref{thm:delaesferaaldisco}, se deduce que toda funci\'{o}n de
+	$\esfera{n}$ en un espacio contr\'{a}ctil admite una extensi\'{o}n
+	continua al disco $\disco{n+1}$.
+\end{obsDeLaEsferaAlDisco}

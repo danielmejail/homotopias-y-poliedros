@@ -1,0 +1,147 @@
+\theoremstyle{plain}
+\newtheorem{teoExtensionDeHomotopiasRetractoEquivaleARetractoDebil}{Teorema}%
+	[section]
+
+\theoremstyle{remark}
+\newtheorem{obsExtensionDeHomotopias}%
+	[teoExtensionDeHomotopiasRetractoEquivaleARetractoDebil]%
+	{Observaci\'{o}n}
+
+%-------------
+
+Sea $X$ un espacio topol\'{o}gico y sea $A\subset X$ un subespacio. Se dice
+que $A$ es un \emph{retracto de $X$}, si existe $r:\,X\rightarrow A$, continua,
+tal que $r\circ\inc[A]=\id[A]$. Se dice que $A$ es un \emph{retracto %
+d\'{e}bil de $X$}, si existe $r:\,X\rightarrow A$, continua, tal que
+$r\circ\inc[A]\simeq\id[A]$. En el primer caso, decimos que $r$ es una
+\emph{retracci\'{o}n} y, en el segundo, que es una \emph{retracci\'{o}n %
+d\'{e}bil}. En este segundo caso, no se requiere que exista una homotop\'{\i}a
+reltiva a $A$ de $r\circ\inc[A]$ en $\id[A]$, s\'{o}lo que exista alguna
+homotop\'{\i}a. En otras palabras, $A\subset X$ es un retracto de $X$, si la
+inclusi\'{o}n $\inc[A]:\,A\rightarrow X$ admite una inversa a izquierda en la
+categor\'{\i}a de espacios topol\'{o}gicos y es un retracto d\'{e}bil de $X$,
+si la inclusi\'{o}n admite una inversa a izquierda en la categor\'{\i}a
+homot\'{o}pica.
+
+Un poco m\'{a}s en general, decimos que una funci\'{o}n $r:\,X\rightarrow Y$
+es una retracci\'{o}n, si admite una inversa a derecha, una funci\'{o}n
+$j:\,Y\rightarrow X$ tal que $r\circ j=\id[Y]$ (y decimos que $Y$ es un
+retracto de $X$, si $r$ es la inversa a izquierda de alguna funci\'{o}n
+$Y\rightarrow X$). An\'{a}logamente, decimos que la funci\'{o}n $r$ es una
+retracci\'{o}n d\'{e}bil, si admite una inversa a derecha en la categor\'{\i}a
+homot\'{o}pica, es decir, existe $j:\,Y\rightarrow X$ y una homotop\'{\i}a
+$r\circ j\simeq\id[Y]$.
+
+Sean $X$ e $Y$ espacios topol\'{o}gicos y sea $A\subset X$ un subespacio.
+Decimos que el par $(X,A)$ \emph{tiene la propiedad de extensi\'{o}n de
+homotop\'{\i}as con respecto a $Y$}, si, dadas $g:\,X\rightarrow Y$ y
+$G:\,A\times\intervalo\rightarrow Y$ tal que
+\begin{align*}
+	G(x,0) & \,=\,g(x)\quad\text{para todo }x\in A
+	\text{ ,}
+\end{align*}
+%
+existe $F:\,X\times\intervalo\rightarrow Y$ tal que
+\begin{align*}
+	F(x,0) & \,=\,g(x) \quad\text{para todo }x\in X\quad\text{y} \\
+	F|_{A\times\intervalo} & \,=\,G
+	\text{ .}
+\end{align*}
+%
+En t\'{e}rminos de diagramas, $(X,A)$ tiene la propiedad de extensi\'{o}n
+de homotop\'{\i}as con respecto a $Y$, si para todo diagrama
+\begin{center}
+\begin{tikzcd}[column sep=small]%,row sep=small]
+	A\times\{0\} \arrow[rr,hook] \arrow[dd,hook] & &
+		A\times\intervalo \arrow[dl,"G"'] \arrow[dd,hook] \\
+	& Y & \\
+	X\times\{0\} \arrow[ur,"g"] \arrow[rr,hook] & &
+		X\times\intervalo \arrow[ul,dotted, "F"']
+\end{tikzcd}
+\end{center}
+con el tri\'{a}ngulo por encima de la diagonal conmutativo, existe
+$F:\,X\times\intervalo\rightarrow Y$ que hace conmutar a los tri\'{a}ngulos
+por debajo de la diagonal.
+
+\begin{obsExtensionDeHomotopias}\label{obs:extensiondehomotopias}
+	Si $(X,A)$ tiene la propiedad de extensi\'{o}n de homotop\'{\i}as
+	con respecto a un espacio $Y$ y $f_{0},f_{1}:\,A\rightarrow Y$
+	son homot\'{o}picas (en $A$), entonces $f_{0}$ tiene una extensi\'{o}n
+	continua a $X$, si y s\'{o}lo si existe una extensi\'{o}n continua de
+	$f_{1}$. Si $g:\,X\rightarrow Y$ es una extensi\'{o}n de $f_{0}$ y
+	$G:\,A\times\intervalo\rightarrow Y$ es una homotop\'{\i}a en $A$ de
+	$f_{0}=g|_{A}$ en $f_{1}$, entonces existe una ``extensi\'{o}n'' de
+	$G$, $F;\,X\times\intervalo\rightarrow Y$, tal que
+	$F(x,0)=g(x)$ para $x\in X$ y $F(x,t)=G(x,t)$ para todo $x\in A$.
+	En particular, si $x\in A$, $F(x,0)=f_{0}(x)$ y $F(x,1)=f_{1}(x)$,
+	con lo que $x\mapsto F(x,0)$ es la extensi\'{o}n $g$ de $f_{0}$ y
+	$x\mapsto F(x,1)$ es una extensi\'{o}n de $f_{1}$ a todo el espacio
+	$X$.
+
+	De esto se deduce que, si $(X,A)$ tiene la propiedad de extensi\'{o}n
+	de homotop\'{\i}as con respecto a $Y$, entonces el problema de
+	determinar si una funci\'{o}n $A\rightarrow Y$ se puede extender a $X$
+	es un problema en la categor\'{\i}a homot\'{o}pica.
+\end{obsExtensionDeHomotopias}
+
+En general, un morfismo $f:\,X'\rightarrow X$ se dice que es una
+\emph{cofibraci\'{o}n}, si dados un objeto arbitrario $Y$ y morfismos
+$g:\,X\rightarrow Y$ y $G:\,X'\times\intervalo\rightarrow Y$ tales que
+\begin{align*}
+	g\circ f(x') & \,=\,G(x',0)
+	\text{ ,}
+\end{align*}
+%
+es decir, $g\circ (f\times\id[\{0\}])=G\circ\inc[X'\times\{0\}]$, existe
+$F:\,X\times\intervalo\rightarrow Y$ tal que $F(x,0)=g(x)$ para todo
+$x\in X$ y $F(f(x'),t)=G(x',t)$ para todo $x'\in X'$ y $t\in\intervalo$.
+Dicho de otra manera, para \emph{todo} diagrama
+\begin{center}
+\begin{tikzcd}[column sep=small]
+	X'\times\{0\} \arrow[rr,hook] \arrow[dd,"f\times{\id[\{0\}]}"'] & &
+		X'\times\intervalo \arrow[dl,"G"']
+			\arrow[dd,"f\times{\id[\intervalo]}"] \\
+	& Y & \\
+	X\times\{0\} \arrow[rr,hook] \arrow[ur,"g"] & &
+		X\times\intervalo \arrow[ul,dotted,"F"']
+\end{tikzcd}
+\end{center}
+cuyo tri\'{a}ngulo encima de la diagonal sea conmutativo, existe una
+$F$ tal que los tri\'{a}ngulos inferiores tambi\'{e}n conmuten. En estos
+t\'{e}rminos, la inclusi\'{o}n $\inc[A]:\,A\rightarrow X$ es una
+cofibraci\'{o}n, si y s\'{o}lo si $(X,A)$ tiene la propiedad de extensi\'{o}n
+de homotop\'{\i}as con respecto a cualquier espacio.
+
+\begin{teoExtensionDeHomotopiasRetractoEquivaleARetractoDebil}%
+	\label{thm:extensiondehomotopiasretractoequivalearetractodebil}
+	Sea $A\subset X$ un subespacio. Si $(X,A)$ tiene la propiedad de
+	extensi\'{o}n de homotop\'{\i}as con respecto a $A$, entonces
+	$A$ es un retracto de $X$, si s\'{o}lo si es un retracto d\'{e}bil.
+\end{teoExtensionDeHomotopiasRetractoEquivaleARetractoDebil}
+
+\begin{proof}
+	Sea $r:\,X\rightarrow A$ tal que $r\circ\inc[A]\simeq\id[A]$ y sea
+	$G:\,A\times\intervalo\rightarrow A$ una homotop\'{\i}a de
+	$r\circ\inc[A]$ en $\id[A]$. Si $(X,A)$ tiene la propiedad de
+	extensi\'{o}n de homotop\'{\i}as con respecto a $A$, entonces
+	existe $F:\,X\times\intervalo\rightarrow A$ tal que
+	\begin{align*}
+		F(\inc[A](x'),t) & \,=\,G(x',t) \quad\text{y} \\
+		F(x,0) & \,=\,r(x)
+	\end{align*}
+	%
+	para todo $x'\in A$ y todo $x\in X$. Sea $r':\,X\rightarrow A$
+	la funci\'{o}n continua $r'(x)=F(x,1)$. Entonces, por un lado, $F$ es
+	una homotop\'{\i}a de $r$ en $r'$ definida en $X$ y, por otro,
+	\begin{align*}
+		r'\circ\inc[A](x') & \,=\, F(\inc[A](x'),1)
+			\,=\, G(x',1) \,=\,\id[A](x')
+		\text{ ,}
+	\end{align*}
+	%
+	con lo que $r'$ es una retracci\'{o}n de $X$ en $A$.
+\end{proof}
+
+Notemos que la retracci\'{o}n $r'$ obtenida en la demostraci\'{o}n de
+\ref{thm:extensiondehomotopiasretractoequivalearetractodebil} es homot\'{o}pica
+a la retracci\'{o}n d\'{e}bil $r$.

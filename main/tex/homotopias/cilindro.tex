@@ -1,0 +1,145 @@
+\theoremstyle{plain}
+\newtheorem{teoElCilindro}{Teorema}[section]
+
+\theoremstyle{remark}
+
+%-------------
+
+Sea $f:\,X\rightarrow Y$ una funci\'{o}n continua y sea $\cilindro{f}$ el
+espacio que se obtiene como cociente de $(X\times\intervalo)\sqcup Y$
+por la relaci\'{o}n $(x,1)\sim f(x)$. Este espacio se denomina
+\emph{cilindro de $f$}. Si $[x,t]$ denota la clase de un punto
+$(x,t)\in X\times\intervalo$ e $[y]$ denota la clase de un punto $y\in Y$,
+entonces las funciones $i:\,X\times\intervalo\cilindro{f}$ y
+$j:\,Y\rightarrow\cilindro{f}$ dadas por
+\begin{align*}
+	i(x) & \,=\,[x,0]\quad\text{y} \\
+	j(y) & \,=\,[y]
+\end{align*}
+%
+realizan $X$ e $Y$ como subespacios de $\cilindro{f}$, es decir, podemos
+identificar los puntos de $X$ con las clases $[x,0]$ y los puntos de $Y$ con
+las clases $[y]$ en el cilindro. La funci\'{o}n $r:\,\cilindro{f}\rightarrow Y$
+dada por
+\begin{align*}
+	& \begin{cases}
+		r[x,t] \,=\, f(x) \quad\big(\equiv\,[f(x)]\big)
+			& \quad\text{si }x\in X,\,t\in\intervalo
+				\quad\text{y} \\[10pt]
+		r[y] \,=\, y \quad\big(\equiv\,[y]\big)
+			& \quad\text{si }y\in Y
+	\end{cases}
+	\text{ ,}
+\end{align*}
+%
+es una retracci\'{o}n del subespacio $j:\,Y\rightarrow\cilindro{f}$, pues
+\begin{align*}
+	r\circ j & \,=\, \id[Y]
+	\text{ .}
+\end{align*}
+%
+Notemos que $r$ act\'{u}a como una proyecci\'{o}n, aplastando el
+``cuadrado'' $X\times\intervalo$ en el subespacio $f(X)\subset Y$, siguiendo
+las rectas $\{(x,t)\,t\in\intervalo\}$ hasta $t=1$.
+
+\begin{teoElCilindro}\label{thm:elcilindro}
+	Sea $f:\,X\rightarrow Y$ una funci\'{o}n continua. Sea $\cilindro{f}$
+	el cilindro de $f$ y sean $i:\,X\rightarrow\cilindro{f}$ y
+	$j:\,Y\rightarrow\cilindro{f}$ los embeddings $i(x)=[x,0]$ y
+	$j(y)=[y]$. Existe un diagrama conmutativo
+	\begin{center}
+	\begin{tikzcd}[column sep=tiny]
+		X \arrow[rr,"i"] \arrow[dr,"f"'] & &
+			\cilindro{f} \arrow[dl,"r"] \\
+		& Y &
+	\end{tikzcd}
+	\end{center}
+	tal que \emph{(i)} $r\circ j =\id[Y]$, \emph{(ii)}
+	$j\circ r\simeq\id[\cilindro{f}]\,\rel{Y}$ y \emph{(iii)} el embedding
+	$i:\,X\rightarrow\cilindro{f}$ es una cofibraci\'{o}n.
+\end{teoElCilindro}
+
+\begin{proof}
+	En cuanto a la existencia del diagrama conmutativo y a la
+	afirmaci\'{o}n \emph{(i)}, la demostraci\'{o}n est\'{a} contenida en
+	los comentarios previos al enunciado.
+
+	Sea $F:\,\cilindro{f}\times\intervalo\rightarrow\cilindro{f}$ la
+	homotop\'{\i}a
+	\begin{align*}
+		& \begin{cases}
+			F([x,t],t') \,=\,[x,(1-t')\,t+t'] \\
+			F([y],t') \,=\,[y]
+		\end{cases}
+		\text{ .}
+	\end{align*}
+	%
+	Entonces $F$ es una homotop\'{\i}a de $\id[\cilindro{f}]$ en
+	$j\circ r\,\rel{Y}$. Notemos que $F$ es continua porque est\'{a}
+	inducida por la homotop\'{\i}a
+	\begin{align*}
+		& \begin{cases}
+			\tilde{F}((x,t),t') \,=\,(x,(1-t')\,t+t') \\
+			\tilde{F}(y,t') \,=\,y
+		\end{cases}
+		\text{ .}
+	\end{align*}
+	%
+	El diagrama
+	\begin{center}
+	\begin{tikzcd}
+		\big((X\times\intervalo)\,\sqcup\,Y\big)\times\intervalo
+			\arrow[r,"\tilde{F}"] \arrow[d] &
+		(X\times\intervalo)\,\sqcup\,Y \arrow[d] \\
+		\cilindro{f}\times\intervalo \arrow[r,"F"'] & \cilindro{f}
+	\end{tikzcd}~,
+	\end{center}
+	cuyas flechas verticales son las proyecciones can\'{o}nicas en los
+	cocientes, conmuta y, como $\tilde{F}$ es continua, tambi\'{e}n lo es
+	$F$.
+
+	En cuanto a \emph{(iii)}, sean $g:\,\cilindro{f}\rightarrow W$ y
+	$G:\,X\times\intervalo\rightarrow W$ tales que el tri\'{a}ngulo
+	superior en el siguiente diagrama conmute:
+	\begin{center}
+	\begin{tikzcd}[column sep=small]
+		X\times\{0\}\arrow[rr] \arrow[dd,"i\times\{0\}"'] & &
+			X\times\intervalo\arrow[dl,"G"']
+				\arrow[dd,"i\times\intervalo"] \\
+		& W & \\
+		\cilindro{f}\times\{0\}\arrow[rr] \arrow[ur,"g"] & &
+			\cilindro{f}\times\intervalo
+				\arrow[ul,"H"',dotted]
+	\end{tikzcd}
+	\end{center}
+	Como no hay informaci\'{o}n acerca de la funci\'{o}n $f$, para
+	definir $H:\,\cilindro{f}\times\intervalo\rightarrow W$, la \'{u}nica
+	posibilidad parece ser $H([y],t')=g([y])$ para todo $t'\in\intervalo$,
+	si $y\in Y$. La existencia de $H$ depender\'{a} de poder deformar
+	$G$, definida en $X\times\intervalo$ (es decir, en
+	$i(X)\times\intervalo$), en la funci\'{o}n $([y],t')\mapsto g(y)$,
+	definida en $Y\times\intervalo$ (en $j(Y)\times\intervalo$).
+	Definimos entonces
+	\begin{align*}
+		& \begin{cases}
+			H([y],t') & \,=\, g([y]) \\[10pt]
+			H([x,t],t') & \,=\,
+				\begin{cases}
+					g\big([x,\frac{2t-t'}{2-t'}]\big) &
+						\quad\text{si }t'\leq 2t \\[5pt]
+					G\big(x,\frac{t'-2t}{1-t}\big) &
+						\quad\text{si }t'\geq 2t
+				\end{cases}
+		\end{cases}
+		\text{ .}
+	\end{align*}
+	%
+	Entonces $H$ es continua,
+	\begin{align*}
+		H([x,t],0) & \,=\, g([x,t]) \text{ ,} \\
+		H([y],0) & \,=\, g([y]) \quad\text{y} \\
+		H|_{X\times\intervalo} & \,=\,G
+		\text{ .}
+	\end{align*}
+	%
+\end{proof}

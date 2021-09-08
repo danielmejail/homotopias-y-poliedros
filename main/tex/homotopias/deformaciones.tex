@@ -1,0 +1,259 @@
+\theoremstyle{plain}
+\newtheorem{teoExtensionDeHomotopiasYDeformaciones}{Teorema}[section]
+\newtheorem{coroExtensionDeHomotopiasRetractoEquivaleARetractoDebil}%
+	[teoExtensionDeHomotopiasYDeformaciones]{Corolario}
+
+\theoremstyle{remark}
+\newtheorem{obsDeformableEquivaleATieneInversaHomotopicaADerecha}%
+	{Observaci\'{o}n}[section]
+
+%-------------
+
+Sea $X$ un espacio topol\'{o}gico. En la secci\'{o}n anterior consideramos
+subespacios $A\subset X$ tales que la inclusi\'{o}n $\inc[A]:\,A\rightarrow X$
+admite una inversa a izquierda en la categor\'{\i}a de espacios topol\'{o}gicos
+y funciones continuas, o bien en la categor\'{\i}a homot\'{o}pica. Dado un
+subespacio $X'\subset X$, una \emph{deformaci\'{o}n} de $X'$ en (dentro de)
+$X$ es una homotop\'{\i}a $D:\,X'\times\intervalo\rightarrow X$ tal que
+$D(x',0)=x'$ para todo $x'\in X'$. Si $D\big(X'\times\{1\}\big)\subset A$
+para cierto subespacio $A$ de $X$, se dice que $X'$ es \emph{deformable en %
+$X$ en $A$}. Si $X'=X$ se dice, simplemente, que $X$ es deformable en $A$.
+
+\begin{obsDeformableEquivaleATieneInversaHomotopicaADerecha}%
+	\label{obs:deformableequivaleatieneinversahomotopicaaderecha}
+	Sea $X$ un espacio topol\'{o}gico y sea $A\subset X$ un subespacio.
+	Entonces $X$ es deformable en $A$, si y s\'{o}lo si la inclusi\'{o}n
+	$\inc[A]:\,A\rightarrow X$ admite una inversa homot\'{o}pica
+	\emph{a derecha}. Veamos que esto es as\'{\i}. Si existe
+	$f:\,X\rightarrow A$ y una homotop\'{\i}a
+	$F:\,X\times\intervalo\rightarrow X$ tal que
+	\begin{align*}
+		F(x,0) & \,=\,x \quad\text{y} \\
+		F(x,1) & \,=\,\inc[A]\circ f(x)
+	\end{align*}
+	%
+	para todo $x\in X$ (existe una inversa a derecha de $\inc[A]$ en la
+	categor\'{\i}a homot\'{o}pica), entonces $F$ es una deformaci\'{o}n
+	de $X$ (dentro de $X$) y
+	\begin{align*}
+		F\big(X\times\{1\}\big) & \,=\,\inc[A]\circ f(X) \,\subset\,A
+	\end{align*}
+	%
+	con lo que, por definici\'{o}n, $X$ es deformable en $A$.
+	Rec\'{\i}procamente, si $X$ es deformable en $A$ y
+	$D:\,X\times\intervalo\rightarrow X$ es una deformaci\'{o}n de $X$
+	(una homotop\'{\i}a que cumple $D(x,0)=x$ en $X$) tal que
+	$D\big(X\times\{1\}\big)\subset A$, entonces existe una \'{u}nica
+	funci\'{o}n (de conjuntos) $f:\,X\rightarrow A$ tal que
+	\begin{align*}
+		\inc[A]\circ f(x) & \,=\,D(x,1)
+	\end{align*}
+	%
+	para todo $x\in X$. Como $A$ es un subespacio, $f$ es continua.
+	Como $D$ es una deformaci\'{o}n de $X$, $D$ es una homotop\'{\i}a de
+	la identidad $\id[X]$ en $\inc[A]\circ f$, es decir, $\inc[A]$
+	admite una inversa a derecha en la categr\'{\i}a homot\'{o}pica.
+\end{obsDeformableEquivaleATieneInversaHomotopicaADerecha}
+
+En la secci\'{o}n anterior consideramos dos tipos de retractos: aquellos
+subespacios $A\subset X$ para los cuales existe una funci\'{o}n
+$r:\,X\rightarrow A$ tal que $r\circ\inc[A]=\id[A]$ y aquellos subespacios
+para los cuales existe una funci\'{o}n $r:\,X\rightarrow A$ tal que
+$r\circ\inc[A]\simeq\id[A]$. En esta secci\'{o}n, dado un subespacio
+$A\subset X$, nos preguntamos si existe una funci\'{o}n $f:\,X\rightarrow A$
+tal que $\inc[A]\circ f\simeq\id[X]$, es decir, si la inclusi\'{o}n
+$\inc[A]:\,A\rightarrow X$ admite una inversa homot\'{o}pica a derecha.
+Notemos que el problema de la existencia de inversas a derecha de $\inc[A]$ en
+la categor\'{\i}a de espacios topol\'{o}gicos y funciones continuas es trivial,
+ya que, si $\inc[A]\circ f=\id[X]$, entonces $\inc[A]$ es sobre y $A=X$.
+
+Dado un subespacio $A\subset X$, se dice que $A$ es un \emph{retracto por %
+deformaci\'{o}n d\'{e}bil de $X$}, si $\inc[A]$ es una equivalencia
+homot\'{o}pica: esto quiere decir que existen $f,r:\,X\rightarrow A$ tales que
+$\inc[A]\circ f\simeq\id[X]$ y $r\circ\inc[A]\simeq\id[A]$ (necesariamente,
+$r\simeq f$). Seg\'{u}n lo mencionado en la observaci\'{o}n
+\ref{obs:deformableequivaleatieneinversahomotopicaaderecha},
+$\inc[A]\circ f\simeq\id[X]$ equivale a que $X$ sea deformable en $A$ y
+$r\circ\inc[A]\simeq\id[A]$ significa que $A$ es un retracto d\'{e}bil de $X$.
+(Un retracto por deformaci\'{o}n d\'{e}bil es un retracto d\'{e}bil que es,
+adem\'{a}s, deformaci\'{o}n).
+
+Sea $A\subset X$ un subespacio. Si $A$ es un retracto de $X$ (existe
+$r:\,X\rightarrow A$ tal que $r\circ\inc[A]=\id[A]$) y la inclusi\'{o}n
+admite una inversa homot\'{o}pica a derecha, $f:\,X\rightarrow A$, entonces
+decimos que $A$ es un \emph{retracto por deformaci\'{o}n de $X$}. Notemos que
+$\inc[A]$ es una equivalencia homot\'{o}pica (y, necesariamente, $r\simeq f$),
+con lo cual todo retracto por deformaci\'{o}n es un retracto por
+deformaci\'{o}n d\'{e}bil. (Un retracto por deformaci\'{o}n es un retracto que
+es deformaci\'{o}n).
+
+Un \emph{retracto por deformaci\'{o}n fuerte} de un espacio $X$ es un
+subespacio $A\subset X$ que es retracto y existe una funci\'{o}n
+$f:\,X\rightarrow A$ tal que $\inc[A]\circ f\simeq\id[X]\,\rel{A}$.
+
+para el cual existe una retracci\'{o}n
+$r:\,X\rightarrow A$ tal que $\inc[A]\circ r \simeq\,\rel{A}$. En particular,
+tomando $f=r$, se ve que todo retracto por deformaci\'{o}n fuerte es un
+retracto por deformaci\'{o}n.
+
+
+En estas definiciones, podemos asumir que $r=f$. En el caso de la primera
+definici\'{o}n, si $\inc[A]\circ f\simeq\id[X]$ y $r\circ\inc[A]\simeq\id[A]$,
+entonces
+\begin{align*}
+	\clase{\inc[A]}\,\clase{f} & \,=\,\clase{\id[X]}\quad\text{y} \\
+	\clase{r}\,\clase{\inc[A]} & \,=\,\clase{\id[A]}
+	\text{ .}
+\end{align*}
+%
+Componiendo y cancelando, se deduce que $\clase{f}=\clase{r}$, es decir,
+$f\simeq r$. Por lo tanto, $r$ verifica $\inc[A]\circ r\simeq\id[X]$,
+tambi\'{e}n. Con respecto a la segunda definici\'{o}n el mismo argumento
+muestra que la retracci\'{o}n $r$ verifica la condici\'{o}n sobre $f$.
+En la definici\'{o}n de retracto por deformaci\'{o}n fuerte, el argumento debe
+ser distinto, pues la relaci\'{o}n de homotop\'{\i}a se asume relativa al
+subespacio $A$. Aun as\'{\i}, si
+\begin{align*}
+	\inc[A]\circ f & \,\simeq\,\id[X]\,\rel{A}\quad\text{y} \\
+	r\circ\inc[A] & \,=\,\id[A]
+	\text{ ,}
+\end{align*}
+%
+entonces $r$ verifica
+\begin{align*}
+	\inc[A]\circ r & \,=\,\inc[A]\circ r\circ\id[X]
+		\,\simeq_{(\rel{A})}\,\inc[A]\circ r\circ\inc[A]\circ f
+		\,=\,\inc[A]\circ f
+	\text{ .}
+\end{align*}
+%
+Pero entonces $r$ verifica la condici\'{o}n sobre $f$ y podemos asumir que
+$f=r$ en este caso tambi\'{e}n.
+
+
+%----------
+Si en lugar de concentrarnos en las propiedades de un espacio miramos
+lo que pasa con las funciones con propiedades como las de la retracci\'{o}n
+de la inclusi\'{o}n,\dots
+
+En la secci\'{o}n anterior consideramos dos tipos de retracciones:
+aquellas que admiten una inversa continua a derecha y aquellas que admiten
+una inversa homot\'{o}pica a derecha, aquellas que son, respectivamente,
+inversas a izquierda de la inclusi\'{o}n de un subespacio en la categor\'{\i}a
+de espacios topol\'{o}gicos y funciones continuas y aquellas que son
+inversas a izquierda de la inclusi\'{o}n en la categor\'{\i}a homot\'{o}pica.
+
+%----------
+
+\begin{coroExtensionDeHomotopiasRetractoEquivaleARetractoDebil}
+	Si $(X,A)$ tiene la propiedad de extensi\'{o}n de homotop\'{\i}as
+	con erspecto a $A$, entonces $A$ es un retracto por deformaci\'{o}n
+	d\'{e}bil de $X$, si y s\'{o}lo si es un retracto por deformaci\'{o}n.
+\end{coroExtensionDeHomotopiasRetractoEquivaleARetractoDebil}
+
+\begin{proof}
+	Este corolario es consecuencia del teorema
+	\ref{thm:extensiondehomotopiasretractoequivalearetractodebil}.
+\end{proof}
+
+\begin{teoExtensionDeHomotopiasYDeformaciones}%
+	\label{thm:extensiondehomotopiasydeformaciones}
+	Sea $X$ un espacio topol\'{o}gico y sea $A\subset X$ un subespacio
+	cerrado tal que el par $(X\times\intervalo,L)$, donde
+	\begin{align*}
+		L & \,=\,(X\times\{0\})\,\cup\,(A\times\intervalo)\,\cup\,
+			(X\times\{1\})
+		\text{ ,}
+	\end{align*}
+	%
+	tiene la propiedad de extensi\'{o}n de homotop\'{\i}as con respecto a
+	$X$. Entonces $A$ es un retracto por deformaci\'{o}n de $X$, si y
+	s\'{o}lo si es un retracto por deformaci\'{o}n fuerte.
+\end{teoExtensionDeHomotopiasYDeformaciones}
+
+\begin{proof}
+	Supongamos que $A$ es un retracto por deformaci\'{o}n de $X$. Sea
+	$r:\,X\rightarrow A$ una retracci\'{o}n de $X$ en $A$ y sea
+	$F:\,X\times\intervalo\rightarrow X$ una homotop\'{\i}a de $\id[X]$
+	en $\inc[A]\circ r$. Lo que hay que ver es que existe una
+	homotop\'{\i}a relativa a $A$. Sea $G:\,L\times\intervalo\rightarrow X$
+	la funci\'{o}n definida por
+	\begin{equation}
+		\label{eq:extensiondehomotopiasydeformaciones}
+	\begin{aligned}
+		G((x,0),t') & \,=\, x \quad\text{en }
+			(X\times\{0\})\times\intervalo \text{ ,} \\
+		G((x,t),t') & \,=\, F(x,(1-t')\,t) \quad\text{en }
+			(A\times\intervalo)\times\intervalo \quad\text{y} \\
+		G((x,1),t') & \,=\,F(\inc[A]\circ r(x),1-t') \quad\text{en }
+			(X\times\{1\})\times\intervalo
+		\text{ .}
+	\end{aligned}
+	\end{equation}
+	%
+	Como $A$ es cerrado en $X$, $G$ es continua. Ahora bien, si
+	$(x,t)\in L$, a tiempo $t'=0$,
+	\begin{align*}
+		G((x,t),0) & \,=\,F(x,t)
+		\text{ ,}
+	\end{align*}
+	%
+	pues
+	\begin{equation}
+		\label{eq:extensiondehomotopiasydeformacionesatiempocero}
+	\begin{aligned}
+		G((x,0),0) & \,=\,x\,=\,F(x,0) \text{ ,} \\
+		G((x,t),0) & \,=\,F(x,t) \quad\text{y} \\
+		G((x,1),0) & \,=\,F(\inc[A]\circ r(x),1) \,=\,
+			(\inc[A]\circ r)\circ (\inc[A]\circ r) (x) \\
+		& \,=\,\inc[A]\circ r(x) \,=\, F(x,1)
+		\text{ .}
+	\end{aligned}
+	\end{equation}
+	%
+	Sea $f_{0}=G|_{L\times\{0\}}$ y sea $f_{1}=G|_{L\times\{1\}}$.
+	Entonces las igualdades
+	\eqref{eq:extensiondehomotopiasydeformacionesatiempocero},
+	implican que $g:\,(X\times\intervalo)\times\{0\}$ definida por
+	\begin{align*}
+		g((x,t),0) & \,=\, F(x,t)	
+	\end{align*}
+	%
+	es una extensi\'{o}n de $f_{0}$. Por la propiedad de extensi\'{o}n de
+	homotop\'{\i}as (ver la observaci\'{o}n
+	\ref{obs:extensiondehomotopias}), $f_{1}$ admite una extensi\'{o}n a
+	$(X\times\intervalo)\times\{1\}$. Sea
+	\begin{align*}
+		G' & \,:\,(X\times\intervalo)\times\{1\}\,\rightarrow\,X
+	\end{align*}
+	%
+	una extensi\'{o}n de $f_{1}=G|_{L\times\{1\}}$ y sea
+	\begin{align*}
+		H & \,:\,X\times\intervalo\,\rightarrow\,X
+	\end{align*}
+	%
+	La funci\'{o}n
+	\begin{align*}
+		H(x,t) & \,=\,G'((x,t),1)
+		\text{ .}
+	\end{align*}
+	%
+	Entonces $H$ verifica
+	\begin{equation}
+		\label{eq:extensiondehomotopiasydeformacionesfuerte}
+	\begin{aligned}
+		H(x,0) & \,=\,G'((x,0),1)\,=\,G((x,0),1) \,=\,x
+			\quad\text{si }x\in X \text{ ,} \\
+		H(x,1) & \,=\,G'((x,1),1)\,=\,G((x,1),1) \\
+		& \,=\,F(\inc[A]\circ r(x),0) \,=\,\inc[A]\circ r(x)
+			\quad\text{si }x\in X\quad\text{y} \\
+		H(x,t) & \,=\,G'((x,t),1)\,=\,G((x,t),1) \\
+		& \,=\,F(x,0)\,=\,x
+			\quad\text{si }x\in A,\,t\in\intervalo
+		\text{ .}
+	\end{aligned}
+	\end{equation}
+	%
+	Entonces $H$ es una homotop\'{\i}a de $\id[X]$ en $\inc[A]\circ r$.
+	relativa a $A$.
+\end{proof}

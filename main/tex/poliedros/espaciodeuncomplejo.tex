@@ -1,0 +1,501 @@
+\theoremstyle{plain}
+\newtheorem{teoCompactoHausdorff}{Teorema}[section]
+\newtheorem{teoTopologiaCoherente}[teoCompactoHausdorff]{Teorema}
+\newtheorem{coroTopologiaCoherenteComplejos}[teoCompactoHausdorff]{Corolario}
+\newtheorem{coroTopologiaCoherenteIdentidad}[teoCompactoHausdorff]{Corolario}
+\newtheorem{propoRealizacionMorfismos}[teoCompactoHausdorff]{Proposici\'{o}n}
+\newtheorem{coroTopologiaCoherenteSubcomplejos}[teoCompactoHausdorff]%
+	{Corolario}
+
+\theoremstyle{remark}
+\newtheorem{obsTopologiaEnSimplices}[teoCompactoHausdorff]{Observaci\'{o}n}
+\newtheorem{obsRealizacionMorfismos}[teoCompactoHausdorff]{Observaci\'{o}n}
+\newtheorem{obsRealizacionUnionInterseccion}[teoCompactoHausdorff]%
+	{Observaci\'{o}n}
+
+%-------------
+
+\subsection{El complejo geom\'{e}trico}
+Sea $K=(K,V)$ un complejo simplicial no va\'{\i}o. Denotamos $\geom{K}$ al
+conjunto de funciones $\alpha:\,V\rightarrow [0,1]$ que verifican:
+\begin{itemize}
+	\item[(i)] el conjunto $\{v\in V\,:\,\alpha(v)\not =0\}$ es un
+		s\'{\i}mplice en $K$; y
+	\item[(ii)] $\sum_{v\in V}\,\alpha(v)=1$.
+\end{itemize}
+%
+Dicho de otra manera, $\geom{K}$ es el conjunto de combinaciones lineales
+convexas de v\'{e}rtices de $K$. Si $K=\varnothing$, se define
+$\geom{K}=\varnothing$. En el conjunto $\geom{K}$ definimos una m\'{e}trica:
+sea $d:\,\geom{K}\times\geom{K}\rightarrow\bb{R}$ la funci\'{o}n dada por
+\begin{align*}
+	d(\alpha,\beta) & \,=\,\Big(\sum_{v\in V}\,
+				|\alpha(v)-\beta(v)|^{2}\Big)^{1/2}
+	\text{ .}
+\end{align*}
+%
+Entonces la funci\'{o}n $d$ es sim\'{e}trica, $d(\alpha,\beta)\geq 0$ y es
+igual a cero, si y s\'{o}lo si $\alpha(v)=\beta(v)$ para todo v\'{e}rtice $v$.
+En cuanto a la desigualdad triangular, como el conjunto de v\'{e}rtices
+$v$ tales que $\alpha(v)$ y $\beta(v)$ son no nulos es finito, la
+desigualdad triangular se deduce del caso usual en un $\bb{R}$-espacio
+vectorial de dimensi\'{o}n finita. Denotamos $\geom{K}_{d}$ al espacio
+m\'{e}trico $(\geom{K},d)$.
+
+Si $s\in K$ es un $q$-s\'{\i}mplice, definimos
+\begin{align*}
+	\geom{s} & \,=\,\Big\{\alpha\in\geom{K}\,:\,
+		\alpha(v)=0\text{ , si }v\not\in s\Big\}
+	\text{ ,}
+\end{align*}
+%
+es decir, $\geom{s}$ es el subconjunto de funciones $\alpha\in\geom{K}$
+que son nulas en todos los v\'{e}rtices que no pertenecen a $s$. En
+t\'{e}rminos de la definici\'{o}n anterior, $\geom{s}=\geom{\caras{s}}$. Si
+$s=\{\lista[0]{v}{q}\}$, sea $E$ el $\bb{R}$-espacio vectorial generado
+por los $q+1$ v\'{e}rtices de $s$. Sea $\simp{\lista[0]{v}{q}}$ el conjunto
+de puntos $x\in E$ de la forma
+\begin{align*}
+	x & \,=\,\sum_{i=0}^{q}\,t^{i}v_{i}
+\end{align*}
+%
+tales que $t^{i}\geq 0$ y $\sum_{i=0}^{q}\,t^{i}=1$. Es decir,
+$\simp{\lista[0]{v}{q}}$ es el conjunto de combinaciones lineales
+convexas de los puntos correspondientes a los v\'{e}rtices $v_{i}$ en $E$,
+o, lo que es lo mismo, el conjunto convexo m\'{a}s chico que los contiene,
+la \emph{c\'{a}scara convexa}. Se ve entonces que el subconjunto
+$\geom{s}\subset\geom{K}$ est\'{a} en correspondencia con el subconjunto
+$\simp{\lista[0]{v}{q}}$ de $E$ v\'{\i}a
+$\Phi:\,\alpha\mapsto (\alpha(v_{0}),\,\dots,\,\alpha(v_{q}))$.
+
+En tanto $\bb{R}$-espacio vectorial de dimensi\'{o}n finita, $E$ admite una
+\'{u}nica topolog\'{\i}a con respecto a la cual las operaciones de suma y
+producto por escalares son continuas y la m\'{e}trica euclidea es compatible
+con esta topolog\'{\i}a. Por otro lado, $\geom{s}\subset\geom{K}$ hereda la
+m\'{e}trica $d$ definida anteriormente y
+$\Phi:\,\geom{s}\rightarrow\simp{\lista[0]{v}{q}}$ es una isometr\'{\i}a.
+En particular, $\geom{s}$ con la topolog\'{\i}a dada por la m\'{e}trica $d$
+es homeomorfo al conjunto convexo y compacto $\simp{\lista[0]{v}{q}}$.
+Notemos que este espacio es tambi\'{e}n Hausdorff.
+
+\subsection{Repaso de Topolog\'{\i}a}
+Con el prop\'{o}sito de darle una topolog\'{\i}a m\'{a}s natural al
+conjunto $\geom{K}$, recordamos dos teoremas b\'{a}sicos:
+
+\begin{teoCompactoHausdorff}[de rigidez]\label{thm:compactohausdorff}
+	Sea $f:\,X\rightarrow Y$ una funci\'{o}n continua e inyectiva
+	definida en un espacio topol\'{o}gico compacto $X$ y codominio
+	un espacio topol\'{o}gico Hausdorff. Entonces $f$ determina un
+	homeomorfismo entre $X$ y el subespacio $f(X)\subset Y$.
+\end{teoCompactoHausdorff}
+
+De este teorema se deduce que, si $\tau$ es una topolog\'{\i}a en un conjunto
+$X$ con respecto a la cual $X$ resulta compacto y Hausdorff, entonces
+no existe una topolog\'{\i}a m\'{a}s d\'{e}bil en $X$ con respecto a la
+cual $X$ sea Hausdorff, ni existe una topolog\'{\i}a m\'{a}s fuerte con
+respecto a la cual $X$ sea compacto. Dicho de otra manera, dos topolog\'{\i}as
+comparables, compactas y Hausdorff deben ser iguales.
+
+Dado un conjunto $X$ y una familia indexada de espacios topol\'{o}gicos
+$\{X_{j}\}_{j}$ y funciones $\{g_{j}:\,X_{j}\rightarrow X\}_{j}$, la
+\emph{topolog\'{\i}a coinducida por las funciones $\{g_{j}\}_{j}$}
+es la topolog\'{\i}a m\'{a}s fina/fuerte en $X$ tal que las funciones $g_{j}$
+resulten ser continuas. Esta topolog\'{\i}a est\'{a} caracterizada por la
+propiedad de que, si $Y$ es un espacio topol\'{o}gico, una funci\'{o}n
+$f:\,X\rightarrow Y$ es continua, si y s\'{o}lo si las composiciones
+$f\circ g_{j}:\,X_{j}\rightarrow Y$ lo son para todo $j$.
+
+\begin{teoTopologiaCoherente}\label{thm:topologiacoherente}
+	Sea $X$ un conjunto y sea $\{A_{j}\}_{j}$ una familia indexada de
+	espacios topol\'{o}gicos contenidos en $X$. Si
+	\begin{itemize}
+		\item[(i)] la intersecci\'{o}n $A_{j}\cap A_{j'}$ es cerrada
+			en $A_{j}$ y en $A_{j'}$ para todo par $j,j'$ y
+		\item[(ii)] la topolog\'{\i}a inducida en $A_{j}\cap A_{j'}$
+			como subconjunto de $A_{j}$ coincide con la inducida
+			en tanto subconjunto de $A_{j'}$,
+	\end{itemize}
+	%
+	entonces la topolog\'{\i}a determinada en $X$ por las inclusiones
+	$\inc:\,A_{j}\hookrightarrow X$ se caracteriza por ser la \'{u}nica
+	topolog\'{\i}a en $X$ tal que cada subconjunto $A_{j}$ sea
+	cerrado en $X$ y que sea coherente con las topolog\'{\i}as de los
+	espacios $A_{j}$. Lo mismo es cierto si se requiere que las
+	intersecciones $A_{j}\cap A_{j'}$ sean abiertas en $A_{j}$ y en
+	$A_{j'}$, en lugar de cerradas, y los subconjuntos $A_{j}$ sean
+	abiertos en $X$, en lugar de cerrados. La propiedad de coherencia
+	de la topolog\'{\i}a de $X$ con respecto a la de los $A_{j}$
+	significa que un subconjunto $B\subset X$ es cerrado (o abierto), si 
+	$B\cap A_{j}$ es cerrado para todo $j$ (respectivamente, abierto).
+\end{teoTopologiaCoherente}
+
+\subsection{Una topolog\'{\i}a coherente}
+Sea $K$ un complejo simplicial. En lugar de darle a $\geom{K}$ la
+topolog\'{\i}a inducida por la m\'{e}trica $d$, definiremos una
+topolog\'{\i}a coherente con la topolog\'{\i}a de los s\'{\i}mplices. Lo que
+buscamos es que la noci\'{o}n de continuidad de una funci\'{o}n definida
+en $\geom{K}$ est\'{e} determinada por lo que ocurre con la restricci\'{o}n
+de dicha funci\'{o}n a los subconjuntos $\geom{s}$.
+
+Dados s\'{\i}mplices $s,s'\in K$, entonces, o bien $s\cap s'=\varnothing$,
+o bien $s\cap s'$ es un subconjunto no vac\'{\i}o tanto de $s$ como de $s'$.
+En el primer caso, $\geom{s}\cap\geom{s'}=\varnothing$, pues la \'{u}nica
+funci\'{o}n en los v\'{e}rtices de $K$ que se anula fuera de $s$ y fuera
+de $s'$ es la funci\'{o}n cero. En el segundo caso, $s\cap s'$ es una cara
+de $s$ y una cara de $s'$, tambi\'{e}n. En particular, si
+$s\cap s'\not=\varnothing$, vale que $\geom{s\cap s'}=\geom{s}\cap\geom{s'}$,
+pues las funciones que se anulan fuera de $s$ y fuera de $s'$ son las
+funciones que se anulan fuera de $s\cap s'$. En cualquiera de los dos casos,
+$\geom{s}\cap\geom{s'}$ tiene una toplog\'{\i}a comacta y Hausdorff
+(proveniente de la m\'{e}trica $d$, si la intersecci\'{o}n es no vac\'{\i}a).
+Adem\'{a}s, las inclusiones en $\geom{s}_{d}$ y en $\geom{s'}_{d}$ son
+continuas, con lo que la topolog\'{\i}a en $\geom{s}\cap\geom{s'}$ es
+comparable a las heredadas de $\geom{s}_{d}$ y de $\geom{s'}_{d}$. Pero
+la intersecci\'{o}n $\geom{s}\cap\geom{s'}$ es cerrada tanto como subespacio
+de $\geom{s}$ como en tanto subespacio de $\geom{s'}$ y, por en consecuencia,
+un espacio compacto y Hausdorff con cualquiera de estas dos topolog\'{\i}as.
+En definitiva, por \ref{thm:compactohausdorff}, la topolog\'{\i}a inducida
+en $\geom{s}\cap\geom{s'}$ como subespacio de $\geom{s}_{d}$ coincide con
+la inducida como subespacio de $\geom{s'}_{d}$. Notemos que el conjunto
+$\geom{K}$ y la colecci\'{o}n de espacios topol\'{o}gicos
+$\big\{\geom{s}_{d}\,:\,s\in K\big\}$ verifican las condiciones
+\emph{(i)} y \emph{(ii)} del teorema \ref{thm:topologiacoherente}.
+De esta manera, queda determinada una topolog\'{\i}a en $\geom{K}$ que
+denominaremos \emph{coherente}.
+
+En el contexto de espacios topol\'{o}gicos, denotaremos $\geom{K}$ al espacio
+topol\'{o}gico cuyo conjunto subyacente es $\geom{K}$ y cuya topolog\'{\i}a
+es la topolog\'{\i}a coherente reci\'{e}n definida.
+
+\begin{obsTopologiaEnSimplices}\label{obs:topologiaensimplices}
+	La igualdad de conjuntos $\geom{s}=\geom{\caras{s}}$ da lugar a
+	una identificaci\'{o}n entre los espacios topol\'{o}gicos
+	$\geom{\caras{s}}$ y $\geom{s}_{d}$. Denotaremos todos estos
+	espacios por $\geom{s}$. Adem\'{a}s, los espacios
+	$\geom{\carasp{s}}$ y $\geom{\carasp{s}}_{d}$ obtenidos a partir
+	del complejo $\carasp{s}$ de paras propias de un s\'{\i}mplice
+	$s$ tambi\'{e}n son homeomorfos. En particular, $\geom{s}$ y
+	$\geom{\carasp{s}}$ son subespacios del espacio vectorial
+	topol\'{o}gico generado por los v\'{e}rtices del s\'{\i}mplice $s$ y
+	\begin{align*}
+		\geom{\carasp{s}} & \,=\,\borde\big(\geom{s}\big)
+		\text{ .}
+	\end{align*}
+	%
+\end{obsTopologiaEnSimplices}
+
+De la definici\'{o}n de la topolog\'{\i}a coherente de un complejo
+simplicial podemos deducir los siguientes corolarios.
+
+\begin{coroTopologiaCoherenteComplejos}\label{thm:topologiacoherentecomplejos}
+	Sea $K$ un complejo simplicial. Entonces una funci\'{o}n
+	$f:\,\geom{K}\rightarrow X$ es continua, si y s\'{o}lo si las
+	restricciones $f|_{\geom{s}}$ son continuas. Equivalentemente,
+	$f:\,\geom{K}\rightarrow X$ es continua, si y s\'{o}lo si
+	$f|_{\geom{\qesq{q}{K}}}$ es continua.
+\end{coroTopologiaCoherenteComplejos}
+
+\begin{coroTopologiaCoherenteIdentidad}\label{thm:topologiacoherenteidentidad}
+	La identidad $\geom{K}\rightarrow\geom{K}_{d}$ es continua
+\end{coroTopologiaCoherenteIdentidad}
+
+Si $L\subset K$ es un subcomplejo, entonces, conjust\'{\i}sticamente,
+$\geom{L}\subset\geom{K}$: si $\alpha\in\geom{L}$, entonces
+$\{\alpha\not=0\}\in L$ y, como $L\hookrightarrow K$ es simplicial,
+$\{\alpha\not=0\}$ es un s\'{\i}mplice de $K$.
+
+\begin{obsRealizacionMorfismos}\label{obs:realizacionmorfismos}
+	Un poco m\'{a}s en general, si $\varphi:\,K\rightarrow K'$ es una
+	transformaci\'{o}n simplicial y $\alpha\in\geom{K}$, entonces
+	$\{v\in V\,:\,\alpha(v)\not =0\}$ es un s\'{\i}mplice en $K$ y,
+	aplicando $\varphi$, el conjunto
+	$\{\varphi(v)\in V'\,:\,\alpha(v)\not =0\}$ es un s\'{\i}mplice de
+	$K'$. Definimos $\alpha':\,V'\rightarrow[0,1]$ por
+	\begin{align*}
+		\alpha'(v') & \,=\,
+			\begin{cases}
+				\sum_{\varphi(v)=v'}\,\alpha(v) &
+					\quad\text{si } v'\in\img\,\varphi \\
+				0 & \quad\text{si } v'\not\in\img\,\varphi
+			\end{cases}
+		\text{ .}
+	\end{align*}
+	%
+	Como los valores de $\alpha$ son no negativos, se cumple que
+	\begin{align*}
+		\{\alpha'\not =0\} & \,=\,\varphi\big(\{\alpha\not =0\}\big)
+		\text{ .}
+	\end{align*}
+	%
+	Definimos $\geom{\varphi}(\alpha)=\alpha'$.
+\end{obsRealizacionMorfismos}
+
+\begin{propoRealizacionMorfismos}\label{thm:realizacionmorfismos}
+	Sea $\varphi:\,K\rightarrow K'$ una transformaci\'{o}n simplicial.
+	La funci\'{o}n $\geom{\varphi}:\,\geom{K}\rightarrow\geom{K'}$ es
+	continua, tanto con respecto a la topolog\'{\i}a inducida por la
+	m\'{e}trica euclidea en $\geom{K}$ y en $\geom{K'}$, como con
+	respecto a la topolog\'{\i}a coherente. Usaremos $\geom{\varphi}_{d}$
+	para referirnos a la funci\'{o}n entre los espacios m\'{e}tricos y
+	$\geom{\varphi}$ para referirnos a la funci\'{o}n entre los
+	espacios con la topolog\'{\i}a determinada por sus s\'{\i}mplices.
+\end{propoRealizacionMorfismos}
+
+\begin{proof}
+	Veamos que $\geom{\varphi}:\,\geom{K}_{d}\rightarrow\geom{K'}_{d}$
+	es continua con respecto a las m\'{e}tricas en los complejos
+	$K$ y $K'$. Sea entonces $\alpha\in\geom{K}$, sea $\epsilon>0$ y
+	sean $\lista{v}{r}$ los v\'{e}rtices del s\'{\i}mplice
+	$\{\alpha\not=0\}\in K$. Si $\beta\in\geom{K}$ y $v'\in V'$, entonces
+	\begin{align*}
+		\Big|\sum_{v\in V|\varphi(v)=v'}\,\alpha(v)-\beta(v)\Big|^{2}
+			& \,=\,\big|(\geom{\varphi}\alpha)(v)-
+				(\geom{\varphi}\beta)(v)\big|^{2}
+			\,\leq\,\sum_{\varphi(v)=v'}\,
+				\big|\alpha(v)-\beta(v)\big|
+		\text{ ,}
+	\end{align*}
+	%
+	pues
+	\begin{align*}
+		-1 & \,\leq\,
+			(\geom{\varphi}\alpha)(v)-(\geom{\varphi}\beta)(v)
+			\,\leq\, 1
+		\text{ .}
+	\end{align*}
+	%
+	Pero entonces
+	\begin{align*}
+		d(\geom{\varphi}\alpha,\geom{\varphi}\beta)^{2} & \,=\,
+			\sum_{v'\in V'}\,\Big|\sum_{\varphi(v)=v'}\,
+				\alpha(v)-\beta(v)\Big|^{2} \\
+		& \,\leq\,\sum_{v'}\,\sum_{\varphi(v)=v'}\,
+				\big|\alpha(v)-\beta(v)\big|
+			\,=\,\sum_{v}\,\big|\alpha(v)-\beta(v)\big|
+		\text{ .}
+	\end{align*}
+	%
+	Si $d(\alpha,\beta)<\delta$ para cierto $\delta>0$, entonces
+	$\big|\alpha(v_{i})-\beta(v_{i})\big|<\delta$ para $i=1,\,\dots,\,r$.
+	En particular,
+	\begin{align*}
+		d(\geom{\varphi}\alpha,\geom{\varphi}\beta)^{2} & \,\leq\,
+			\sum_{i=1}^{r}\,\big|\alpha(v_{i})-\beta(v_{i})\big|
+			\,+\, \sum_{v\not=v_{i}}\,\beta(v) \\
+		& \,=\,\sum_{i=1}^{r}\,\big|\alpha(v_{i})-\beta(v_{i})\big|
+			\,+\,\Big(1 - \sum_{i=1}^{r}\,\beta(v_{i})\Big) \\
+		& \,=\,\sum_{i=1}^{r}\,\big|\alpha(v_{i})-\beta(v_{i})\big|
+			\,+\,\sum_{i=1}^{r}\,
+				\big(\alpha(v_{i})-\beta(v_{i})\big) \\
+		& \,\leq\,\sum_{i=1}^{r}\,\big|\alpha(v_{i})-\beta(v_{i})\big|
+			\,+\,\sqrt{r}\cdot\Big(\sum_{i=1}^{r}\,
+				\big|\alpha(v_{i})-\beta(v_{i})\big|^{2}
+				\Big)^{1/2} \\
+		& \,<\, r\cdot\delta\,+\,\sqrt{r}\cdot\delta
+		\text{ .}
+	\end{align*}
+	%
+	De esto se deduce que $\geom{\varphi}$ es continua con respecto a
+	las m\'{e}tricas euclideas en los complejos. En particular,
+	si $L\subset K$ es un subcomplejo, la inclusi\'{o}n
+	$\geom{L}_{d}\hookrightarrow\geom{K}_{d}$ es continua.
+
+	Veamos ahora que la misma funci\'{o}n
+	$\geom{\varphi}:\,\geom{K}\rightarrow\geom{K'}$ es continua con
+	respecto a la topolog\'{\i}a coherente. Dado un s\'{\i}mplice
+	$s\in K$, hay que ver que
+	$\geom{\varphi}|_{\geom{s}}:\,\geom{s}\rightarrow\geom{K'}$ sea
+	continua. Determinemos primero cu\'{a}l es la imagen de esta
+	funci\'{o}n: por un lado, $\varphi(s)\in K'$ es un s\'{\i}mplice,
+	por definici\'{o}n de $\varphi$, y, por otro,
+	\begin{align*}
+		\geom{\varphi}(\geom{s}) & \,=\,
+			\big\{\geom{\varphi}\alpha\,:\,
+				\alpha(v)=0\text{ , si }v\not\in s\big\}
+		\text{ .}
+	\end{align*}
+	%
+	Ahora, si $\alpha\in\geom{\varphi}(\geom{s})$ y $v'\not\in\varphi(s)$,
+	entonces
+	\begin{align*}
+		(\geom{\varphi}\alpha)(v') & \,=\,
+			\sum_{\varphi(v)=v'}\,\alpha(v) \,=\,
+			\sum_{v\in s|\varphi(v)=v'}\,\alpha(v)\,=\,0
+		\text{ .}
+	\end{align*}
+	%
+	De esto se deduce que $\geom{\varphi}\alpha\in\geom{\varphi(s)}$ y
+	$\geom{\varphi}(\geom{s})\subset\geom{\varphi(s)}$.
+	(Esto ya es suficiente para concluir que $\geom{\varphi}|_{\geom{s}}$
+	es continua). Rec\'{\i}procamente, si $\varphi(s)=\{\lista[0]{v'}{q}\}$
+	sean $\lista[0]{v}{q}\in s$ tales que $\varphi(v_{i})=v'_{i}$. Si
+	$\alpha'\in\geom{\varphi(s)}$, entonces $\alpha'(v'_{i})\geq 0$ y
+	$\alpha'(v')=0$, si $v'\not=v'_{i}$ para todo $i$. Sea
+	$\alpha:\,V\rightarrow [0,1]$ la funci\'{o}n
+	\begin{align*}
+		\alpha(v) & \,=\,
+			\begin{cases}
+				\alpha'(v'_{i}) &\quad\text{ si } v=v_{i} \\
+				0 & \quad\text{ si } v\not =v_{i}
+					\text{ para todo } i
+			\end{cases}
+		\text{ .}
+	\end{align*}
+	%
+	Entonces $\{\alpha\not=0\}\subset\{\lista[0]{v}{q}\}\subset s$ y
+	$\sum_{v}\,\alpha(v)=1$. En particular, $\{\alpha\not =0\}\in K$
+	y $\alpha\in\geom{K}$. Pero, adem\'{a}s, $\alpha(v)=0$, si
+	$v\not\in s$, con lo que $\alpha\in\geom{s}$ y, por definici\'{o}n,
+	$\geom{\varphi}\alpha=\alpha'$. En definitiva,
+	$\geom{\varphi(s)}\subset\geom{\varphi}(\geom{s})$ y
+	\begin{align*}
+		\geom{\varphi}(\geom{s}) & \,=\,\geom{\varphi(s)}
+		\text{ .}
+	\end{align*}
+	%
+
+	Dado que $\geom{\varphi}(\geom{s})\subset\geom{\varphi(s)}$ y
+	que $\geom{\varphi(s)}\subset\geom{K'}$ es subespacio (cerrado)
+	porque $\varphi(s)\in K'$ es un s\'{\i}mplice, la restricci\'{o}n
+	$\geom{\varphi}:\,\geom{s}\rightarrow\geom{K'}$ es continua, si y
+	s\'{o}lo si la correstricci\'{o}n
+	\begin{align*}
+		\geom{\varphi} \,:\,\geom{s}\,\rightarrow\,
+			\geom{\varphi(s)}
+	\end{align*}
+	%
+	es continua. Pero $\geom{s}$ y $\geom{\varphi(s)}$ tienen
+	la topolog\'{\i}a dada por la m\'{e}trica euclidea y ya vimos
+	que $\geom{\varphi}_{d}:\,\geom{s}_{d}\rightarrow\geom{\varphi(s)}_{d}$
+	es continua. En definitiva,
+	$\geom{\varphi}:\,\geom{s}\rightarrow\geom{\varphi(s)}$ es continua
+	y $\geom{\varphi}:\,\geom{s}\rightarrow\geom{K'}$. Como
+	$s\in K$ era arbitrario, por \ref{thm:topologiacoherentecomplejos},
+	deducimos que $\geom{\varphi}:\,\geom{K}\rightarrow\geom{K'}$ es
+	continua.
+\end{proof}
+
+\begin{coroTopologiaCoherenteSubcomplejos}%
+	\label{thm:topologiacoherentesubcomplejos}
+	Si $L\subset K$ es un subcomplejo, $\geom{L}_{d}$ es un subespacio
+	cerrado de $\geom{K}_{d}$. En particular, $\geom{L}$ es un
+	subespacio cerrado de $\geom{K}$.
+\end{coroTopologiaCoherenteSubcomplejos}
+
+\begin{proof}
+	En primer lugar, la m\'{e}trica en $\geom{L}_{d}$ es la
+	restricci\'{o}n de la m\'{e}trica en $\geom{K}_{d}$, con lo que
+	$\geom{L}_{d}$ es un subespaico m\'{e}trico de $\geom{K}_{d}$
+	y, en particular, un subespacio topol\'{o}gico.
+
+	Sea $\alpha\in\geom{K}_{d}$ un elemento en la clausura de
+	$\geom{L}_{d}$. Por definici\'{o}n, $\alpha(v)\geq 0$ para todo
+	$v\in\qesq{0}{K}$ y $\alpha(v)>0$ s\'{o}lo para finitos
+	v\'{e}rtices de $K$. Sean $\lista{v}{r}$ los v\'{e}rtices tales
+	que $\alpha(v_{i})>0$, es decir,
+	\begin{align*}
+		\sum_{j=1}^{r}\,\alpha(v_{j}) & \,=\,1
+	\end{align*}
+	%
+	Sea $a=\min\,\{\alpha(v_{i})\}_{i}>0$ y sea $\epsilon<a/2$ un
+	n\'{u}mero positivo. Por hip\'{o}tesis, existe $\beta\in\geom{L}$
+	tal que $d(\alpha,\beta)<\epsilon$. En particular,
+	\begin{align*}
+		\beta(v_{i}) & \,>\,\alpha(v_{i})-\epsilon\,>\,a/2\,>\,0
+		\text{ .}
+	\end{align*}
+	%
+	Como $\beta\in\geom{L}$, esto implica, por un lado, que los
+	$v_{i}$ son v\'{e}rtices en el subcomplejo $L$ y, por otro, que
+	\begin{align*}
+		\{\beta\not =0\} & \,=\,\{\lista{v}{r}\}\,\cup\,B
+		\text{ ,}
+	\end{align*}
+	%
+	donde $B\subset\qesq{0}{L}$ es alg\'{u}n subconjunto (posiblemente
+	vac\'{\i}o) de v\'{e}rtices de $L$. Como $\{\beta\not =0\}$ es
+	un s\'{\i}mplice en $L$, se deduce que $\{\lista{v}{r}\}$
+	tambi\'{e}n lo es. En conclusi\'{o}n, $\alpha\in\geom{L}$ y
+	$\geom{L}_{d}$ es cerrado en $\geom{K}_{d}$.
+
+	La \'{u}ltima afirmaci\'{o}n se deduce de
+	\ref{thm:topologiacoherenteidentidad} y de que
+	$\geom{L}\subset\geom{K}$ es un subespacio topol\'{o}gico (los
+	s\'{\i}mplices que determinan la topolog\'{\i}a en $\geom{L}$ son
+	los s\'{\i}mplices que determinan la topolog\'{\i}a en $\geom{K}$
+	que pertenecen al subcomplejo $L$).
+\end{proof}
+
+\begin{obsRealizacionUnionInterseccion}\label{obs:realizacionunioninterseccion}
+	Sea $K$ un complejo simplicial y sea $\{L_{i}\}_{i}$ una familia
+	de subcomplejos de $K$. Entnonces
+	\begin{math}
+		\geom{\bigcup_{i}\,L_{i}} = \bigcup_{i}\,\geom{L_{i}}
+	\end{math}
+	y
+	\begin{math}
+		\geom{\bigcap_{i}\,L_{i}} = \bigcap_{i}\,\geom{L_{i}}
+	\end{math}~.
+\end{obsRealizacionUnionInterseccion}
+
+Las aplicaciones $K\mapsto\geom{K}$ en complejos simpliciales y
+$\varphi\mapsto\geom{\varphi}$ en transformaciones simpliciales
+define un funtor de la categor\'{\i}a de complejos simpliciales en la
+categor\'{\i}a de espacios topol\'{o}gicos. Lo mismo es cierto para las
+aplicaciones $K\mapsto\geom{K}_{d}$ y $\varphi\mapsto\geom{\varphi}_{d}$.
+M\'{a}s aun, como la identidad $\geom{K}\rightarrow\geom{K}_{d}$ es continua
+y los diagramas
+\begin{center}
+	\begin{tikzcd}
+		\geom{K} \arrow[r] \arrow[d,"\geom{\varphi}"'] &
+			\geom{K}_{d} \arrow[d,"\geom{\varphi}_{d}"] \\
+		\geom{K'} \arrow[r] & \geom{K'}_{d}
+	\end{tikzcd}
+\end{center}
+son diagramas conmutativos en la categor\'{\i}a de espacios topol\'{o}gicos,
+la identidad $\geom{K}\rightarrow\geom{K}_{d}$ determina una transformaci\'{o}n
+natural $\geom{\cdot}\rightarrow\geom{\cdot}_{d}$ entre estos funtores.
+Finalmente, podemos extender estos funtores a la categor\'{\i}a de pares
+simpliciales: a un par simplicial $\varphi:\,K\rightarrow K'$ le
+asociamos el par de espacios topol\'{o}gicos
+$\geom{\varphi}:\,\geom{K}\rightarrow\geom{K'}$ (o bien $\geom{\varphi}_{d}$);
+a un morfismo de pares simpliciales $(\psi',\psi)$ le asociamos el
+morfismo de pares de espacios topol\'{o}gicos $(\geom{\psi'},\geom{\psi})$
+(o, respectivamente, $(\geom{\psi'}_{d},\geom{\psi}_{d})$):
+\begin{center}
+\begin{tikzcd}
+	K_{1} \arrow[r,"\varphi_{1}"] \arrow[d,"\psi"'] &
+		K_{1}' \arrow[d,"\psi'"] \\
+	K_{2} \arrow[r,"\varphi_{2}"'] & K'_{2}
+\end{tikzcd}
+	\qquad\begin{math} \longmapsto\end{math}\qquad
+\begin{tikzcd}
+	\geom{K_{1}} \arrow[r,"\geom{\varphi_{1}}"] \arrow[d,"\geom{\psi}"'] &
+		\geom{K'_{1}} \arrow[d,"\geom{\psi'}"] \\
+	\geom{K_{2}} \arrow[r,"\geom{\varphi_{2}}"'] & \geom{K'_{2}}
+\end{tikzcd}
+\end{center}
+
+Una \emph{triangulaci\'{o}n} de un espacio topol\'{o}gico $X$ consiste en un
+par $(K,f)$, donde $K$ es un complejo simplicial y $f:\,\geom{K}\rightarrow X$
+es un homeomorfismo. An\'{a}logamente, definimos una traingulaci\'{o}n
+de un par de espacios $g:\,X\rightarrow X'$ como un par simplicial
+$\varphi:\,K\rightarrow K'$ junto con un homeomorfismo de pares
+$(f',f):\,\geom{\varphi}\rightarrow g$, es decir, un par de homeomorfismos
+$f:\,\geom{K}\rightarrow X$ y $f':\,K'\rightarrow X'$ tales que el diagrama
+\begin{center}
+\begin{tikzcd}
+	\geom{K}\arrow[r,"\geom{\varphi}"] \arrow[d,"f"'] &
+		\geom{K'} \arrow[d,"f'"] \\
+	X \arrow[r,"g"'] & X'
+\end{tikzcd}
+\end{center}
+conmuta. Notemos que, si el par $(X,A)$ consiste est\'{a} compuesto por
+un espacio topol\'{o}gico $X$ y un subespacio $A\subset X$, entonces,
+de existir una triangulaci\'{o}n $(K,L)$ la transformaci\'{o}n simplicial
+correspondiente $L\rightarrow K$ debe ser (isomorfa a) un subcomplejo.
+En particular, podemos ver el par $(\geom{K},\geom{L})$ como un par
+topol\'{o}gico compuesto por el espacio $\geom{K}$ y un subespacio
+$\geom{L}\subset\geom{K}$. En tal caso, los homeomorfismos
+$f:\,\geom{L}\rightarrow A$ y $f':\,\geom{K}\rightarrow X$ est\'{a}n
+forzados a cumplir $f=f'|_{\geom{L}}$.

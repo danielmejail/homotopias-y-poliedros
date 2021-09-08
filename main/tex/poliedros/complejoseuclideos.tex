@@ -1,0 +1,34 @@
+\theoremstyle{plain}
+
+\theoremstyle{remark}
+
+%-------------
+
+Sea $E$ un $\bb{R}$-espacio vectorial y sean $\lista[0]{v}{q}\in E$ puntos
+del espacio. Decimos que los puntos $\lista[0]{v}{q}$ est\'{a}n
+\emph{en posici\'{o}n general}, si no existe un subespacio af\'{\i}n
+$W\subset E$ de dimensi\'{o}n $\dim\,W<q$ que los contenga. Equivalentemente,
+los puntos $\lista[0]{v}{q}$ est\'{a}n en posici\'{o}n general, si,
+posiblemente aplicando una permutaci\'{o}n, el conjunto
+$\{v_{1}-v_{0},\,\dots,\,v_{q}-v_{0}\}$ es l.i.
+
+Dados puntos $\lista[0]{v}{q}\in E$ en posici\'{o}n general, el
+\emph{s\'{\i}mplice (euclideo) generado por $\lista[0]{v}{q}$}, denotado
+(cuando no se preste a confusi\'{o}n) $\simp{\lista[0]{v}{q}}$, es el
+conjunto de puntos de la forma
+\begin{align*}
+	x & \,=\,\sum_{i=0}^{q}\,t^{i}v_{i}
+\end{align*}
+%
+tales que $t^{i}\geq 0$ y $\sum_{i=0}^{q}\,t^{i}=1$. Es decir,
+$\simp{\lista[0]{v}{q}}$ es el conjunto de combinaciones convexas de los
+puntos $v_{i}$, denominados \emph{v\'{e}rtices}, o, lo que es lo mismo
+el conjunto convexo m\'{a}s chico que los contiene (la \emph{c\'{a}scara %
+convexa}). Las \emph{caras} de un s\'{\i}mplice
+$s=\simp{\lista[0]{v}{q}}$ son los s\'{\i}mplices generados por algunos
+de sus v\'{e}rtices.
+
+Dados s\'{\i}mplices euclideos $s$ en un espacio $E$ y $s'$ en $E'$, una
+transformaci\'{o}n simplicial $s\rightarrow s'$ es la restricci\'{o}n de una
+transformaci\'{o}n lineal af\'{\i}n $f:\,E\rightarrow E'$ tal que
+$f(v)$ es un v\'{e}rtice de $s'$ para todo v\'{e}rtice de $s$.
